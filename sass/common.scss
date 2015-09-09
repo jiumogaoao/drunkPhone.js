@@ -1,0 +1,59 @@
+/* Scss Document */
+*{
+	padding:0px;
+	margin:0px;
+	outline:none;
+	border:0px;
+	box-sizing:border-box;
+	box-shadow:none;
+	border-radius:0px;
+	background-color:transparent;
+	background-image:none;
+	-webkit-appearance: none;
+}
+html {
+		width:1080px;
+  		height:100%;
+		-webkit-transform-origin: top left;
+		transform-origin: top left;}	
+body{
+		width:1080px;
+		height:100%;
+		position:relative;
+		}		
+@import "lib/sass.scss";
+@mixin main($h : 1){	
+	#head{
+		width:1080px;
+		height:130px * $h;
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index:2;
+		background-color:$mainColor;
+		}
+	#foot{
+		width:1080px;
+		height:130px * $h;
+		position:absolute;
+		bottom:0px;
+		left:0px;
+		z-index:2;
+		background-color:$mainColor;
+		}
+	#main{font-size:80px * $h;
+		width:1080px;
+		height:auto;
+		position:absolute;
+		top:130px * $h;
+		bottom:130px * $h;
+		overflow:hidden;
+		background-color:$background;}
+	}
+	
+@media all and (orientation : landscape) {
+		@include main($size);
+		}
+@media all and (orientation : portrait){
+		@include main(1);
+		}
