@@ -1,9 +1,26 @@
 // JavaScript Document
 ;(function($,obj,config){
-	var modelArry={};
-	function get(name,fn){
+	var modelArry={};//class
+	var idArry={};//obj
+	function get(target,id,name,fn){
+		function runObj(){
+			if(idArry[id]){
+				fn(idArry[id]);
+				}else{
+				idArry[id]=	new modelArry[name].fn(target);
+				if((modelArry[name].html.length||modelArry[name].css.length)&&(!(modelArry[name].htmlArry.length||modelArry[name].cssArry.length))){
+					var count=0;
+				$.each(modelArry[name],function(i,n){
+					
+					});
+					}
+				
+				
+				fn(idArry[id]);
+					}
+			}
 		if(modelArry[name]){
-			fn(modelArry[name]);
+			runObj();
 			}else{
 				config.loadingOn();
 				$.ajax({ 
@@ -16,14 +33,14 @@
 								window.location.hash="";
 								},
 							success: function(data){
-								config.loadingOff();								
-								fn(modelArry[name]);
+								config.loadingOff();
+								runObj();								
 							}
 						});	
 				}
 		};
 	function set(data){
-		
+		modelArry[data.name]=data;
 		};
 	function changePage(){
 		var hash="index";
@@ -40,33 +57,6 @@
 				}
 					}
 				routeArry[hashArry[0]].fn(dataObj);	
-				/*if(routeArry[hashArry[0]].tem.length){
-					var totalUrl=0;
-					var urlArry=[];
-					$.each(routeArry[hashArry[0]].tem,function(i,n){
-						var urlNum=i;
-						config.loadingOn();
-						$.ajax({ 
-							url:"view/"+n+".html",
-							dataType:"html",
-							error:function(err){
-								config.loadingOff();
-								alert("错误"+JSON.stringify(err));
-								},
-							success: function(data){
-								config.loadingOff();								
-							urlArry[urlNum]=data;
-							totalUrl++;
-							if(totalUrl === routeArry[hashArry[0]].tem.length){
-								dataObj.tem=urlArry;
-								routeArry[hashArry[0]].fn(dataObj);
-								}
-							}
-						});
-						});
-					}else{
-					routeArry[hashArry[0]].fn(dataObj);	
-						}*/
 			}
 		if(routeArry[hashArry[0]]){
 			runRoute();
@@ -76,22 +66,5 @@
 			
 			}
 		}
-	window.onhashchange=function(){
-		changePage();
-		};
-	var set=function(data){
-		if(data&&data.name){
-			routeArry[data.name]={
-				par:data.par||"",
-				tem:data.tem||[],
-				fn:data.fn||function(){}
-				};
-			}
-		};		
-		obj.set=function(data){
-			set(data);
-			};
-		obj.init=function(){
-			changePage();
-			};
+	
 	})($,app.model,config);
