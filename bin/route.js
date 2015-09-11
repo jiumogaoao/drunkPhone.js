@@ -2,6 +2,7 @@
 ;(function($,obj,config){
 	var routeArry={};
 	function changePage(){
+		$(".model").hide();
 		var hash="index";
 		if(location.hash){
 			hash=location.hash.replace("#","");
@@ -16,33 +17,6 @@
 				}
 					}
 				routeArry[hashArry[0]].fn(dataObj);	
-				/*if(routeArry[hashArry[0]].tem.length){
-					var totalUrl=0;
-					var urlArry=[];
-					$.each(routeArry[hashArry[0]].tem,function(i,n){
-						var urlNum=i;
-						config.loadingOn();
-						$.ajax({ 
-							url:"view/"+n+".html",
-							dataType:"html",
-							error:function(err){
-								config.loadingOff();
-								alert("错误"+JSON.stringify(err));
-								},
-							success: function(data){
-								config.loadingOff();								
-							urlArry[urlNum]=data;
-							totalUrl++;
-							if(totalUrl === routeArry[hashArry[0]].tem.length){
-								dataObj.tem=urlArry;
-								routeArry[hashArry[0]].fn(dataObj);
-								}
-							}
-						});
-						});
-					}else{
-					routeArry[hashArry[0]].fn(dataObj);	
-						}*/
 			}
 		if(routeArry[hashArry[0]]){
 			runRoute();
