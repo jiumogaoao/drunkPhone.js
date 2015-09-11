@@ -11,7 +11,7 @@ module.exports = function(grunt){
 			"jQuery": true
 		  }
 		},
-		bin:['bin/api.js','bin/common.js','bin/config.js','bin/control.js','bin/route.js'],
+		bin:['bin/api.js','bin/common.js','bin/config.js','bin/control.js','bin/route.js','bin/model.js'],
 		api:['api/**/*.js'],
 		control:['control/**/*.js']
 	},
@@ -52,7 +52,7 @@ module.exports = function(grunt){
 				 removeOptionalTags: true
             },
 			html:{
-				 expand: true, cwd: 'view', src: ['*.html'], dest: 'dist/view'
+				 expand: true, cwd: 'html', src: ['*.html'], dest: 'dist/html'
 			}
 			},
 		imagemin:{

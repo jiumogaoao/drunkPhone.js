@@ -1,9 +1,21 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"index",
 		par:"a/b/f/e/k",
 		fn:function(data){
+			obj.model.get("#scroller","testOne","test",function(model){
+				console.log(model)
+				});
+			obj.model.get("#scroller","testOne","test",function(model){
+				console.log(model)
+				});
+			obj.model.get("#scroller","testOne","test",function(model){
+				console.log(model)
+				});
+			obj.model.get("#scroller","testOne","test",function(model){
+				console.log(model)
+				});
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

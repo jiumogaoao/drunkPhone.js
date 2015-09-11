@@ -7,11 +7,14 @@
 			if(idArry[id]){
 				fn(idArry[id]);
 				}else{
-				idArry[id]=	new modelArry[name].fn(target);
-				if((modelArry[name].html.length||modelArry[name].css.length)&&(!(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length))){
+				idArry[id]=	new modelArry[name].fn();
+				if((modelArry[name].html.length||modelArry[name].css.length)&&(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length)){
 					var totalUrl=0;
 				function finish(){
 					if(totalUrl === modelArry[name].css.length+modelArry[name].html.length){
+								idArry[id].name=name;
+								idArry[id].target=target;
+								idArry[id].id=id;
 								idArry[id].html=modelArry[name].htmlArry;
 								idArry[id].css=modelArry[name].cssArry;
 								idArry[id].hide=function(){$(target).find("#"+id).hide()};
@@ -20,6 +23,7 @@
 									$(target).find("#"+id).remove();
 									delete idArry[id];
 									};
+								idArry[id].init();
 								fn(idArry[id]);
 								}
 					};
@@ -35,7 +39,7 @@
 								alert("错误"+JSON.stringify(err));
 								},
 							success: function(data){							
-							modelArry[name].cssArry[urlNum]=data;
+							modelArry[name].cssArry[urlNum]="<style>"+data+"</style>";
 							totalUrl++;
 							finish();
 							}
@@ -45,7 +49,7 @@
 						var urlNum=i;
 						config.loadingOn();
 						$.ajax({ 
-							url:"view/"+n+".html",
+							url:"html/"+n+".html",
 							dataType:"html",
 							cache:true,
 							error:function(err){
@@ -59,8 +63,9 @@
 							}
 						});
 					});
-					}
-				fn(idArry[id]);
+					}else{
+						fn(idArry[id]);
+						}
 					}
 			}
 		if(modelArry[name]){
@@ -85,6 +90,13 @@
 		};
 	function set(data){
 		modelArry[data.name]=data;
+		modelArry[data.name].htmlArry=[];
+		modelArry[data.name].cssArry=[];
 		};
-		
+	obj.set=function(data){
+		set(data);
+		}
+	obj.get=function(target,id,name,fn){
+		get(target,id,name,fn);
+		}	
 	})($,app.model,config);
