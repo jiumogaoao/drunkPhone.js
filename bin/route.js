@@ -9,14 +9,60 @@
 			}
 		var hashArry=hash.split("/");
 		function runRoute(){	
-				var dataObj={};
+				var dataObj={
+					css:[],
+					html:[]
+					};
 				if(routeArry[hashArry[0]].par){
-					var dataArry=routeArry[hashArry[0]].par.split("/");
+					var dataArry=routeArry[hashArry[0]].par;
 					for(var i=0;i<dataArry.length;i++){
 				dataObj[dataArry[i]]=hashArry[i+1];
 				}
 					}
-				routeArry[hashArry[0]].fn(dataObj);	
+				var totalCount = 0;
+				function finish(){
+					totalCount++;
+					if(totalCount===(routeArry[hashArry[0]].css.length+routeArry[hashArry[0]].html.length)){
+						routeArry[hashArry[0]].fn(dataObj);	
+						}
+					}
+				$.each(routeArry[hashArry[0]].css,function(i,n){
+					var num = i;
+					config.loadingOn();
+					$.ajax({ 
+							url:"css/"+n+".css",
+							dataType:"text",
+							cache:true,
+							error:function(err){
+								config.loadingOff();
+								alert("错误"+JSON.stringify(err));
+								window.location.hash="";
+								},
+							success: function(data){
+								dataObj.css[num]='<style>'+data+'</style>';
+								finish();
+							}
+						});
+					});
+				$.each(routeArry[hashArry[0]].html,function(i,n){
+					var num = i;
+					config.loadingOn();
+					$.ajax({ 
+							url:"html/"+n+".html",
+							dataType:"html",
+							cache:true,
+							error:function(err){
+								config.loadingOff();
+								alert("错误"+JSON.stringify(err));
+								window.location.hash="";
+								},
+							success: function(data){
+								dataObj.html[num]=data;
+								finish();
+							}
+						});
+					});
+				
 			}
 		if(routeArry[hashArry[0]]){
 			runRoute();
