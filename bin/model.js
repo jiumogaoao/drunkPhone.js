@@ -5,13 +5,21 @@
 	function get(target,id,name,fn){
 		function runObj(){
 			if(idArry[id]){
+				if(idArry[id].loaded){
 				fn(idArry[id]);
+				}else{
+					if(!idArry[id].callbackArry){
+						idArry[id].callbackArry=[];
+						}
+					idArry[id].callbackArry.push(fn);
+					}
 				}else{
 				idArry[id]=	new modelArry[name].fn();
 				if((modelArry[name].html.length||modelArry[name].css.length)&&(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length)){
 					var totalUrl=0;
 				function finish(){
 					if(totalUrl === modelArry[name].css.length+modelArry[name].html.length){
+								idArry[id].loaded=false;
 								idArry[id].name=name;
 								idArry[id].target=target;
 								idArry[id].id=id;
@@ -24,7 +32,15 @@
 									delete idArry[id];
 									};
 								idArry[id].init();
+								idArry[id].loaded=true;
+								if(!idArry[id].callbackArry){
+									idArry[id].callbackArry=[];
+									}
 								fn(idArry[id]);
+								$.each(idArry[id].callbackArry,function(i,n){
+									n(idArry[id]);
+									});
+								
 								}
 					};
 				$.each(modelArry[name].css,function(i,n){	
