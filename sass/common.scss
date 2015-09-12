@@ -20,7 +20,9 @@ body{
 		width:1080px;
 		height:100%;
 		position:relative;
-		}		
+		}
+.model{
+	display:none;}		
 @import "lib/sass.scss";
 @mixin main($h : 1){	
 	#head{

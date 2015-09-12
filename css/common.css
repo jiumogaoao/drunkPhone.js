@@ -22,6 +22,9 @@ body {
   height: 100%;
   position: relative; }
 
+.model {
+  display: none; }
+
 /* Scss Document */
 @media all and (orientation: landscape) {
   #head {

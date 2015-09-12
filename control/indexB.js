@@ -5,8 +5,7 @@
 		par:"a/b/f/e/k",
 		fn:function(data){
 			obj.model.get("#scroller","testOne","test",function(model){
-				console.log(model)
-				console.log(1)
+				model.show();
 				});
 			obj.model.get("#scroller","testOne","test",function(model){
 				console.log(model)

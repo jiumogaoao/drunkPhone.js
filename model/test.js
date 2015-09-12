@@ -8,7 +8,7 @@
 			var source=this;
 			//init
 			source.init=function(){
-				var code=$("<div class='model' id='"+source.id+"'>"+source.css[0]+source.html[0]+source.html[1]+"</div>").appendTo($(source.target));
+				source.target.html(source.css[0]+source.html[0]+source.html[1]);
 				};
 			//set
 			source.set=function(data){};
