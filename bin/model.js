@@ -2,28 +2,28 @@
 ;(function($,obj,config){
 	var modelArry={};//class
 	var idArry={};//obj
-	function get(target,id,name,fn){
-		function runObj(){
+	function get(target,id,name,fn){/*进入get*/
+		function runObj(){/*进入runobj*/
 			function order(target,id){
 				idArry[id].target=$('#'+id).appendTo($(target));
 				}
-			if(idArry[id]){
-				if(idArry[id].loaded){
+			if(idArry[id]){/*id已存在*/
+				if(idArry[id].loaded){/*id已加载完成*/
 				order(target,id);
 				fn(idArry[id]);
-				}else{
+				}else{/*id没加载完成*/
 					if(!idArry[id].callbackArry){
 						idArry[id].callbackArry=[];
 						}
 					idArry[id].callbackArry.push({target:target,id:id,fn:fn});
 					}
-				}else{
+				}else{/*id不存在*/
 				idArry[id]=	new modelArry[name].fn();
-				if((modelArry[name].html.length||modelArry[name].css.length)&&(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length)){
-					var frame=$('<div class="model" id="'+id+'"></div>').appendTo($(target));
-					var totalUrl=0;
+				/*创建实例*/
+				var frame=$('<div class="model" id="'+id+'"></div>').appendTo($(target));
+					/*加外框*/
+					/*modelArry[name]*/
 				function finish(){
-					if(totalUrl === modelArry[name].css.length+modelArry[name].html.length){
 								idArry[id].loaded=false;
 								idArry[id].name=name;
 								idArry[id].target=frame;
@@ -36,19 +36,26 @@
 									$(target).find("#"+id).remove();
 									delete idArry[id];
 									};
+								/*装配实例*/
 								idArry[id].init();
+								/*初始实例*/
 								idArry[id].loaded=true;
 								if(!idArry[id].callbackArry){
 									idArry[id].callbackArry=[];
 									}
 								fn(idArry[id]);
+								/*第一个回调*/
 								$.each(idArry[id].callbackArry,function(i,n){
 									order(n.target,n.id);
 									n.fn(idArry[id]);
 									});
+								/*序列回调*/
 								
-								}
 					};
+				if((modelArry[name].html.length||modelArry[name].css.length)&&(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length)){
+					/*有参数*/
+					var totalUrl=0;
+				
 				$.each(modelArry[name].css,function(i,n){	
 						var urlNum=i;
 						config.loadingOn();
@@ -63,7 +70,10 @@
 							success: function(data){							
 							modelArry[name].cssArry[urlNum]="<style>"+data+"</style>";
 							totalUrl++;
+							/*加载完成*/
+					if(totalUrl === modelArry[name].css.length+modelArry[name].html.length){
 							finish();
+							}
 							}
 						});
 					});
@@ -81,12 +91,15 @@
 							success: function(data){							
 							modelArry[name].htmlArry[urlNum]=data;
 							totalUrl++;
+							/*加载完成*/
+					if(totalUrl === modelArry[name].css.length+modelArry[name].html.length){
 							finish();
+					}
 							}
 						});
 					});
-					}else{
-						fn(idArry[id]);
+					}else{/*没参数*/
+						finish();
 						}
 					}
 			}
@@ -118,7 +131,7 @@
 	obj.set=function(data){
 		set(data);
 		}
-	obj.get=function(target,id,name,fn){
+	obj.get=function(target,id,name,fn){/*get开始*/
 		get(target,id,name,fn);
 		}	
 	})($,app.model,config);

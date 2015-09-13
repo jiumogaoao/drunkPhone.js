@@ -9,7 +9,7 @@
 				console.log(1)
 				});
 			obj.model.get("#scroller","testtwo","test",function(model){
-				console.log(model)
+				model.show();
 				console.log(2)
 				});
 			obj.model.get("#scroller","testtree","test",function(model){
