@@ -1,4 +1,5 @@
 /* Scss Document */
+@import "lib/sass.scss";
 *{
 	padding:0px;
 	margin:0px;
@@ -12,22 +13,22 @@
 	-webkit-appearance: none;
 }
 html {
-		width:1080px;
+		width:360px * $device;
   		height:100%;
 		-webkit-transform-origin: top left;
 		transform-origin: top left;}	
 body{
-		width:1080px;
+		width:360px * $device;
 		height:100%;
 		position:relative;
 		}
 .model{
 	display:none;}		
-@import "lib/sass.scss";
-@mixin main($h : 1){	
+
+@mixin main($w:1,$h : 1){	
 	#head{
-		width:1080px;
-		height:130px * $h;
+		width:360px * $device;
+		height:40px * $device * $h;
 		position:absolute;
 		top:0px;
 		left:0px;
@@ -35,27 +36,27 @@ body{
 		background-color:$mainColor;
 		}
 	#foot{
-		width:1080px;
-		height:130px * $h;
+		width:360px * $device;
+		height:50px * $device * $h;
 		position:absolute;
 		bottom:0px;
 		left:0px;
 		z-index:2;
 		background-color:$mainColor;
 		}
-	#main{font-size:80px * $h;
-		width:1080px;
+	#main{font-size:12px * $device * $h;
+		width:360px * $device;
 		height:auto;
 		position:absolute;
-		top:130px * $h;
-		bottom:130px * $h;
+		top:40px * $device * $h;
+		bottom:50px * $device * $h;
 		overflow:hidden;
 		background-color:$background;}
 	}
 	
 @media all and (orientation : landscape) {
-		@include main($size);
+		@include main($device,$size);
 		}
 @media all and (orientation : portrait){
-		@include main(1);
+		@include main($device,1);
 		}

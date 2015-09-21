@@ -3,9 +3,12 @@
 	var modelArry={};//class
 	var idArry={};//obj
 	function get(target,id,name,fn){/*进入get*/
+			if(typeof(target)==="string"){
+				target=$(target);
+				}	
 		function runObj(){/*进入runobj*/
 			function order(target,id){
-				idArry[id].target=$('#'+id).appendTo($(target));
+				idArry[id].target=$('#'+id).appendTo(target);
 				}
 			if(idArry[id]){/*id已存在*/
 				if(idArry[id].loaded){/*id已加载完成*/
@@ -20,7 +23,7 @@
 				}else{/*id不存在*/
 				idArry[id]=	new modelArry[name].fn();
 				/*创建实例*/
-				var frame=$('<div class="model" id="'+id+'"></div>').appendTo($(target));
+				var frame=$('<div class="model '+name+'" id="'+id+'"></div>').appendTo(target);
 					/*加外框*/
 					/*modelArry[name]*/
 				function finish(){
@@ -33,7 +36,7 @@
 								idArry[id].hide=function(){this.target.hide()};
 								idArry[id].show=function(){this.target.show();};
 								idArry[id].remove=function(){
-									$(target).find("#"+id).remove();
+									target.find("#"+id).remove();
 									delete idArry[id];
 									};
 								/*装配实例*/
