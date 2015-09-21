@@ -15,12 +15,10 @@
 	var run=function(name,data,suc,err){
 		function runApi(){
 			if(!data){
-				data=api[name].cacheTime;
+				data={};
 				}
-			if(data&&typeof(data) === "object"){
 				data.time=api[name].cacheTime;
 				data=JSON.stringify(data);
-				}
 				var sendData=$.extend({},api[name].data);
 				sendData.data=data;
 				config.loadingOn();
@@ -29,25 +27,20 @@
 							dataType:"json",
 							method:api[name].method,
 							data:sendData,
-							error:function(){
+							error:function(e){
 								config.loadingOff();
-								err();
+								err(e);
 								},
 							success: function(returnData){
 								config.loadingOff();
-								if(returnData&&returnData.code !== 0){
+								if(returnData&&returnData.success){
 									if(returnData.code === 1){
 										api[name].cache=returnData.data;
 										api[name].cacheTime=returnData.time;
-										}
-									if(typeof(api[name].cache) === "object"){
+										}					
 										suc($.extend({},api[name].cache));
-										}else{
-											suc(api[name].cache);
-											}
-									
 								}else{
-									err();
+									err(returnData.message);
 									}
 								}
 						});	
