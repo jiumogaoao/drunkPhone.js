@@ -2,7 +2,6 @@
 ;(function($,obj,config){
 	var routeArry={};
 	function changePage(){
-		$(".model").hide();
 		var hash="index";
 		if(location.hash){
 			hash=location.hash.replace("#","");
@@ -10,8 +9,8 @@
 		var hashArry=hash.split("/");
 		function runRoute(){	
 				var dataObj={};
-				if(routeArry[hashArry[0]].par){
-					var dataArry=routeArry[hashArry[0]].par.split("/");
+				if(routeArry[hashArry[0]].par.length){
+					var dataArry=routeArry[hashArry[0]].par;
 					for(var i=0;i<dataArry.length;i++){
 				dataObj[dataArry[i]]=hashArry[i+1];
 				}

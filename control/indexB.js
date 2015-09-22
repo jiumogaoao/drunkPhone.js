@@ -2,23 +2,31 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"indexB",
-		par:"a/b/f/e/k",
+		par:[],
 		fn:function(data){
-			obj.model.get("#scroller","testOne","test",function(model){
+			obj.model.get("#scroller","seguesOne","segues",function(model){
 				model.show();
-				});
-			obj.model.get("#scroller","testOne","test",function(model){
-				console.log(model)
-				console.log(2)
-				});
-			obj.model.get("#scroller","testOne","test",function(model){
-				console.log(model)
-				console.log(3)
-				});
-			obj.model.get("#scroller","testOne","test",function(model){
-				console.log(model)
-				console.log(4)
-				});
+				model.goto("pageTwo",function(target,fn){
+					obj.model.get(target,"testA","test",function(model){
+						console.log(model)
+						console.log(1)
+					});
+					obj.model.get(target,"testB","test",function(model){
+						console.log(model)
+						console.log(2)
+						});
+					obj.model.get(target,"testC","test",function(model){
+						model.show();
+						console.log(3)
+						});
+					obj.model.get(target,"testD","test",function(model){
+						console.log(model)
+						console.log(4)
+						});
+					fn();
+					},{w:"1080px"});
+					
+				})
 			}
 		});
 	})($,app,config);

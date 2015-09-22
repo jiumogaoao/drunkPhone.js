@@ -35,6 +35,9 @@
 								idArry[id].css=modelArry[name].cssArry;
 								idArry[id].hide=function(){this.target.hide()};
 								idArry[id].show=function(){this.target.show();};
+								idArry[id].clean=function(){
+									this.target.children(".model").hide();
+									}
 								idArry[id].remove=function(){
 									target.find("#"+id).remove();
 									delete idArry[id];
@@ -52,8 +55,7 @@
 									order(n.target,n.id);
 									n.fn(idArry[id]);
 									});
-								/*序列回调*/
-								
+								/*序列回调*/				
 					};
 				if((modelArry[name].html.length||modelArry[name].css.length)&&(modelArry[name].htmlArry.length!==modelArry[name].html.length||modelArry[name].cssArry.length!==modelArry[name].css.length)){
 					/*有参数*/
