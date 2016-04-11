@@ -1,0 +1,14 @@
+.selectRadio_module{
+	background-image: url("/img/select.png");
+	background-repeat: no-repeat;
+}
+.selectRadio_module.selectRadio_module{
+	width: 36px;
+	height: 36px;
+}
+.selectRadio_module.selectRadio_module.selectRadioBG_module{
+	background-position: 0px -83px;
+}
+.selectRadio_module.selectRadio_module.hl{
+	background-position: 0px -42px;
+}

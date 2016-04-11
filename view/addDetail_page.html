@@ -1,0 +1,97 @@
+<script type="text/x-template" id="addDetail_page">
+<div class="myDetail_page">
+	<div class="head_module buttonTitleButton_head">
+				<div class="left">
+					<div class="backIcon"></div>
+					<div class="leftText">返回</div>
+					<div class="clear"></div>
+				</div>
+				<div class="center">
+					<div class="title">个人资料</div>
+				</div>
+				<div class="right">
+				<div class="rightButton">更多</div>
+				</div>
+	</div>
+	<div id="myDetailMain">
+		<div id="myDetailRoll">
+			<img src="<%= data.bg %>" id="bg"/>
+			<div class="frame" id="base">
+				<div class="left">
+					<img src="<%= data.icon %>"/>
+				</div>
+				<div class="right">
+					<div class="name"><%= data.name %></div>
+					<div class="dsc"><%= data.sex %> <%= data.age %>岁 <%= data.province %> <%= data.city %></div>
+					<div class="vipFrame">
+						<img src="<%= data.daren %>"/>
+						<div class="vipNum"><%= data.vipTime %></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="host">
+				<div class="left">
+					账号信息
+				</div>
+				<div class="right">
+					<div class="name"><%= data.id %></div>
+					<img src="<%= data.lian %>" class="lian"/>
+					<img src="<%= data.vipType %>" class="vip"/>
+					<div class="clear"></div>
+					<% _.each(data.step,function(step){ %>
+						<div class="step <%= step %>"></div>
+					<% }) %>
+					<div class="speed"><%= data.stepSpeed %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="sign">
+				<div class="left">个性签名</div>
+				<div class="right">
+					<div class="dsc"><%= data.sign %></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="server">
+				<div class="left">专享特权</div>
+				<div class="right">
+					<img src="img/QG.png" class="point"/>
+					<img src="img/hz.png" class="point"/>
+					<img src="img/lz.png" class="point"/>
+					<img src="img/sz.png" class="point"/>
+					<img src="img/vq.png" class="point"/>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="zone">
+				<div class="left">QQ空间</div>
+				<div class="right">
+					<div class="dsc"><%= data.zoneName %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="mine">
+				<% if(data.mine&&data.mine.length){
+					_.each(data.mine,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="icon"/>
+							<div class="name"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div> 
+</div>
+</script>

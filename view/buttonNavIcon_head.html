@@ -1,0 +1,21 @@
+<script type="text/x-template" id="buttonNavIcon_head">
+<div class="head_module buttonNavIcon_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="nav">
+		<div class="navPoint navLeft <% if(data.hl=="0"){print("hl")} %>">列表</div>
+		<div class="navPoint navRight <% if(data.hl=="1"){print("hl")} %>">最近</div>
+		<div class="clear"></div>
+	</div>
+	<div class="right">
+	<% _.each(data.right,function(point){ %>
+		<img src="<%= point.src %>" class="rightPoint" id="<%= point.id %>"/>
+	<% }) %>
+	<div class="clear"></div>
+	</div>
+</div>
+</script>
+

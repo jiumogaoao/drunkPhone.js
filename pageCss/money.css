@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+.money_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.money_page #moneyMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.money_page #moneyRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.money_page #banner{
+	width: 100%;
+	height: 211px;
+}
+.money_page #topFrame{
+	width: 100%;
+	height: 188px;
+	background-color: #fff;
+}
+.money_page #topFrame .point{
+	width: 25%;
+	float: left;
+}
+.money_page #topFrame .pic{
+	margin: auto;
+	padding-top: 36px;
+}
+.money_page #topFrame .name{
+	font-size: 26px;
+	text-align: center;
+	color: #000;
+	margin-top: 19px;
+}
+.money_page #centerFrame{
+	width: 100%;
+	height: 315px;
+	background-color: #fff;
+	margin-top: 20px;
+}
+.money_page #centerFrame .point{
+	height: 157px;
+	width: 50%;
+	float: left;
+	position: relative;
+}
+.money_page #centerFrame .pic{
+	position: absolute;
+	top:40px;
+	left: 56px;
+}
+.money_page #centerFrame .name{
+	font-size: 26px;
+	color: #000;
+	position: absolute;
+	top:49px;
+	left: 167px;
+}
+.money_page #centerFrame .dsc{
+	font-size: 22px;
+	color: #bbbbbb;
+	position: absolute;
+	top:87px;
+	left: 167px;
+}
+.money_page #bottomFrame{
+	background-color: #fff;
+	margin-top: 20px;
+	width: 100%;
+	height: 305px;
+}
+.money_page #bottomFrame .point{
+	width: 33.3%;
+	height: 152px;
+	float: left;
+}
+.money_page #bottomFrame .pic{
+	margin: auto;
+	padding-top: 28px;
+}
+.money_page #bottomFrame .name{
+	font-size: 26px;
+	color: #000;
+	text-align: center;
+	margin-top: 19px;
+}
+.money_page #bottomFrame .dsc{
+	font-size: 22px;
+	color: #bbbbbb;
+	text-align: center;
+	margin-top: 12px;
+}

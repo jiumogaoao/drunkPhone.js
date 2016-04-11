@@ -1,0 +1,19 @@
+.money_foot{
+    width: 100%;
+    height: 146px;
+    background-color:#8c8c96; 
+}
+.money_foot .point{
+    width: 33.3%;
+    float: left;
+}
+.money_foot .point .icon{
+    margin: auto;
+    padding-top: 25px;
+}
+.money_foot .point .name{
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    margin-top: 22px;
+}

@@ -1,0 +1,30 @@
+.text_module{
+	font-size: 28px;
+	color: #1ab4ee;
+	font-weight: bolder;
+}
+.textS_module{
+	font-size: 20px;
+}
+.textS_module{
+	font-size: 26px;
+}
+.textL_module{
+	font-size: 46px;
+}
+.text_module.textGay_module{
+	color: #808080;
+}
+.text_module.textBlack_module{
+	color: #333;
+}
+.text_module.textYellow_module{
+	color: #fe841a;
+}
+.text_module.listTitle{
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	background-color: #f7f7f8;
+	text-indent: 35px;
+}

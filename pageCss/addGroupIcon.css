@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+.addGroupIcon_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.addGroupIcon_page #addGroupIconMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.addGroupIcon_page #addGroupIconRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.addGroupIcon_page .button_module{
+	margin: auto;
+}
+.addGroupIcon_page #pic{
+	position: absolute;
+	top: 514px;
+    left: 36px;
+	width: 680px;
+    height: 88px;
+    opacity: 0;
+}
+.addGroupIcon_page #icon{
+	width: 195px;
+    height: 195px;
+    border-radius: 190px;
+    position: absolute;
+    top: 97px;
+    left: 277px;
+}

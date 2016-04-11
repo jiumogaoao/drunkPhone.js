@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+.index_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.index_page #loginIcon{
+	margin: auto;
+	margin-top: 104px;
+}
+.index_page #loginName{
+	margin-top: 15px;
+}
+.index_page #loginKey{
+	margin-top: 2px;
+}
+.index_page #forgetKey{
+	position: absolute;
+	left: 36px;
+	bottom:30px;
+}
+.index_page #regest{
+	position: absolute;
+	right: 36px;
+	bottom:30px;
+}
+.index_page #login{
+	position: relative;
+	margin: auto;
+	margin-top: 30px;
+}

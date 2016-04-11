@@ -1,0 +1,59 @@
+.labelInput_module{
+	position: relative;
+}
+.labelInput_module .label{
+	margin-left: 32px;
+	color: #8d8d8d;
+	font-size: 26px;
+}
+.labelInput_module .inpurFrame{
+	background-color: #fff;
+	height: 84px;
+	width: 100%;
+	border-top: 1px solid #c8c7cc;
+	border-bottom: 1px solid #c8c7cc;
+	margin-top:20px;
+}
+.labelInput_module.labelInputSingle_module .inpurFrame{
+	margin: 0px;
+}
+.labelInput_module .inpurFrame input{
+	height: 84px;
+	width: 100%;
+	color: #464748;
+	line-height: 84px;
+	text-indent: 32px;
+	font-size: 30px;
+}
+.labelInput_module.labelInputPhone_module .phone{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	height: 84px;
+	line-height: 84px;
+	text-align: center; 
+	width: 210px;
+	color: #007aff;
+	border-right: 1px solid #c8c7cc;
+	font-size: 30px;
+}
+.labelInput_module.labelInputPhone_module .inpurFrame{
+	margin: 0px;
+}
+.labelInput_module.labelInputPhone_module .inpurFrame input{
+	text-indent: 240px;
+}
+.labelInput_module.labelInputSaveCode_module .saveCode{
+	width: 190px;
+	height: 84px;
+	border-left: 1px solid #c8c7cc;
+	font-size: 30px;
+	color: #c8c7cc;
+	position: absolute;
+	top:0px;
+	right: 0px;
+	line-height: 84px;
+}
+.labelInput_module.labelInputSaveCode_module .inpurFrame{
+	margin: 0px;
+}

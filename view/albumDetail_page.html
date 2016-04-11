@@ -1,0 +1,60 @@
+<script type="text/x-template" id="albumDetail_page">
+<div class="albumDetail_page">
+	<div class="head_module">
+		<div class="left">
+			<div class="backIcon"></div>
+			<div class="leftText">返回</div>
+			<div class="clear"></div>
+		</div>
+		<div class="center">
+			<div class="title"><%= data.name %></div>
+		</div>
+		<div class="right">
+			<div class="rightButton">...</div>
+		</div>
+	</div>
+	<div id="albumDetailMain">
+		<div id="albumDetailRoll">
+			<div class="albumTop" style="background-image:url(<%= data.icon %>)">
+				<div class="mask"></div>
+				<div class="name"><%= data.name %></div>
+				<div class="topBottom">
+					<div class="point">
+						<img class="icon" src="img/prise.png"/>
+						<div class="number">17</div>
+						<div class="clear"></div>
+					</div>
+					<div class="point">
+						<img class="icon" src="img/readed.png"/>
+						<div class="number">17</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="button_module buttonL_module buttonBlue_module" id="Send">上传照片
+			<input id="addPic" type="file"/>
+			</div>
+			<div class="picList_module">
+				<% if(data.showList){
+					_.each(data.showList,function(group,time){ %>
+						<div class="group">
+							<div class="title"><%= time %></div>
+							<div class="list">
+								<% _.each(group,function(point){ %>
+									<div class="point" pid="<%= point.id %>">
+										<img src="<%= point.src %>"/>
+									</div>
+								<% }) %>
+								<div class="clear"></div>
+							</div>
+						</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</script>
+

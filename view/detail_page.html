@@ -1,0 +1,34 @@
+<script type="text/x-template" id="detail_page">
+<div class="detail_page" id="detail">
+	<div class="detailRoll">
+		<% if(data.group){
+			_.each(data.group,function(group,index){ %>
+				<div class="messageGroup">
+					<div class="time"><%= index %></div>
+					<div class="mainFrame">
+						<% if(group&&group.length){
+							_.each(group,function(point){ %>
+								<div class="messagePoint messagePoint<%= (point.self?1:0) %>">
+									<img src="<%= point.icon %>" class="head"/>
+									<div class="textFrame">
+										<% if(point.state==1){ %>
+											<div class="name"><%= point.name %></div>
+										<% } %>	
+										<% if(point.type=="text"){ %>
+											<div class="word"><%= point.main %></div>
+										<% }else{ %>
+											<img class="pic" src="<%= point.main %>"/>
+										<% } %>
+									</div>
+									<div class="clear"></div>
+									<div class="deg deg<%= point.state %>"></div>
+								</div>
+						<% })
+						} %>
+					</div>
+				</div>
+		<% 	})
+		} %>
+	</div>
+</div>
+</script>

@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+.creatGroup_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.creatGroup_page #addGroupIconMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.creatGroup_page #addGroupIconRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.creatGroup_page .topFrame{
+	width: 100%;
+	height: 351px;
+	background-color: #fff;
+	border-bottom:1px solid #dedfe0;
+	margin-bottom: 20px;
+	padding-top: 64px;
+	position: relative;
+}
+.creatGroup_page .topFrame .icon{
+	width:120px;
+	height: 120px;
+	border-radius: 120px;
+	margin:auto;
+}
+.creatGroup_page .topFrame .name{
+	text-align: center;
+	font-size: 32px;
+	color: #000;
+	font-weight: bolder;
+	margin-top: 28px;
+}

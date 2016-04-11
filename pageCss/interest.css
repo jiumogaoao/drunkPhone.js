@@ -1,0 +1,338 @@
+@charset "utf-8";
+/* CSS Document */
+.interest_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.interest_page .nav_point{
+	width: 25%;
+}
+.interest_page .heightLine{
+	width: 25%;
+}
+.interest_page #interestMain{
+	position: absolute;
+	top:50px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.interest_page #interestRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom: 0px;
+	width: 400%;
+}
+.interest_page .subPage{
+	width: 25%;
+	float: left;
+	height: 100%;
+	position:relative;
+}
+.interest_page #interestGroup,.interest_page #nearest,.interest_page #order,.interest_page #found{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+	overflow: hidden;
+}
+.interest_page #orderLeft{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	width: 150px;
+	overflow: hidden;
+}
+.interest_page #orderRight{
+	position: absolute;
+	top:0px;
+	right: 0px;
+	bottom:0px;
+	width: 600px;
+	overflow: hidden;
+}
+.interest_page .subRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.interest_page #interestGroup #title{
+	width: 100%;
+	height: 1px;
+	background-color: #f2f2f2;
+	position: relative;
+	margin-top: 40px;
+}
+.interest_page #interestGroup #titleMain{
+	color: #777777;
+	text-align: center;
+	width: 292px;
+	height: 26px;
+	position: absolute;
+	top:-12px;
+	left: 229px;
+}
+.interest_page #interestGroup .groupList{
+	width: 100%;
+}
+.interest_page #interestGroup .groupPoint{
+	float: left;
+	position: relative;
+	margin-right: 78px;
+	margin-top: 32px;
+	left: 59px;
+}
+.interest_page #interestGroup .groupPoint .head{
+	width: 159px;
+	height: 159px;
+	border-radius: 10px;
+	border:1px solid #c8c7cc;
+}
+.interest_page #interestGroup .groupPoint .name{
+	text-align: center;
+	margin-top: 17px;
+	color: #1a1a1a;
+}
+.interest_page #interestGroup .groupPoint .select_module{
+	position: absolute;
+	top:10px;
+	right: 10px;
+}
+.interest_page #interestGroup #Send{
+	margin: auto;
+	margin-top: 36px;
+}
+.interest_page #nearest #topFrame{
+	height: 162px;
+	border:1px solid #e5e5e5;
+}
+.interest_page #nearest #topLeft{
+	float: left;
+	width:100px;
+	height: 100px;
+	border-radius: 100px;
+	margin-top: 32px;
+	margin-left: 35px;
+}
+.interest_page #nearest #topRight{
+	float: left;
+	width: 562px;
+	margin-left: 51px;
+	margin-top: 10px;
+}
+.interest_page #nearest .topPoint{
+	float: left;
+	width: 33.3%;
+	border-left: 1px solid #e8e8e8;
+}
+.interest_page #nearest .topPoint .number{
+	text-align: center;
+	color: #000;
+	font-size: 28px;
+}
+.interest_page #nearest .topPoint .name{
+	text-align: center;
+	color: #bbbbbb;
+	font-size: 24px;
+	margin-top: 35px;
+}
+.interest_page #nearest .listGroup{
+	margin-top: 34px;
+}
+.interest_page #nearest .nearestTitle{
+	height: 84px;
+	width: 100%;
+	background-color: #f8f9fa;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+}
+.interest_page #nearest .nearestTitleName{
+	position: absolute;
+	top:42px;
+	left: 22px;
+}
+.interest_page #nearest .nearestTitleButton{
+	position: absolute;
+	top:42px;
+	right: 22px;
+}
+.interest_page #orderRight #orderBanner{
+	height: 120px;
+	width: 560px;
+	margin: auto;
+	margin-top: 16px;
+}
+.interest_page #orderLeft .orderType{
+	width: 150px;
+	height: 96px;
+	border-bottom: 1px solid #dedfe0;
+	border-right: 2px solid #e7e8e8;
+	line-height: 95px;
+	color: #000;
+	background-color: #f1f1f1;
+	text-align: center;
+	font-size: 26px;
+}
+.interest_page #orderLeft .list_module.listXL_module .left{
+	margin-left: 19px;
+}
+.interest_page #orderLeft .list_module.listXL_module .right{
+	width:415px;
+}
+.interest_page #found #foundBannerFrame{
+	width: 100%;
+	height: 370px;
+	overflow: hidden;
+	position: relative;
+}
+.interest_page #found #foundBannerRoll{
+	position: absolute;
+	top:0px;
+	height: 100%;
+	left: 0px;
+	width: 500%;
+}
+.interest_page #found #foundBannerRoll .foundBannerPic{
+	float: left;
+	height: 100%;
+	width: 20%
+}
+.interest_page #found #foundBannerPointFrame{
+	width: 150px;
+	position: absolute;
+	bottom:20px;
+	left: 290px;
+}
+.interest_page #found .foundBannerPoint{
+	width: 10px;
+	height: 10px;
+	background-color: rgba(255,255,255,0.5);
+	float: left;
+	margin-right: 20px;
+	border-radius: 10px;
+}
+.interest_page #found .foundBannerPoint.hl{
+	background-color: rgba(255,255,255,1);
+}
+.interest_page #foundTopFrame{
+	border-bottom: 1px solid #e0e0e0;
+}
+.interest_page #found .foundTitle{
+	height: 82px;
+	width: 100%;
+	position: relative;
+}
+.interest_page #found .foundTitleName{
+	height: 32px;
+	border-left: 8px solid #f48175;
+	text-indent: 26px;
+	color: #000;
+	font-size: 28px;
+	line-height: 32px;
+	position: absolute;
+	top:50px;
+	left: 0px;
+}
+.interest_page #found .foundTitleButton{
+	font-size: 28px;
+	position: absolute;
+	top:50px;
+	right: 32px;
+	line-height: 32px;
+	color: #777777;
+}
+.interest_page #found #foundTopFrame .foundGroupMain,.interest_page #found .foundOldGroup .foundGroupMain{
+	width: 100%;
+	height: 295px;
+	overflow: hidden;
+	position: relative;
+	border-bottom: 1px solid #e0e0e0;
+}
+.interest_page #found #foundTopFrame .foundGroupRoll,.interest_page #found .foundOldGroup .foundGroupRoll{
+	width:1528px;
+	height: 295px;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.interest_page #found .foundGroupPoint{
+	width: 162px;
+	float: left;
+	margin-left: 29px;
+}
+.interest_page #found .foundGroupPointPic{
+	width: 162px;
+	height: 162px;
+	border:1px solid #c8c7cc;
+	border-radius: 10px;
+	margin-top: 33px;
+}
+.interest_page #found .foundGroupPointName{
+	text-align: center;
+	margin-top: 23px;
+}
+.interest_page #foundCenterFrame{
+	margin-top: 20px;
+	background-color: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	border-top: 1px solid #e0e0e0;
+}
+.interest_page #found #foundCenterFrame .foundGroupMain{
+	width: 100%;
+	height: 240px;
+	overflow: hidden;
+	position: relative;
+}
+.interest_page #found #foundCenterFrame .foundGroupRoll{
+	height: 100%;
+	width: 3410px;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.interest_page #found .foundGroupPointL{
+	width: 280px;
+	height: 180px;
+	float: left;
+	margin-left: 30px;
+	border-radius: 10px;
+	margin-top: 32px;
+}
+.interest_page #found #foundCenterPic{
+	width: 100%;
+	height: 370px;
+	margin-top: 20px;
+}
+.interest_page #found .foundOldGroup{
+	margin-top: 20px;
+	border-bottom: 1px solid #e0e0e0;
+	border-top: 1px solid #e0e0e0;
+}
+.interest_page #found .timeFrame{
+	width: 100%;
+	height: 1px;
+	border-top:6px dotted #ace1f5;
+	margin-top: 54px;
+	position: relative;
+}
+.interest_page #found .timeFrame .time{
+	width: 342px;
+	height: 44px;
+	line-height: 44px;
+	background-color: #fff;
+	color: #00abeb;
+	text-align: center;
+	font-size: 30px;
+	position: absolute;
+	top:-26px;
+	left: 204px;
+}

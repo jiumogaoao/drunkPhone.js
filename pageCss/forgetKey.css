@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+.forgetKey_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.forgetKey_page #name{
+	margin-top: 54px;
+}
+.forgetKey_page #Send{
+	margin: auto;
+	margin-top: 72px;
+}

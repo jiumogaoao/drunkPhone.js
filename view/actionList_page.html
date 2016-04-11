@@ -1,0 +1,41 @@
+<script type="text/x-template" id="actionList_page">
+<div class="actionList_page">
+	<div id="sideHandle"></div>
+	<div id="topFrame">
+		<img src="img/searchButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<% if(data.nav&&data.nav.length){
+			_.each(data.nav,function(nav){ %>
+			<div class="linkNavPoint" id="<%= nav.id %>">
+				<img src="<%= nav.icon %>" class="icon"/>
+				<div class="name"><%= nav.name %></div>
+			</div>
+		<% }) 
+		} %>
+		<div class="clear"></div>
+	</div>
+	<div id="actionListFrame">
+		<div id="listFrameRoll">
+			<% if(data.group){
+				_.each(data.group,function(group){ %>
+				<div class="tag_module">
+				<% if(group.list&&group.list.length){
+						_.each(group.list,function(point){ %>
+					<div class="tagPoint">
+						<img src="<%= point.icon %>" class="left"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<img src="img/tag.png" class="icon"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+				<% })
+					} %>
+			</div>
+			<% })
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+

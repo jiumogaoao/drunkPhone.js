@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.aboutMe_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.aboutMe_page #aboutMeMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.aboutMe_page #aboutMeRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}

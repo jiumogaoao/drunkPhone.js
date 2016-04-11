@@ -1,0 +1,62 @@
+<script type="text/x-template" id="phoneList_page">
+<div class="phoneList_page">
+	<div id="topFrame">
+		<div id="place">北京<span class="gay">&or;</span></div>
+		<img src="img/searchMButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<div class="topPoint">
+			<img class="icon" src="img/express.png"/>
+			<div class="name">快递</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/traffic.png"/>
+			<div class="name">交通出行</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/hotel.png"/>
+			<div class="name">酒店旅游</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/hospital.png"/>
+			<div class="name">医院</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/bank.png"/>
+			<div class="name">银行</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/server.png"/>
+			<div class="name">公共服务</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/suppot.png"/>
+			<div class="name">品牌售后</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/saft.png"/>
+			<div class="name">保险证券</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="phoneListMain">
+			<div id="phoneListRoll">
+				<div class="text_module textGay_module textM_module" id="title">热门号码</div>
+				<% if(data.list&&data.list.length){
+					_.each(data.list,function(point){ %>
+					<div class="list_module listS_module">
+						<img class="left" src="<%= point.icon %>"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+							<img src="<%= point.state %>" class="phone"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	
+</div>
+</script>
+

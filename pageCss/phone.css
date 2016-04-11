@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+.phone_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.phone_page #phoneMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.phone_page #phoneRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.phone_page #title{
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	background-color: #f7f7f8;
+	text-indent: 35px;
+}
+.phone_page .phoneFrame{
+	width: 100%;
+	height: 462px;
+	background-image: url(../img/phoneBg.jpg);
+	position: relative;
+}
+.phone_page .phoneFrame .phone1{
+	width: 115px;
+	height: 115px;
+	border-radius: 115px;
+	position: absolute;
+	top:62px;
+	left: 179px;
+}
+.phone_page .phoneFrame .phone2{
+	width: 85px;
+	height: 85px;
+	border-radius: 85px;
+	position: absolute;
+	top: 305px;
+    left: 515px;
+}
+.phone_page .phoneFrame .phone3{
+	width: 64px;
+	height: 64px;
+	border-radius: 64px;
+	position: absolute;
+	top: 136px;
+    left: 493px;
+}
+.phone_page .phoneFrame .phone4{
+	width: 62px;
+	height: 62px;
+	border-radius: 62px;
+	position: absolute;
+	top: 302px;
+    left: 157px;
+}
+.phone_page #them{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.phone_page #Send{
+	margin: auto;
+	margin-top: 20px;
+}
+.phone_page #tag{
+	margin: 0px;
+	border:0px;
+}
+.phone_page #search{
+	margin: auto;
+	margin-top: 16px;
+}

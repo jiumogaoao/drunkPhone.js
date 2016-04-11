@@ -1,0 +1,113 @@
+<script type="text/x-template" id="edit_page">
+<div class="edit_page">
+	<div id="editMain">
+		<div id="editRoll">
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">昵称</div>
+					<div class="right">
+						<input value="<%= data.name %>" name="name"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">性别</div>
+					<div class="right">
+						<select name="sex">
+							<option value="1" <% if(data.sex==1){print('selected="selected"')} %>>男</option>
+							<option value="0" <% if(data.sex==0){print('selected="selected"')} %>>女</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">生日</div>
+					<div class="right">
+						<input value="<%= moment(data.birthday,"x").format("YYYY-MM-DD") %>" name="birthday"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">职业</div>
+					<div class="right">
+						<select name="job">
+							<option value="13" <% if(data.job==13){print('selected="selected"')} %>>计算机/互联网/通讯</option>
+							<option value="12" <% if(data.job==12){print('selected="selected"')} %>>生产/工艺/制造</option>
+							<option value="11" <% if(data.job==11){print('selected="selected"')} %>>医疗/护理/制药</option>
+							<option value="10" <% if(data.job==10){print('selected="selected"')} %>>金融/银行/投资/保险</option>
+							<option value="9" <% if(data.job==9){print('selected="selected"')} %>>商业/服务业/个体经营</option>
+							<option value="8" <% if(data.job==8){print('selected="selected"')} %>>文化/广告/传媒</option>
+							<option value="7" <% if(data.job==7){print('selected="selected"')} %>>娱乐/艺术/表演</option>
+							<option value="6" <% if(data.job==6){print('selected="selected"')} %>>律师/法务</option>
+							<option value="5" <% if(data.job==5){print('selected="selected"')} %>>教育/培训</option>
+							<option value="4" <% if(data.job==4){print('selected="selected"')} %>>公务员/行政/事业单位</option>
+							<option value="3" <% if(data.job==3){print('selected="selected"')} %>>模特</option>
+							<option value="2" <% if(data.job==2){print('selected="selected"')} %>>空姐</option>
+							<option value="1" <% if(data.job==1){print('selected="selected"')} %>>学生</option>
+							<option value="0" <% if(data.job==0){print('selected="selected"')} %>>其他职业</option>
+						</select>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">公司</div>
+					<div class="right">
+						<input value="<%= data.company %>" name="company"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">学校</div>
+					<div class="right">
+						<input value="<%= data.school %>" name="school"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">所在地</div>
+					<div class="right">
+						<div class="link"><%= data.province %> <%= data.city %></div>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">故乡</div>
+					<div class="right">
+						<input value="<%= data.hometown %>" name="hometown"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">邮箱</div>
+					<div class="right">
+						<input value="<%= data.email %>" name="email"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">个人说明</div>
+					<div class="right">
+						<input value="<%= data.dsc %>" name="dsc"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					兴趣爱好展示设置
+					<img class="tag" src="img/tag.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>

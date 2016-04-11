@@ -1,0 +1,27 @@
+<div class="inputList_module">
+				<div class="point">
+					<div class="left">昵称</div>
+					<div class="right">
+						<input value="<%= data.name %>" name="name"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">性别</div>
+					<div class="right">
+						<select name="sex">
+							<option value="1" <% if(data.sex==1){print('selected="selected"')} %>>男</option>
+							<option value="0" <% if(data.sex==0){print('selected="selected"')} %>>女</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">生日</div>
+					<div class="right">
+						<input value="<%= moment(data.birthday,"x").format("YYYY-MM-DD") %>" name="birthday"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>

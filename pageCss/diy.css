@@ -1,0 +1,133 @@
+@charset "utf-8";
+/* CSS Document */
+.diy_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ececec;
+}
+.diy_page #diyMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.diy_page #diyRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.diy_page #topFrame{
+	height: 152px;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #cccccc;
+}
+.diy_page .topPoint{
+	float: left;
+	width: 25%;
+	height: 152px;
+}
+.diy_page .topPoint .pic{
+	width: 72px;
+	height: 72px;
+	border-radius: 72px;
+	margin: auto;
+	margin-top: 16px;
+}
+.diy_page .topPoint .topName{
+	font-size: 26px;
+	text-align: center;
+	margin-top: 15px;
+	color: #000;
+}
+.diy_page #lageFrame{
+	width: 100%;
+	height: 328px;
+	border-bottom: 1px solid #cccccc;
+	background-color: #fff;
+	margin-top: 20px;
+}
+.diy_page #lageFrame .title{
+	text-align: center;
+	font-size: 30px;
+	color: #000;
+	padding-top: 27px;
+}
+.diy_page #lageFrame .dsc{
+	font-size: 20px;
+	color: #6f6f6f;
+	text-align: center;
+	margin-top: 12px;
+}
+.diy_page #lageFrame .pic{
+	width:632px;
+	height: 175px;
+	margin: auto;
+	margin-top: 25px;
+}
+.diy_page #centerFrame{
+	width: 100%;
+	height: 280px;
+	background-color: #fff;
+	margin-top: 20px;
+}
+.diy_page .diyPoint{
+	width: 375px;
+	height: 280px;
+}
+.diy_page #centerFrame .diyPoint{
+	float: left;
+}
+.diy_page .diyPoint .title{
+	font-size: 30px;
+	color: #000;
+	text-align: center;
+	padding-top: 24px;
+}
+.diy_page .diyPoint .dsc{
+	font-size: 20px;
+	color: #6f6f6f;
+	text-align: center;
+	margin-top: 12px;
+}
+.diy_page .diyPoint .pic{
+	height: 136px;
+	margin: auto;
+	margin-top: 25px;
+}
+.diy_page #bottomFrame{
+	background-color: #fff;
+	margin-top: 20px;
+}
+.diy_page #bottomLeft{
+	width: 50%;
+	float: left;
+}
+.diy_page #bottomLeft .title{
+	font-size: 30px;
+	color: #000;
+	text-align: center;
+	padding-top: 24px;
+}
+.diy_page #bottomLeft .dsc{
+	font-size: 20px;
+	color: #6f6f6f;
+	text-align: center;
+	margin-top: 12px;
+}
+.diy_page #bottomLeft .pic{
+	width: 255px;
+	height: 420px;
+	margin: auto;
+	margin-top: 25px;
+}
+.diy_page #bottomRight{
+	width: 50%;
+	float: left;
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+.phoneList_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.phoneList_page #topFrame #place{
+	float: left;
+	font-size: 26px;
+	color: #000;
+	margin-top: 32px;
+	margin-left:18px;
+}
+.phoneList_page #topFrame #place .gay{
+	color:#c9c9c9;
+}
+.phoneList_page #topFrame #search{
+	float: left;
+	margin-top: 18px;
+	margin-left: 16px;
+}
+.phoneList_page .topPoint{
+	float: left;
+	width: 25%;
+	margin-top: 74px;
+}
+.phoneList_page .topPoint .icon{
+	margin: auto;
+}
+.phoneList_page .topPoint .name{
+	text-align: center;
+	font-size: 24px;
+	margin-top: 25px;
+	color: #000;
+}
+.phoneList_page #title{
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+	background-color: #f7f7f8;
+	text-indent: 35px;
+}
+.phoneList_page #phoneListMain{
+	position: absolute;
+	top:470px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.phoneList_page #phoneListRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}

@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+.regestSuccess_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #f7f7f9;
+}
+.regestSuccess_page #dsc{
+	text-align: center;
+	margin-top: 150px;
+}
+.regestSuccess_page #number{
+	text-align: center;
+	margin-top: 64px;
+}
+.regestSuccess_page #bottomdesc{
+	text-align: center;
+	margin: auto;
+	margin-top: 105px;
+	width: 608px;
+}
+.regestSuccess_page #Send{
+	margin: auto;
+	margin-top: 33px;
+}

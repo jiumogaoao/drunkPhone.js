@@ -1,0 +1,48 @@
+<script type="text/x-template" id="aboutMe_page">
+<div class="aboutMe_page">
+	<div id="aboutMeMain">
+		<div id="aboutMeRoll">
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){%>
+					<div class="zone_module">
+				<div class="answer">回复</div>
+				<div class="top">
+					<img src="<%= point.icon %>"/>
+					<div class="name"><%= point.name %></div>
+					<div class="time"><%= point.time %></div>
+				</div>
+				<div class="middle">
+					<div class="text"><%= point.main %></div>
+					<div class="picFrame">
+						<% if(point.pic&&point.pic.length){
+							_.each(point.pic,function(pic){ %>
+							<img src="<%= pic.src %>" class="pic"/>	
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="readed">
+						<div class="zoneIcon read"></div>
+						<div class="readNumber">浏览<%= point.readNumber %>次</div>
+						<div class="clear"></div>
+					</div>
+					<% if(point.parise&&point.parise.length){ %>
+						<div class="praised">
+							<div class="zoneIcon praise"></div>
+							<% _.each(point.parise,function(parise){ %>
+								<div class="praiseName"><%= parise %></div>
+							<% }) %>
+							<div class="clear"></div>
+						</div>
+					<% } %>
+				</div>
+			</div>
+				<% })
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+

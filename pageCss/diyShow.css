@@ -1,0 +1,129 @@
+@charset "utf-8";
+/* CSS Document */
+.diyShow_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #eff8fd;
+}
+.diyShow_page .head_module{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	z-index: 3;
+	background-color: rgba(18,183,245,0);
+}
+.diyShow_page #diyShowMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
+}
+.diyShow_page #diyShowRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.diyShow_page #banner{
+	width: 100%;
+	height: 894px;
+}
+.diyShow_page #topFrame{
+	width: 100%;
+	height: 276px;
+	background-color: #fff;
+}
+.diyShow_page #topFrame .point{
+	width: 33.3%;
+	float: left;
+}
+.diyShow_page #topFrame .pic{
+	width: 108px;
+	height: 108px;
+	margin: auto;
+	border-radius: 10px;
+	margin-top: 29px;
+}
+.diyShow_page #topFrame .name{
+	color: #000;
+	text-align: center;
+	font-size: 26px;
+	margin-top: 23px;
+}
+.diyShow_page #topFrame .dsc{
+	color: #525252;
+	font-size: 23px;
+	text-align: center;
+	margin-top: 21px;
+}
+.diyShow_page .frame{
+	background-color: #fff;
+	margin-top: 20px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+}
+.diyShow_page .frame .title{
+	color: #111;
+	float: left;
+	font-size: 30px;
+	margin-left: 20px;
+}
+.diyShow_page .frame .more{
+	color: #3168b4;
+	float: right;
+	margin-right: 20px;
+	font-size: 24px;
+}
+.diyShow_page #face .point{
+	width: 50%;
+	float: left;
+}
+.diyShow_page #face .pic{
+	width: 345px;
+	height: 200px;
+	border-radius: 20px;
+	margin: auto;
+	margin-top: 26px;
+}
+.diyShow_page #face .name{
+	color: #2d2d2d;
+	font-size: 22px;
+	text-align: center;
+	margin-top: 19px;
+}
+.diyShow_page #pao .point,.diyShow_page #font .point{
+	width: 50%;
+	float: left;
+}
+.diyShow_page #pao .pic,.diyShow_page #font .pic{
+	width: 345px;
+	height: 200px;
+	border-radius: 20px;
+	margin: auto;
+	margin-top: 26px;
+}
+.diyShow_page #redpackage .point,.diyShow_page #style .point{
+	width: 33.3%;
+	float: left;
+}
+.diyShow_page #style .point{
+	height: 325px;
+}
+.diyShow_page #redpackage .pic,.diyShow_page #style .pic{
+	width: 230px;
+	height: 262px;
+	border-radius: 20px;
+	margin: auto;
+	margin-top: 26px;
+}
+.diyShow_page #redpackage .name,.diyShow_page #style .name{
+	color: #2d2d2d;
+	font-size: 22px;
+	text-align: center;
+	margin-top: 19px;
+}

@@ -1,0 +1,109 @@
+<script type="text/x-template" id="zone_page">
+<div class="zone_page">
+	<div class="head_module">
+
+		<div class="left">
+			<div class="backIcon"></div>
+			<div class="leftText">返回</div>
+			<div class="clear"></div>
+		</div>
+		<div class="center">
+		<div class="title">好友动态</div>
+		</div>
+		<div class="right">
+			<div class="rightIcon addB"></div>
+		<div class="clear"></div>
+		</div>
+	</div>
+	<div id="zoneMain">
+		<div id="zoneRoll">
+			<div id="zoneTopFrame" style="background-image:url(<%= data.bg %>)">
+				<div id="zoneHeadFrame">
+					<div class="zoneIcon headBg"></div>
+					<img src="<%= data.icon %>" class="head"/>
+					<div class="zoneIcon headFont"></div>
+				</div>
+				<div class="zoneIcon view"></div>
+				<div class="starFrame">
+					<% if(data.step&&data.step.length){
+						_.each(data.step,function(step){ %>
+						<div class="zoneIcon <%= step %>"></div>
+					<%	})
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="zoneTextFrame">
+					<div class="text">今日访客 <span class="yellow"><%= data.readedNum %></span></div>
+					<div class="text">总浏览量 <span class="yellow"><%= data.totalReadedNum %></span></div>
+				</div>
+				<div id="zoneNavFrame">
+					<div class="nav" id="album">相册</div>
+					<div class="line"></div>
+					<div class="nav" id="say">说说</div>
+					<div class="line"></div>
+					<div class="nav" id="diy">个性化</div>
+					<div class="line"></div>
+					<div class="nav" id="aboutMe">@ 与我相关</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div id="zoneBottomFrame">
+				<div id="talkButton">说点什么吧</div>
+				<div id="picButton">
+					<div class="zoneIcon pic"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+					<div class="zone_module">
+						<div class="top">
+							<img src="<%= point.icon %>"/>
+							<div class="name"><%= point.name %></div>
+							<div class="time"><%= point.time %></div>
+						</div>
+						<div class="middle">
+							<div class="text"><%= point.text %></div>
+							<div class="picFrame">
+							<% if(point.pic&&point.pic.length){
+								_.each(point.pic,function(pic){ %>
+								<img src="<%= pic.src %>" class="pic"/>
+							<%	})
+							} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="bottom">
+							<div class="zoneIcon copyButton"></div>
+							<div class="zoneIcon talkButton"></div>
+							<div class="zoneIcon praiseButton"></div>
+							<div class="clear"></div>
+							<div class="readed">
+								<div class="zoneIcon read"></div>
+								<div class="readNumber">浏览<%= point.readed %>次</div>
+								<div class="clear"></div>
+							</div>
+							<div class="praised">
+								<div class="zoneIcon praise"></div>
+								<% if(point.praise&&point.praise.length){
+									_.each(point.praise,function(praise){ %>
+										<div class="praiseName"><%= praise %></div>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div class="talkFrame">
+								<input placeholder="我也来说一句"/>
+								<div class="line"></div>
+								<div class="zoneIcon face"></div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+

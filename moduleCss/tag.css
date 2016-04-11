@@ -1,0 +1,82 @@
+.tag_module{
+	border-top: 1px solid #dedfe0;
+	border-bottom:1px solid #dedfe0;
+	margin-top: 40px;
+	background-color:#fff; 
+}
+.tag_module .tagPoint{
+	height: 87px;
+}
+.tag_module .left{
+	float: left;
+	margin-top: 24px;
+	margin-left: 30px;
+}
+.tag_module .right{
+	float: left;
+	margin-left: 37px;
+	height: 87px;
+	border-bottom:1px solid #dedfe0;
+	width: 624px;
+	position: relative;
+}
+.tag_module .title{
+	font-size: 33px;
+	color: #000;
+	position: absolute;
+	top:20px;
+	left: 3px;
+}
+.tag_module .icon{
+	position: absolute;
+	top:30px;
+	right: 30px;
+}
+.tag_module.tagM_module .tagPoint{
+	height: 120px;
+}
+.tag_module.tagM_module .left{
+	margin-left: 37px;
+	margin-top: 40px;
+}
+.tag_module.tagM_module .right{
+	height: 120px;
+}
+.tag_module.tagM_module .icon{
+	top:45px;
+}
+.tag_module.tagM_module .title{
+	top:28px;
+}
+.tag_module.tagM_module .dsc{
+	position: relative;
+	top:76px;
+	left: 3px;
+	color: #999999;
+}
+.tag_module.tagL_module .tagPoint{
+	height: 132px;
+}
+.tag_module.tagL_module .left{
+	margin-left: 29px;
+	margin-top: 14px;
+}
+.tag_module.tagL_module .right{
+	margin-left: 33px;
+	width: 588px;
+	height: 132px;
+}
+.tag_module.tagL_module .title{
+	line-height: 132px;
+	top:0px;
+}
+.tag_module.tagL_module .icon{
+	top:55px;
+}
+.tag_module.tagNoLeft_module .right{
+	width: 100%;
+	margin-left:0px;
+}
+.tag_module.tagNoLeft_module .right .title{
+	left: 35px;
+}

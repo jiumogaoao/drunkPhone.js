@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+.actionList_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #f7f7f8;
+}
+.actionList_page #search{
+	margin: auto;
+	margin-top:16px;
+}
+.actionList_page #actionListFrame{
+	position: absolute;
+	top:274px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.actionList_page #listFrameRoll{
+	position: absolute;
+	left: 0px;
+	right:0px;
+	top:0px;
+}
+.actionList_page #topFrame{
+	width: 100%;
+	height: 258px;
+	background-color: #fff;
+	border-bottom: 1px solid #dedfe0;
+}
+.actionList_page .linkNavPoint{
+	width: 33.33%;
+	float: left;
+}
+.actionList_page .linkNavPoint .icon{
+	margin: auto;
+	margin-top: 38px;
+	height: 66px;
+}
+.actionList_page .linkNavPoint .name{
+	text-align: center;
+	margin-top: 16px;
+	font-size: 26px;
+	color: #000;
+}
+.actionList_page #sideHandle{
+	position: absolute;
+	top:0px;
+	bottom: 0px;
+	left: 0px;
+	width: 80px;
+	z-index: 90;
+}

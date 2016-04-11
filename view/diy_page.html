@@ -1,0 +1,75 @@
+<script type="text/x-template" id="diy_page">
+	<div class="diy_page">
+		<div id="diyMain">
+			<div id="diyRoll">
+				<div class="banner_module">
+					<div class="roll">
+						<% if(data.banner&&data.banner.length){
+							_.each(data.banner,function(banner){ %>
+							<img src="<%= banner.pic %>" class="pic"/>
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+					<div class="pointFrame">
+						<% if(data.banner&&data.banner.length){
+							_.each(data.banner,function(banner){ %>
+							<div class="point hl"></div>
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="topFrame">
+					<% if(data.top&&data.top.length){
+						_.each(data.top,function(top){ %>
+							<div class="topPoint">
+								<img src="<%= top.icon %>" class="pic"/>
+								<div class="topName"><%= top.name %></div>
+							</div>
+					<% })
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="lageFrame">
+					<div class="title">背景商城</div>
+					<div class="dsc"><%= data.bgText %></div>
+					<img src="<%= data.bgPic %>" class="pic"/>
+				</div>
+				<div id="centerFrame">
+					<% if(data.diy&&data.diy.length){
+						_.each(data.diy,function(diy){ %>
+							<div class="diyPoint" style="border-right:1px solid #e9e9e9;">
+								<div class="title"><%= diy.title %></div>
+								<div class="dsc"><%= diy.dsc %></div>
+								<img src="<%= diy.icon %>" class="pic"/>
+							</div>
+					<% })
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="bottomFrame">
+					<div id="bottomLeft" style="border-right:1px solid #e9e9e9;">
+						<div class="title"><%= data.bottom[0].title %></div>
+						<div class="dsc"><%= data.bottom[0].dsc %></div>
+						<img src="<%= data.bottom[0].icon %>" class="pic"/>
+					</div>
+					<div id="bottomRight">
+						<div class="diyPoint" style="border-bottom:1px solid #e9e9e9;">
+							<div class="title"><%= data.bottom[1].title %></div>
+							<div class="dsc"><%= data.bottom[1].dsc %></div>
+							<img src="<%= data.bottom[1].icon %>" class="pic"/>
+						</div>
+						<div class="diyPoint">
+							<div class="title"><%= data.bottom[2].title %></div>
+							<div class="dsc"><%= data.bottom[2].dsc %></div>
+							<img src="<%= data.bottom[2].icon %>" class="pic"/>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+						
+	</div>
+</script>

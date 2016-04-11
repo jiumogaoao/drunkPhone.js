@@ -1,0 +1,109 @@
+<script type="text/x-template" id="vip_page">
+<div class="vip_page">
+	<div id="vipMain">
+		<div id="vipRoll">
+			<img src="img/head.jpg" id="topPic"/>
+			<div id="topFrame">
+				<div class="title">生活福利</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<div id="topFrameMain">
+				<% if(data.top&&data.top.length){
+					_.each(data.top,function(point){ %>
+						<img src="<%= point.src %>" class="point"/>
+				<%	})
+				} %>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="title">游戏特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.game&&data.game.length){
+					_.each(data.game,function(point){ %>
+						<div class="list_module listXL_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+				<%	})
+				} %>
+			</div>
+			<div class="frame">
+				<div class="title">功能特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.function&&data.function.length){
+					_.each(data.function,function(point){ %>
+						<div class="list_module listXL_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+				<%	})
+				} %>
+			</div>
+			<div class="frame" id="style">
+				<div class="title">装扮特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.style.top&&data.style.top.length){
+					_.each(data.style.top,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="pic"/>
+							<div class="dsc"><%= point.type %><img src="img/vipTag.png" class="vipTag"/></div>
+							<div class="name"><%= point.name %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+				<% if(data.style.bottom&&data.style.bottom.length){
+					_.each(data.style.bottom,function(point){ %>
+						<img class="point2" src="<%= point.src %>"/>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="button_module buttonL_module buttonYellow_module" id="Send">开通超级会员</div>
+			<div class="frame">
+				<div class="title">精彩活动</div>
+				<div class="clear"></div>
+				<div id="bottomBanner">
+					<div id="bottomBannerRoll">
+						<% if(data.bottom&&data.bottom.length){
+							_.each(data.bottom,function(point){ %>
+								<img src="<%= point %>" class="pic"/>
+						<%	})
+						} %>
+						<div class="clear"></div>
+					</div>
+					<div id="pointFrame">
+						<% if(data.bottom&&data.bottom.length){
+							_.each(data.bottom,function(point){ %>
+								<div class="point"></div>
+						<%	})
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="bottomNav">年费</div>
+				<div class="bottomNav">动漫</div>
+				<div class="bottomNav">积分</div>
+				<div class="bottomNav">兑换</div>
+				<div class="clear"></div>
+			</div>
+			<div class="text_module textGay_module textS_module">Copyright @ 1998-2016 jiumogaoao,All Rights Reserved.</div>
+			<div class="text_module textGay_module textS_module">傲漫国际 版权所有</div>
+		</div>
+	</div>
+</div>
+</script>
+

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+.messageList_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.messageList_page #search{
+	margin: auto;
+	margin-top:16px;
+}
+.messageList_page #listFrame{
+	position: absolute;
+	top:90px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.messageList_page #listFrameRoll{
+	position: absolute;
+	left: 0px;
+	right:0px;
+	top:0px;
+}
+.messageList_page #sideHandle{
+	position: absolute;
+	top:0px;
+	bottom: 0px;
+	left: 0px;
+	width: 80px;
+	z-index: 90;
+}

@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+.albumDetail_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.albumDetail_page #albumDetailMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.albumDetail_page #albumDetailRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.albumDetail_page .head_module{
+	background-color: rgba(18,183,245,0);
+}
+.albumDetail_page .albumTop{
+	width: 100%;
+	height: 520px;
+	background-repeat: round;
+    position: relative;
+}
+.albumDetail_page .mask{
+	background-color: rgba(0,0,0,0.2);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.albumDetail_page .name{
+	font-size: 36px;
+	color: #fff;
+	text-align: center;
+	padding-top: 235px;
+	position: relative;
+	z-index: 2;
+}
+.albumDetail_page .topBottom{
+	position: absolute;
+	right:24px;
+	bottom:26px;
+	z-index: 2;
+}
+.albumDetail_page .topBottom .point{
+	float: left;
+	margin-left: 45px;
+}
+.albumDetail_page .topBottom .icon{
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+.albumDetail_page .topBottom .number{
+	float: left;
+	color: #fff;
+	font-size: 20px;
+	margin-left: 10px;
+}
+.albumDetail_page .button_module{
+	margin: auto;
+	margin-top: 40px;
+	position: relative;
+}
+.albumDetail_page #addPic{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	opacity: 0;
+}

@@ -1,0 +1,39 @@
+.myDetail_foot{
+    width: 100%;
+    height: 112px;
+    background-color:#f7f7f7; 
+    border-top:1px solid #cccccc;
+}
+.myDetail_foot #edit{
+    width: 344px;
+    height: 88px;
+    text-align: center;
+    line-height: 86px;
+    font-size: 30px;
+    color: #00a5e0;
+    border-radius: 20px;
+    background-color: #fdfdfd;
+    border:1px solid #cbcdcd;
+    position: absolute;
+    top:12px;
+    left: 20px;
+}
+.myDetail_foot #diy{
+    width: 344px;
+    height: 88px;
+    text-align: center;
+    line-height: 86px;
+    font-size: 30px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: #1db9f2;
+    border:1px solid #1db9f2;
+    position: absolute;
+    top:12px;
+    right: 20px;
+}
+.myDetail_foot .button_module{
+    margin: auto;
+    position: relative;
+    top:12px;
+}

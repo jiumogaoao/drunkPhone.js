@@ -1,0 +1,27 @@
+<script type="text/x-template" id="public_page">
+<div class="public_page">
+				<img src="img/searchButton.png" class="searchButton" id="search"/>
+				<div id="publicMain">
+					<div id="publicRoll">
+					<% if(data.group&&data.group.length){
+						_.each(data.group,function(group){ %>
+							<div class="text_module listTitle textGay_module"><%= group.title %></div>
+							<% if(group.list&&group.list.length){
+								_.each(group.list,function(point){ %>
+								<div class="list_module listS_module">
+									<img class="left" src="<%= point.icon %>"/>
+									<div class="right">
+										<div class="title"><%= point.name %></div>
+										<div class="dsc"><%= point.dsc %></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+							<%	})
+							} %>
+					<%	})
+					} %>
+					</div>
+				</div>
+</div>
+</script>
+

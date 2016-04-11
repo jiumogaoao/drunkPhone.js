@@ -1,0 +1,26 @@
+.picList_module{
+	width: 100%;
+}
+.picList_module .group{
+	width: 100%;
+	margin-top: 60px;
+}
+.picList_module .title{
+	font-size: 32px;
+	text-indent: 20px;
+	color: #000;
+	margin-bottom: 25px;
+}
+.picList_module .list{
+	width: 100%;
+}
+.picList_module .list .point{
+	width: 25%;
+	float: left;
+	margin-bottom: 4px;
+}
+.picList_module .list .point img{
+	width: 184px;
+	height: 184px;
+	margin:auto;
+}

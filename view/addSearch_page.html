@@ -1,0 +1,60 @@
+<script type="text/x-template" id="addSearch_page">
+<div class="addSearch_page">
+	<img id="search" src="img/searchMButton.png"/>
+	<div class="text_module" id="back">取消</div>
+	<div class="clear"></div>
+	<div id="addSearchMain">
+		<div id="addSearchRoll">
+		<% if(data.group&&data.group.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">群</div>
+				<% _.each(data.group,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="0">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+			<% if(data.man&&data.man.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">人</div>
+				<% _.each(data.man,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="1">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+			<% if(data.publics&&data.publics.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">公众号</div>
+				<% _.each(data.publics,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="2">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+</script>
+

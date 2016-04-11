@@ -1,0 +1,105 @@
+<script type="text/x-template" id="myDetail_page">
+<div class="myDetail_page">
+	<div class="head_module buttonTitleButton_head">
+				<div class="left">
+					<div class="backIcon"></div>
+					<div class="leftText">返回</div>
+					<div class="clear"></div>
+				</div>
+				<div class="center">
+					<div class="title">我的资料</div>
+				</div>
+				<div class="right">
+				<div class="rightButton">更多</div>
+				</div>
+	</div>
+	<div id="myDetailMain">
+		<div id="myDetailRoll">
+			<img src="<%= data.base.background %>" id="bg"/>
+			<input id="bgInput" type="file"/>
+			<img id="play" src="img/play.png"/>
+			<div id="priseFrame">
+				<img src="img/prise.png"/>
+				<div id="priseNum"><%= data.base.prise %></div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="base">
+				<div class="left">
+					<img src="<%= data.base.icon %>"/>
+					<input id="iconInput" type="file"/>
+				</div>
+				<div class="right">
+					<div class="name"><%= data.base.name %></div>
+					<div class="dsc"><%= (data.base.sex?"男":"女") %> <%= data.base.age %>岁 <%= data.base.province %> <%= data.base.city %></div>
+					<div class="vipFrame">
+						<img src="<%= data.base.daren %>"/>
+						<div class="vipNum"><%= data.base.vipTime %></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="host">
+				<div class="left">
+					账号信息
+				</div>
+				<div class="right">
+					<div class="name"><%= data.base.id %></div>
+					<img src="<%= data.base.lian %>" class="lian"/>
+					<img src="<%= data.base.vipType %>" class="vip"/>
+					<div class="clear"></div>
+					<% _.each(data.base.step,function(step){ %>
+						<div class="step <%= step %>"></div>
+					<% }) %>
+					<div class="speed"><%= data.base.stepSpeed %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="sign">
+				<div class="left">个性签名</div>
+				<div class="right">
+					<div class="dsc"><%= data.base.mood %></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="server">
+				<div class="left">专享特权</div>
+				<div class="right">
+					<img src="img/QG.png" class="point"/>
+					<img src="img/hz.png" class="point"/>
+					<img src="img/lz.png" class="point"/>
+					<img src="img/sz.png" class="point"/>
+					<img src="img/vq.png" class="point"/>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="zone">
+				<div class="left">QQ空间</div>
+				<div class="right">
+					<div class="dsc"><%= data.base.zoneName %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="mine">
+				<% if(data.mine&&data.mine.length){
+					_.each(data.mine,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="icon"/>
+							<div class="name"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div> 
+</div>
+</script>

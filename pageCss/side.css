@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+.side_tem{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-image: url(../img/sideBG.jpg);
+	background-repeat: round;
+}
+.side_tem .head{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	position: absolute;
+	top:136px;
+	left: 52px;
+}
+.side_tem .name{
+	font-size: 34px;
+	color: #000;
+	position: absolute;
+	top:152px;
+	left: 172px;
+}
+.side_tem .stepFrame{
+	position: absolute;
+	top:201px;
+	left: 172px;
+}
+.side_tem .step{
+	width: 30px;
+	height: 30px;
+	background-image: url("../img/star.png");
+	float: left;
+	margin-right: 4px;
+}
+.side_tem .step.sun{
+	background-position: 0px 0px;
+}
+.side_tem .step.moon{
+	background-position: 0px -46px;
+}
+.side_tem .step.star{
+	background-position: 0px -93px;
+}
+.side_tem .dsc{
+	font-size: 26px;
+	color: #767676;
+	position: absolute;
+	top:254px;
+	left:54px;
+}
+.side_tem .ercode{
+	position: absolute;
+	top:146px;
+	right: 37px;
+}
+.side_tem .list{
+	position: absolute;
+	left: 60px;
+	top:460px;
+}
+.side_tem .point{
+	margin-bottom: 50px;
+}
+.side_tem .point .icon{
+	float: left;
+}
+.side_tem .point .label{
+	float: left;
+	font-size: 32px;
+	margin-left: 28px;
+	color: #fff;
+}
+.side_tem .set img,.side_tem .night img{
+	float: left;
+}
+.side_tem .set .label,.side_tem .night .label{
+	float: left;
+	margin-left: 9px;
+	color: #fff;
+	font-size: 26px;
+}
+.side_tem .set{
+	position: absolute;
+	left:56px;
+	bottom:30px;
+}
+.side_tem .night{
+	position: absolute;
+	left:266px;
+	bottom:30px;
+}
+.side_tem .place{
+	color: #fff;
+	font-size: 26px;
+	position: absolute;
+	right:76px;
+	bottom:30px;
+}
+.side_tem .temperature{
+	font-size: 56px;
+	color: #fff;
+	position: absolute;
+	right: 16px;
+	font-family: cursive;
+	bottom: 52px;
+}

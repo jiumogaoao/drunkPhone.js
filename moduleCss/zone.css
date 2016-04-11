@@ -1,0 +1,226 @@
+.zoneIcon{
+	background-image: url(../img/zone.png);
+	background-repeat: no-repeat;
+}
+.zoneIcon.view{
+	width: 63px;
+    height: 63px;
+    background-position: -3px -435px;
+}
+.zoneIcon.headBg{
+	width: 135px;
+    height: 35px;
+    background-position: 0px -78px;
+}
+.zoneIcon.headFont{
+	width: 100px;
+    height: 37px;
+    background-position: -11px -125px;
+}
+.zoneIcon.star{
+	width: 13px;
+    height: 13px;
+    background-position: -14px -172px;
+}
+.zoneIcon.pic{
+	width: 45px;
+    height: 40px;
+    background-position: -87px -177px;
+}
+.zoneIcon.add{
+	width: 55px;
+    height: 56px;
+    background-position: -6px -5px;
+}
+.zoneIcon.addB{
+    width: 55px;
+    height: 56px;
+    background-position: -79px -7px;
+}
+.zoneIcon.copyButton{
+    width: 100px;
+    height: 50px;
+    background-position: -6px -241px;
+}
+.zoneIcon.praiseButton{
+    width: 100px;
+    height: 50px;
+    background-position: -6px -307px;
+}
+.zoneIcon.talkButton{
+    width: 100px;
+    height: 50px;
+    background-position: -6px -376px;
+}
+.zoneIcon.read{
+    width: 30px;
+    height: 22px;
+    background-position: -40px -208px;
+}
+.zoneIcon.praise{
+    width: 31px;
+    height: 29px;
+    background-position: -68px -472px;
+}
+.zoneIcon.face{
+    width: 41px;
+    height: 38px;
+    background-position: -90px -436px;
+}
+.zoneIcon.remove{
+    width: 27px;
+    height: 34px;
+    background-position: -109px -348px;
+}
+.zone_module{
+    background-color: #fff;
+    margin-top: 29px;
+    border-bottom: 1px solid #cfcfcf;
+    width: 100%;
+    padding-bottom: 30px;
+    position: relative;
+}
+.zone_module .answer{
+    font-size: 27px;
+    color: #295998;
+    position: absolute;
+    top:47px;
+    right: 25px;
+}
+.zone_module .remove{
+    position: absolute;
+    top:44px;
+    right: 38px;
+}
+.zone_module .top{
+    width: 100%;
+    height: 146px;
+    position: relative;
+}
+.zone_module .top img{
+    width: 74px;
+    height: 74px;
+    border-radius: 74px;
+    position: absolute;
+    top:40px;
+    left: 22px;
+}
+.zone_module .top .name{
+    font-size: 30px;
+    color:#2d2d2d;
+    position: absolute;
+    top:43px;
+    left: 114px;
+}
+.zone_module .top .time{
+    font-size: 24px;
+    color: #888888;
+    position: absolute;
+    top:87px;
+    left: 114px;
+}
+.zone_module .middle{
+    width: 705px;
+    margin:auto;
+}
+.zone_module .middle .text{
+    font-size: 30px;
+    color: #424242;
+    line-height: 45px;
+}
+.zone_module .middle .picFrame{
+    width: 717px;
+    position: relative;
+    left: -3px;
+}
+.zone_module .middle .pic{
+    float: left;
+    width: 233px;
+    height: 233px;
+    margin-right:6px; 
+    margin-top: 20px;
+}
+.zone_module .middle .share{
+    width:706px;
+    height: 165px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #f8f8f8;
+}
+.zone_module .middle .sharePic{
+    float: left;
+    width:165px;
+    height: 165px;
+}
+.zone_module .middle .shareTitle{
+    float: left;
+    line-height: 165px;
+    margin-left: 40px;
+    font-size: 26px;
+}
+.zone_module .bottom{
+    margin: auto;
+    margin-top: 20px;
+    width: 705px;
+}
+.zone_module .bottom .copyButton{
+    float: left;
+}
+.zone_module .bottom .talkButton{
+    float: right;
+}
+.zone_module .bottom .praiseButton{
+    float: right;
+    margin-right: 24px;
+}
+.zone_module .bottom .zoneIcon.read{
+    float: left;
+}
+.zone_module .bottom .zoneIcon.praise{
+    float: left;
+}
+.zone_module .bottom .readed,.zone_module .bottom .praised{
+    margin-top: 30px;
+}
+.zone_module .bottom .readNumber{
+    float: left;
+    margin-left: 20px;
+    color: #305e9b;
+    line-height: 20px;
+}
+.zone_module .bottom .praiseName{
+    float: left;
+    margin-left: 20px;
+    color: #305e9b;
+    line-height: 29px;
+}
+.zone_module .bottom .talkFrame{
+    margin: auto;
+    margin-top: 30px;
+    width: 710px;
+    height: 56px;
+    border:1px solid #c6c6c6;
+    border-radius: 10px; 
+}
+.zone_module .bottom .talkFrame input{
+    display: block;
+    width: 641px;
+    height: 54px;
+    line-height: 54px;
+    text-indent: 20px;
+    color: #464748;
+    font-size: 28px;
+    float: left;
+}
+.zone_module .bottom .line{
+    float: left;
+    width: 2px;
+    height: 34px;
+    background-color: #cfcfcf;
+    margin-top: 10px;
+}
+.zone_module .bottom .zoneIcon.face{
+    float: left;
+    margin-top: 7px;
+    margin-left: 13px;
+}

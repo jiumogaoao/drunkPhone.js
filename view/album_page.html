@@ -1,0 +1,23 @@
+<script type="text/x-template" id="album_page">
+<div class="album_page">
+	<div id="albumMain">
+		<div id="albumRoll">
+			<div class="album_point" id="new"></div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(album){ %>
+				<div class="album_point album" pid="<%= album.id %>">
+					<img src="<% if(album.icon){print(album.icon)}else if(album.list.length){print(album.list[0].src)}else{print('img/head.jpg')} %>"/>
+					<div class="clear"></div>
+					<div class="title"><%= album.name %></div>
+					<div class="num"><%= album.count %></div>
+					<div class="clear"></div>
+				</div>
+			<% })
+			} %>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+</div>
+</script>
+

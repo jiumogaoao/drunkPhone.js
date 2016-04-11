@@ -1,0 +1,63 @@
+<script type="text/x-template" id="side_tem">
+<div class="side_tem">
+	<img src="<%= data.icon %>" class="head"/>
+	<div class="name" id="myDetail"><%= data.name %></div>
+	<div class="stepFrame">
+		<% if(data.step&&data.step.length){
+			_.each(data.step,function(step){ %>
+				<div class="step <%= step %>"></div>	
+		<%	})
+		} %>
+		<div class="clear"></div>
+	</div>
+	<div class="dsc">
+		<%= data.dsc %>
+	</div>
+	<img class="ercode" src="<%= data.ercode %>"/>
+	<div class="list">
+		<div class="point" id="vip">
+			<img src="img/vip.png" class="icon"/>
+			<div class="label">开通会员</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="money">
+			<img src="img/package.png" class="icon"/>
+			<div class="label">QQ钱包</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="diyShow">
+			<img src="img/diy.png" class="icon"/>
+			<div class="label">个性装扮</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="collect">
+			<img src="img/collect.png" class="icon"/>
+			<div class="label">我的收藏</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="album">
+			<img src="img/album.png" class="icon"/>
+			<div class="label">我的相册</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="file">
+			<img src="img/file.png" class="icon"/>
+			<div class="label">我的文件</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="temperature">19°</div>
+	<div class="set" id="set">
+		<img src="img/set.png"/>
+		<div class="label">设置</div>
+		<div class="clear"></div>
+	</div>
+	<div class="night">
+		<img src="img/night.png"/>
+		<div class="label">夜间</div>
+		<div class="clear"></div>
+	</div>
+	<div class="place"><%= data.place %></div>
+</div>
+</script>
+

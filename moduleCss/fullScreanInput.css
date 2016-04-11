@@ -1,0 +1,25 @@
+.fullScreanInput_module{
+	background-color: #f9fafb;
+	height: 89px;
+	width: 100%;
+	position: relative;
+}
+.fullScreanInput_module input{
+	height: 89px;
+	width: 100%;
+	text-align: center;
+	color: #464748;
+	font-size: 28px;
+}
+.fullScreanInput_module.search .searchIcon{
+	width: 28px;
+	height: 28px;
+	background-image: url(../img/search.png);
+	position: absolute;
+	top:30px;
+	left: 35px;
+}
+.fullScreanInput_module.search input{
+	text-indent: 90px;
+	text-align: left;
+}

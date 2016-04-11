@@ -1,0 +1,344 @@
+<script type="text/x-template" id="interest_page">
+<div class="interest_page">
+	<div class="nav_module">
+		<div class="nav_point hl" num="0">兴趣圈</div>
+		<div class="nav_point" num="1">最近</div>
+		<div class="nav_point" num="2">排行</div>
+		<div class="nav_point" num="3">发现</div>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div id="interestMain">
+		<div id="interestRoll">
+			<div class="subPage">
+				<div id="interestGroup">
+					<div class="subRoll">
+						<img src="img/groupNew.jpg" id="groupNew"/>
+						<div id="title">
+							<div id="titleMain">你可能感兴趣的部落</div>
+						</div>
+						<div class="groupList">
+						<% if(data.interest&&data.interest.length){
+							_.each(data.interest,function(point){ %>
+							<div class="groupPoint">
+								<img src="<%= point.icon %>" class="head"/>
+								<div class="name"><%= point.name %></div>
+								<div class="select_module selectRadio_module selectRadioBG_module"></div>
+							</div>
+						<%	})
+						} %>
+							<div class="clear"></div>
+						</div>
+						<div class="button_module buttonL_module buttonGay_module" id="Send">立即关注</div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="nearest">
+					<div class="subRoll">
+						<div id="topFrame">
+							<img id="topLeft" src="<%= data.nearest.icon %>"/>
+							<div id="topRight">
+								<% if(data.nearest.top&&data.nearest.top.length){
+									_.each(data.nearest.top,function(point){ %>
+										<div class="topPoint">
+											<div class="number"><%= point.num %></div>
+											<div class="name"><%= point.name %></div>
+										</div>
+							    <%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="listGroup">
+							<% if(data.nearest.middle&&data.nearest.middle.length){
+								_.each(data.nearest.middle,function(point){ %>
+									<div class="list_module listXXS_module listSingle_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<img src="img/tag.png" class="tag"/>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							} %>
+						</div>
+						<div class="text_module textGay_module listTitle">最近访问</div>
+							<% if(data.nearest.newest&&data.nearest.newest.length){
+								_.each(data.nearest.newest,function(point){ %>
+									<div class="list_module listXL_module listM_module">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+											<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							}else{ %>
+								<img src="img/nearestVisit.jpg" id="nearestVisit"/>
+							<%	} %>
+							<div class="text_module textGay_module listTitle">推荐部落
+								<div class="text_module nearestTitleButton">更多 &gt;</div>
+							</div>
+							<% if(data.nearest.recommend&&data.nearest.recommend.length){
+								_.each(data.nearest.recommend,function(point){ %>
+									<div class="list_module listXL_module listM_module">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+											<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							}else{ %>
+								<img src="img/nearestVisit.jpg" id="nearestVisit"/>
+							<%	} %>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="order">
+					<div id="orderLeft">
+						<div class="subRoll">
+							<% if(data.order.group&&data.order.group.length){
+								_.each(data.order.group,function(group){ %>
+									<div class="orderType"><%= group.title %></div>
+							<% })
+							} %>
+						</div>
+					</div>
+					<div id="orderRight">
+						<div class="subRoll">
+							<img src="<%= data.order.banner %>" id="orderBanner"/>
+							<% if(data.order.list&&data.order.list.length){
+								_.each(data.order.list,function(point){ %>
+								<div class="list_module listXL_module listM_module">
+									<img class="left" src="<%= point.icon %>"/>
+									<div class="right">
+										<div class="title"><%= point.name %></div>
+										<div class="dsc"><%= point.dsc %></div>
+										<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+									</div>
+									<div class="clear"></div>
+								</div>
+							<%	})
+							} %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="found">
+					<div class="subRoll">
+						<div id="foundBannerFrame">
+							<div id="foundBannerRoll">
+								<% if(data.found.banner&&data.found.banner.length){
+									_.each(data.found.banner,function(point){ %>
+									<img src="<%= point %>" class="foundBannerPic"/>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div id="foundBannerPointFrame">
+								<% if(data.found.banner&&data.found.banner.length){
+									_.each(data.found.banner,function(point){ %>
+									<div class="foundBannerPoint"></div>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div id="foundTopFrame">
+							<% if(data.found.top&&data.found.top.length){
+								_.each(data.found.top,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+							} %>
+							
+						</div>
+						<div id="foundCenterFrame">
+							<% if(data.found.center&&data.found.center.length){
+								_.each(data.found.center,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+							} %>
+						</div>
+						<div class="foundOldGroup">
+							<% if(data.found.old&&data.found.old.length){
+								_.each(data.found.old,function(old){ %>
+								<div class="timeFrame">
+									<div class="time">往期精彩 第<%= old.num %>期</div>
+								</div>
+							<% _.each(old.group,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+								})
+							} %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</script>

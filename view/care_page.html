@@ -1,0 +1,23 @@
+<script type="text/x-template" id="care_page">
+<div class="care_page">
+	<div id="careMain">
+		<div id="careRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+						<div class="list_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+		<%	})
+		} %>
+			
+			<div class="text_module" id="send">添加特别关心好友</div>	
+		</div>
+	</div>
+					
+</div>
+</script>

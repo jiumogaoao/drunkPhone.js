@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+.lastest_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.lastest_page #lastestMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.lastest_page #lastestRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.lastest_page .lastestGroup .year{
+	width: 100%;
+	height: 2px;
+	background-color: #eeeeee;
+	position: relative;
+	margin-top: 35px;
+}
+.lastest_page .lastestGroup .year .number{
+	width: 112px;
+	height: 18px;
+	font-size: 18px;
+	color: #bbbbbb;
+	background-color: #fff;
+	position: absolute;
+	top:-10px;
+	left: 318px;
+	text-align: center;
+}
+.lastest_page .lastestPoint{
+	width: 100%;
+	margin-top: 40px;
+	height: 184px;
+	position: relative;
+}
+.lastest_page .lastestPoint .date{
+	font-size: 28px;
+	color: #000;
+	position: absolute;
+	top:9px;
+	left: 27px;
+}
+.lastest_page .lastestPoint .picFrame{
+	position: absolute;
+	top:0px;
+	left: 186px;
+	width: 186px;
+	height: 184px;
+}
+.lastest_page .lastestPoint .picFour{
+	width: 90px;
+	height: 90px;
+	position: absolute;
+}
+.lastest_page .lastestPoint .picFour.lt{
+	top:0px;
+	left: 0px;
+}
+.lastest_page .lastestPoint .picFour.rt{
+	top:0px;
+	right: 0px;
+}
+.lastest_page .lastestPoint .picFour.lb{
+	bottom:0px;
+	left: 0px;
+}
+.lastest_page .lastestPoint .picFour.rb{
+	bottom:0px;
+	right: 0px;
+}
+.lastest_page .lastestPoint .right{
+	position: absolute;
+	top:10px;
+	left: 395px;
+}
+.lastest_page .lastestPoint .right .title{
+	font-size: 28px;
+	color: #000;
+}
+.lastest_page .lastestPoint .right .dsc{
+	font-size: 26px;
+	color: #787878;
+	margin-top: 28px;
+}
+.lastest_page .lastestPoint .right .picNum{
+	font-size: 22px;
+	color: #bfbfbf;
+	position: absolute;
+	top:142px;
+	left: 0px;
+}

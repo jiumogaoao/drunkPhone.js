@@ -1,0 +1,33 @@
+<script type="text/x-template" id="collect_page">
+<div class="collect_page">
+	<div id="collectMain">
+		<div id="collectRoll">
+			<img id="search" src="img/searchMButton.png"/>
+			<div class="text_module" id="edit">编辑</div>
+			<div class="clear"></div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+						<div class="point">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="name"><%= point.name %></div>
+								<div class="time"><%= point.time %></div>
+								<div class="clear"></div>
+							<% if(point.pic&&point.pic.length){
+									_.each(point.pic,function(pic){ %>
+										<img class="pic" src="<%= pic.src %>"/>
+									<% })
+								} %>
+							<% if(point.text){ %>
+									<div class="text"><%= point.text %></div>
+							<% } %>
+							</div>
+							<div class="clear"></div>
+						</div>	
+			<%  })
+			} %>
+		</div>
+	</div>				
+</div>
+</script>
+

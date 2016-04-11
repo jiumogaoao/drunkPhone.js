@@ -1,0 +1,229 @@
+<script type="text/x-template" id="near_page">
+<div class="near_page">
+	<div class="nav_module">
+		<div class="nav_point">附近的人</div>
+		<div class="nav_point">新鲜事</div>
+		<div class="nav_point">热聊</div>
+		<div class="nav_point">更多</div>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div id="nearMain">
+		<div id="nearRoll">
+			<div class="subPage">
+				<div id="nearMan">
+					<div id="nearManRoll">
+						<div id="topThreeFrame">
+							<img src="img/topTree.jpg" class="topThree"/>
+							<img src="<%= data.nearMan.head[0] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[1] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[2] %>" class="topThree last"/>
+							<div class="clear"></div>
+						</div>
+						<% if(data.nearMan.list&&data.nearMan.list.length){
+							_.each(data.nearMan.list,function(point){ %>
+							<div class="list_module listL_module">
+								<img class="left" src="<%= point.icon %>"/>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="request"><%= point.sex %> <%= point.age %>岁 <%= point.star %>座</div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="state"><%= point.distance %>km <%= point.time %>小时</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						<%	})
+						} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="newThink">
+					<div id="newThinkRoll">
+					<% if(data.newThink&&data.newThink.length){
+						_.each(data.newThink,function(point){ %>
+							<div class="zone_module">
+								<div class="top">
+									<img src="<%= point.icon %>"/>
+									<div class="name"><%= point.name %></div>
+									<div class="time"><%= point.time %></div>
+								</div>
+								<div class="middle">
+									<div class="text"><%= point.text %></div>
+									<div class="picFrame">
+										<% if(point.pic&&point.pic.length){
+											_.each(point.pic,function(pic){ %>
+											<img src="<%= pic.src %>" class="pic"/>
+										<%	})
+										} %>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="readed">
+										<div class="zoneIcon read"></div>
+										<div class="readNumber">浏览<%= point.readedNum %>次</div>
+										<div class="clear"></div>
+									</div>
+									<% if(point.praise&&point.praise.length){ %>
+									<div class="praised">
+										<div class="zoneIcon praise"></div>
+										<% _.each(point.praise,function(praise){ %>
+										<div class="praiseName"><%= praise %></div>
+									<%	}) %>
+										<div class="clear"></div>
+									</div>
+									<% } %>									
+								</div>
+							</div>
+					<% })
+					} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="hotTalk">
+					<div id="hotTalkRoll">
+						<div id="hotBannerFrame">
+							<div id="hotBannerRoll">
+								<% if(data.hotTalk.banner&&data.hotTalk.banner.length){
+									_.each(data.hotTalk.banner,function(point){ %>
+									<img src="<%= point %>"/>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div id="hotBannerPointFrame">
+								<% if(data.hotTalk.banner&&data.hotTalk.banner.length){
+									_.each(data.hotTalk.banner,function(point){ %>
+									<div class="hotBannerPoint"></div>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module listTitle textGay_module">语聊大厅</div>
+						<div id="roomFrame">
+							<div id="roomRoll">
+								<% if(data.hotTalk.room&&data.hotTalk.room.length){
+									_.each(data.hotTalk.room,function(point){ %>
+									<img src="<%= point.icon %>"/>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module listTitle textGay_module">公共热聊房间</div>
+						<% if(data.hotTalk.publics&&data.hotTalk.publics.length){
+							_.each(data.hotTalk.publics,function(point){ %>
+									<div class="list_module listS_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+										</div>
+										<div class="clear"></div>
+									</div>
+						<%	})
+						} %>
+						<div class="text_module listTitle textGay_module">个人热聊房间</div>
+						<% if(data.hotTalk.mine&&data.hotTalk.mine.length){
+							_.each(data.hotTalk.mine,function(point){ %>
+									<div class="list_module listS_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+										</div>
+										<div class="clear"></div>
+									</div>
+						<%	})
+						} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="more">
+					<div id="moreRoll">
+						<div class="list_module listXL_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<img class="tag" src="img/tag.png"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="tag_module tagNoLeft_module">
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">我的访客</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">我的新鲜事</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">收到的鲜花</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="listGroup">
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/friend.png"/>
+								<div class="right">
+									<div class="title">交友性格测试</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/talkRoom.png"/>
+								<div class="right">
+									<div class="title">语聊大厅</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/neargroup.png"/>
+								<div class="right">
+									<div class="title">附近的群</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/action2.png"/>
+								<div class="right">
+									<div class="title">活动</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/top.png"/>
+								<div class="right">
+									<div class="title">排行榜</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module">清除位置信息并退出</div>
+					</div> 
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</script>

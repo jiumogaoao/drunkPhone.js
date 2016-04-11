@@ -1,0 +1,62 @@
+<script type="text/x-template" id="linkmanList_page">
+<div class="linkmanList_page">
+	<div id="sideHandle"></div>
+	<div id="topFrame">
+		<img src="img/searchButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<div class="linkNavPoint" id="newFriend">
+			<img src="img/newMan.png" class="icon"/>
+			<div class="name">新朋友</div>
+		</div>
+		<div class="linkNavPoint" id="care">
+			<img src="img/attention.png" class="icon"/>
+			<div class="name">特别关心</div>
+		</div>
+		<div class="linkNavPoint" id="group">
+			<img src="img/group.png" class="icon"/>
+			<div class="name">群组</div>
+		</div>
+		<div class="linkNavPoint" id="public">
+			<img src="img/public.png" class="icon"/>
+			<div class="name">公众号</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="linkListFrame">
+		<div id="listFrameRoll">
+			<% if(data.group&&data.group.length){
+				_.each(data.group,function(dropdown){ %>
+					<div class="dropDown_module" gid="<%= dropdown.id %>">
+					<% if(dropdown.list&&dropdown.list.length){
+						_.each(dropdown.list,function(list){ %>
+							<div class="dropDownPoint" lid="<%= list.id %>">
+								<div class="dropDownHead">
+									<div class="dropIcon"></div>
+									<div class="dropName"><%= list.name %></div>
+									<div class="dropCount"><%= list.num %></div>
+								</div>
+								<div class="dropDownMain">
+								<% if(list.list&&list.list.length){
+									_.each(list.list,function(point){ %>
+										<div class="list_module listM_module" pid="<%= point.id %>">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+												<div class="dsc"><%= point.dsc %></div>
+												<div class="state"><%= point.state %></div>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<%	})
+								} %>
+								</div>
+							</div>
+					<%	})
+					} %>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>

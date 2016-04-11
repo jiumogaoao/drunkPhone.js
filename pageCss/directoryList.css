@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+.directoryList_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.directoryList_page #search{
+	margin: auto;
+	margin-top: 18px;
+}
+.directoryList_page #directoryMain{
+	position: absolute;
+	top:72px;
+	bottom: 0px;
+	left: 0px;
+	right:0px;
+	overflow: hidden;
+}
+.directoryList_page #directoryRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.directoryList_page #navFrame{
+	position: absolute;
+	top:200px;
+	right: 0px;
+	z-index: 3;
+}
+.directoryList_page .navPoint{
+	font-size: 20px;
+	color: #828282;
+	text-align: center; 
+}

@@ -1,0 +1,36 @@
+<script type="text/x-template" id="file_page">
+<div class="file_page">
+	<div id="fileMain">
+		<div id="fileRoll">
+			<div id="topFrame">
+			<% if(data.top&&data.top.length){
+				_.each(data.top,function(top){ %>
+					<div class="list_module listXXS_module listSingle_module nodeg">
+						<img class="left" src="<%= top.icon %>"/>
+						<div class="right">
+							<div class="title"><%= top.name %></div>
+							<img src="img/tag.png" class="tag"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<% })
+			} %>
+		</div>
+		<div class="text_module textGay_module listTitle">我的文件</div>
+		<div class="tag_module tagNoLeft_module">
+			<% if(data.file&&data.file.length){
+				_.each(data.file,function(file){ %>
+					<div class="tagPoint">
+						<div class="right">
+							<div class="title"><%= file.name %></div>
+							<img src="img/tag.png" class="icon"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<% })
+			} %>
+			</div>
+		</div>
+	</div>
+</div>
+</script>

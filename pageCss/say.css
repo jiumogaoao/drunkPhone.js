@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.say_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.say_page #sayMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.say_page #sayRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}

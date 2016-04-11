@@ -1,0 +1,28 @@
+<script type="text/x-template" id="newFriend_page">
+<div class="newFriend_page">
+	<div id="newFriendMain">
+		<div id="newFriendRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+						<div class="list_module listL_module <%if(point.state=="请求添加"){print("attention")}%>" pid="<%= point.id %>">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="request">请求加为好友</div>
+								<div class="dsc"><%= point.dsc %></div>
+								<% if(point.state!=="请求添加"){ %>
+									<div class="state"><%= point.state %></div>
+								<% }else{ %>
+									<div class="addButton" pid="<%= point.id %>">同意</div>
+								<% } %>
+							</div>
+							<div class="clear"></div>
+						</div>
+		<%	})
+		} %>
+
+		</div>
+	</div>
+</div>
+</script>
+

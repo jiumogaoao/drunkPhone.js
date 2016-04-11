@@ -1,0 +1,51 @@
+<script type="text/x-template" id="group_page">
+<div class="group_page">
+				<div class="nav_module navTwo_module">
+					<div class="nav_point hl">我的群</div>
+					<div class="nav_point">讨论组</div>
+					<div class="clear"></div>
+					<div class="heightLine"></div>
+				</div>
+				<img src="img/searchButton.png" class="searchButton" id="search"/>
+				<div id="groupMain">
+					<div id="groupRoll">
+						<div class="subPage" id="myGroup">
+							<div class="subRoll">
+							<% if(data.mine&&data.mine.length){
+								_.each(data.mine,function(group){ %>
+									<div class="text_module listTitle textGay_module"><%= group.title %></div>
+									<% if(group.list&&group.list.length){
+										_.each(group.list,function(point){ %>
+											<div class="list_module listM_module listSingle_module" gid="<%= point.id %>">
+												<img class="left" src="<%= point.icon %>"/>
+												<div class="right">
+													<div class="title"><%= point.name %></div>
+												</div>
+												<div class="clear"></div>
+											</div>
+										<% })
+									}
+							})
+							} %>
+							</div>
+						</div>
+						<div class="subPage" id="talkGroup">
+							<div class="subRoll">
+								<% if(data.talk&&data.talk.length){
+									_.each(data.talk,function(point){ %>
+										<div class="list_module listM_module listSingle_module" gid="<%= point.id %>">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<% })
+								} %>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+</div>
+</script>

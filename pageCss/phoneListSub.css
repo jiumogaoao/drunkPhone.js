@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+.phoneListSub_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.phoneListSub_page #search{
+	margin: auto;
+	margin-top: 16px;
+}
+.phoneListSub_page #nav{
+	margin-top: 40px;
+}
+.phoneListSub_page .subPage{
+	float: left;
+	height: 100%;
+	overflow: hidden;
+}
+.phoneListSub_page #phoneListSubMain{
+	position: absolute;
+	top:160px;
+	bottom:0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.phoneListSub_page #phoneListSubRoll{
+	position: absolute;
+	top:0px;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+}

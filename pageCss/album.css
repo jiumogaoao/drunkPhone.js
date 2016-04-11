@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+.album_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.album_page #albumMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.album_page #albumRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.album_page .album_point{
+	width: 338px;
+	height: 326px;
+	float: left;
+	margin-right: 22px;
+	margin-top: 42px;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+	background-color: #fff;
+	position: relative;
+	left: 22px;
+}
+.album_page .album_point#new{
+	background-image: url(../img/newalbum.jpg);
+	}
+.album_page .album_point img{
+	width: 338px;
+	height: 256px;
+}
+.album_page .album_point .title{
+	float: left;
+	font-size: 26px;
+	line-height: 70px;
+	margin-left: 11px;
+	color: #373737;
+}
+.album_page .album_point .num{
+	float: right;
+	font-size: 26px;
+	line-height: 70px;
+	margin-right: 14px;
+	color: #373737;
+}

@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+.public_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.public_page #search{
+	margin: auto;
+	margin-top: 16px;
+}
+.public_page #publicMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.public_page #publicRoll{
+	position: absolute;
+	top:90px;
+	left: 0px;
+	width: 100%;
+}
+.public_page .list_module.listS_module .dsc{
+	color: #000;
+}

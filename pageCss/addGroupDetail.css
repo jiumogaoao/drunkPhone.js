@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+.addGroupDetail_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.addGroupDetail_page .head_module{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	z-index: 2;
+}
+.addGroupDetail_page #addGroupDetailMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.addGroupDetail_page #addGroupDetailRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.addGroupDetail_page .headFrame{
+	width: 100%;
+	height: 610px;
+	background-repeat: round;
+	background-size: contain;
+	padding-top: 68px;
+	position: relative;
+}
+.addGroupDetail_page .headFrame .title{
+	text-align: center;
+	font-size: 34px;
+	color: #fff;
+}
+.addGroupDetail_page .headFrame .iconFrame{
+	margin: auto;
+	margin-top: 76px;
+}
+.addGroupDetail_page .headFrame .icon{
+	float: left;
+	display: block;
+	width: 166px;
+	height: 166px;
+	border-radius: 20px;
+	margin-right:10px;
+	margin-bottom:  10px;
+}
+.addGroupDetail_page .headFrame .bottomFrame{
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+	width: 100%;
+}
+.addGroupDetail_page .headFrame .list{
+	width: 100%;
+	height: 70px;
+	border-bottom: 2px dotted #3e4144;
+	color: #ffffff;
+	font-size: 28px;
+	line-height: 69px;
+	text-indent: 32px;
+	position: relative;
+}
+.addGroupDetail_page .headFrame .list .tag{
+	position: absolute;
+	right: 30px;
+	top:22px;
+}
+.addGroupDetail_page .headFrame .type{
+	width: 100%;
+	position: relative;
+	padding-bottom: 20px;
+}
+.addGroupDetail_page .headFrame .type .tag{
+	position: absolute;
+	right: 30px;
+	top:22px;
+}
+.addGroupDetail_page .headFrame .typePoint{
+	float: left;
+	padding:8px 22px;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 20px;
+	margin-right: 8px;
+	font-size: 24px;
+	color: #fff;
+	position: relative;
+	left: 30px;
+	margin-top: 18px; 
+}
+.addGroupDetail_page .frame{
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 42px;
+	padding:33px; 
+}
+.addGroupDetail_page .frame .frameTitle{
+	float: left;
+	font-size: 32px;
+	color: #000;
+	font-weight: bolder;
+}
+.addGroupDetail_page .frame .frameMore{
+	float: right;
+	font-size: 26px;
+	color: #838383;
+	position: relative;
+	margin-right: 20px;
+}
+.addGroupDetail_page .frame .frameMore .tag{
+	position: absolute;
+	top: 3px;
+    right: -32px;
+}
+.addGroupDetail_page .frame .frameMain{
+	margin-top: 24px;
+}
+.addGroupDetail_page .frame .frameText{
+	font-size: 26px;
+	color: #808080;
+}
+.addGroupDetail_page .frame .adminIcon{
+	width: 16.6%;
+	float: left;
+}
+.addGroupDetail_page .frame .adminIcon img{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	display: block;
+	margin:auto;
+}
+.addGroupDetail_page .frame .typePoint{
+	width: 25%;
+	float: left;
+}
+.addGroupDetail_page .frame .typeIcon{
+	display: block;
+	width: 132px;
+	height: 132px;
+	border-radius: 132px;
+	margin: auto;
+}
+.addGroupDetail_page .frame .typeName{
+	text-align: center;
+	font-size: 21px;
+	margin-top: 10px;
+}

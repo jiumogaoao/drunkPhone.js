@@ -1,0 +1,27 @@
+<script type="text/x-template" id="albumIcon_page">
+<div class="albumDetail_page">
+	<div id="albumDetailMain">
+		<div id="albumDetailRoll">
+			<div class="picList_module">
+				<% if(data.showList){
+					_.each(data.showList,function(group,time){ %>
+						<div class="group">
+							<div class="title"><%= time %></div>
+							<div class="list">
+								<% _.each(group,function(point){ %>
+									<div class="point" pid="<%= point.id %>">
+										<img src="<%= point.src %>"/>
+									</div>
+								<% }) %>
+								<div class="clear"></div>
+							</div>
+						</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</script>
+

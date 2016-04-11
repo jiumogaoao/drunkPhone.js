@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+.saveCode_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #efeff5;
+}
+.saveCode_page #dsc{
+	margin-top: 35px;
+	margin-left:20px;
+}
+.saveCode_page #savecode{
+	float: left;
+	margin-left:20px;
+	margin-top: 17px;
+}
+.saveCode_page #change{
+	float: left;
+	margin-left: 18px;
+	margin-top: 54px;
+}
+.saveCode_page #input{
+	margin-top: 17px;
+}
+.saveCode_page #Send{
+	margin: auto;
+	margin-top: 20px;
+}
+.saveCode_page #why{
+	float: left;
+	margin-top: 18px;
+	margin-left: 20px;
+}
+.saveCode_page #return{
+	float: right;
+	margin-top: 18px;
+	margin-right: 20px;
+}

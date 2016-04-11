@@ -1,0 +1,37 @@
+<script type="text/x-template" id="lastest_page">
+<div class="lastest_page">
+	<div id="lastestMain">
+		<div id="lastestRoll">
+			<% if(data.group&&data.group.length){
+				_.each(data.group,function(group){ %>
+					<div class="lastestGroup">
+						<div class="year">
+							<div class="number">group.time</div>
+						</div>
+						<% if(group.list&&group.list.length){
+							_.each(group.list,function(point){ %>
+							<div class="lastestPoint">
+								<div class="date"><%= point.time %></div>
+								<div class="picFrame">
+									<img src="<%= point.pic[0].src %>" class="picFour lt"/>
+									<img src="<%= point.pic[1].src %>" class="picFour rt"/>
+									<img src="<%= point.pic[2].src %>" class="picFour lb"/>
+									<img src="<%= point.pic[3].src %>" class="picFour rb"/>
+								</div>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="picNum"><%= point.picNum %></div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						<%	})
+						} %>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+	
+</div>
+</script>

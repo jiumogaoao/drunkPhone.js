@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+.add_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.add_page .fullScreanInput_module{
+	margin-top: 45px;
+}
+.add_page #addMain{
+	position: absolute;
+	top:264px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.add_page #addRoll{
+	width: 300%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+}
+.add_page .subPage{
+	width: 33.3%;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.add_page .subPageRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.add_page #findMan .tag_module{
+	margin-top: 0px;
+}
+.add_page #findMan .text_module{
+	padding-top: 45px;
+	height: 100px;
+}
+.add_page .findGroupBanner{
+	height: 140px;
+	width: 100%;
+}
+.add_page .findGroupFrame{
+	background-color: #fff;
+	border-top: 1px solid #dedfe0;
+	border-bottom: 1px solid #dedfe0;
+	margin-bottom: 39px;
+}
+.add_page .findGroupTitle{
+	height: 62px;
+	width: 100%;
+	position: relative;
+}
+.add_page .findGroupTitleIcon{
+	width: 34px;
+	height: 34px;
+	position: absolute;
+	top:19px;
+	left: 30px;
+	background-image: url(../img/addGroudTitle.png);
+	background-repeat: no-repeat;
+}
+.add_page .findGroupTitleName{
+	font-size: 26px;
+	color: #333333;
+	position: absolute;
+	top:19px;
+	left: 75px;
+}
+.add_page #findGroup .topPoint{
+	width: 25%;
+	float: left;
+}
+.add_page #findGroup .topPointIcon{
+	width: 61px;
+	height: 61px;
+	background-image: url(../img/addGroud.png);
+	background-repeat: no-repeat;
+	margin:auto;
+}
+.add_page #findGroup .topPointName{
+	font-size: 20px;
+	color: #808080;
+	text-align: center;
+	margin-bottom: 34px;
+	margin-top:32px;
+}
+.add_page #findGroup .findGroupBoth{
+	width: 50%;
+	height: 155px;
+	border-top:1px solid #dedfe0;
+	float: left;
+	border-right: 1px solid #dedfe0;
+}
+.add_page #findGroup .findGroupBoth.S{
+	height: 100px;
+}
+.add_page #findGroup .findGroupBothLeft{
+	width: 76px;
+	height:114px;
+	border-radius: 20px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+.add_page #findGroup .findGroupBoth.S .findGroupBothLeft{
+	width: 60px;
+	height: 60px;
+}
+.add_page #findGroup .findGroupBothRight{
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.add_page #findGroup .findGroupBothTitle{
+	font-size: 24px;
+	color: #333333;
+	height: 87px;
+}
+.add_page #findGroup .findGroupBoth.S .findGroupBothTitle{
+	height: 38px;
+}
+.add_page #findGroup .findGroupBothDsc{
+	font-size: 24px;
+	color: #808080;
+}
+.add_page #findGroup .findGroupMore{
+	width: 100%;
+	height: 65px;
+	border-top: 1px solid #dedfe0;
+	text-align: center;
+	line-height: 64px;
+	font-size: 27px;
+}
+.add_page .findPublicTop{
+	border-top: 1px solid #dedfe0;
+	border-bottom: 1px solid #dedfe0;
+	height: 157px;
+	background-color: #fff;
+}
+.add_page .findPublicPoint{
+	width: 50%;
+	height: 110px;
+	border-right: 1px solid #dedfe0;
+	float: left;
+	margin-top: 23px;
+}
+.add_page .findPublicPoint .findPublicIcon{
+	float: left;
+	width: 73px;
+	height: 73px;
+	margin-top: 18px;
+	margin-left: 45px;
+}
+.add_page .findPublicPoint .findPublicName{
+	float: left;
+	height: 110px;
+	line-height: 110px;
+	margin-left: 40px;
+	font-size: 30px;
+}

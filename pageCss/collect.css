@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+.collect_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.collect_page #collectMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
+}
+.collect_page #collectRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.collect_page #search{
+	float: left;
+	margin-top: 16px;
+	margin-left: 16px;
+}
+.collect_page #edit{
+	float: left;
+	margin-top: 24px;
+	margin-left: 26px;
+}
+.collect_page .point{
+	margin-top: 22px;
+	width: 100%;
+}
+.collect_page .point .left{
+	float: left;
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+	margin-left: 25px;
+}
+.collect_page .point .right{
+	float: left;
+	margin-left: 23px;
+	padding-bottom: 20px;
+	width: 632px;
+	border-bottom: 1px solid #dedfe0;
+}
+.collect_page .point .name{
+	float: left;
+	font-size: 30px;
+	color: #000;
+}
+.collect_page .point .time{
+	float: right;
+	font-size: 18px;
+	color: #777777;
+	margin-right: 25px;
+}
+.collect_page .point .text{
+	margin-top: 26px;
+}
+.collect_page .point .pic{
+	margin-top: 26px;
+	width: 260px;
+}

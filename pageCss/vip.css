@@ -1,0 +1,152 @@
+@charset "utf-8";
+/* CSS Document */
+.vip_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.vip_page #vipMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	overflow: hidden;
+}
+.vip_page #vipRoll{
+	width: 100%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.vip_page #topPic{
+	width: 100%;
+	height: 1174px;
+}
+.vip_page #topFrame,.vip_page .frame{
+	width: 100%;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	background-color: #fff;
+}
+.vip_page .frame{
+	margin-top: 20px;
+}
+.vip_page #topFrame .title,.vip_page .frame .title{
+	font-size: 32px;
+	float: left;
+	color: #000;
+	margin-left: 30px;
+}
+.vip_page #topFrame .more,.vip_page .frame .more{
+	font-size: 26px;
+	float: right;
+	color: #777777;
+	margin-right: 30px;
+}
+.vip_page #topFrame .point{
+	width: 338px;
+	height: 169px;
+	margin-right: 10px;
+	margin-bottom:10px; 
+	position: relative;
+	left: 30px;
+	float: left;
+}
+.vip_page #topFrameMain{
+	margin-top: 32px;
+}
+.vip_page #style .point{
+	width: 225px;
+	height: 344px;
+	border:1px solid #e0e0e0;
+	margin-right: 9px;
+	margin-top: 32px;
+	position: relative;
+	left: 30px;
+	float: left;
+}
+.vip_page #style .point .pic{
+	width: 170px;
+	height: 200px;
+	margin: auto;
+    padding-top: 10px;
+}
+.vip_page #style .point .dsc{
+	color: #1c1c1c;
+	font-size: 23px;
+	margin-top: 25px;
+	position: relative;
+	margin-left: 20px;
+}
+.vip_page #style .point .dsc .vipTag{
+	position: absolute;
+	top:3px;
+	right: 90px;
+}
+.vip_page #style .point .name{
+	font-size: 26px;
+	margin-top: 18px;
+	margin-left: 20px;
+}
+.vip_page #style .point2{
+	width:342px;
+	height: 190px;
+	float: left;
+	margin-right: 9px;
+	position: relative;
+	left: 30px;
+	margin-top: 10px;
+}
+.vip_page #Send{
+	margin: auto;
+	margin-top: 20px;
+}
+.vip_page #bottomBanner{
+	width: 100%;
+	height: 209px;
+	overflow:hidden;
+	margin-top: 32px;
+	position: relative;
+}
+.vip_page #bottomBannerRoll{
+	height: 209px;
+	width: 200%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.vip_page #bottomBannerRoll .pic{
+	width: 50%;
+	height: 209px;
+	float: left;
+}
+.vip_page #bottomBanner #pointFrame{
+	position: absolute;
+	bottom:20px;
+	right: 30px;
+}
+.vip_page #bottomBanner #pointFrame .point{
+	float: left;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0.5);
+	margin-right: 10px;
+}
+.vip_page .bottomNav{
+	width: 25%;
+	text-align: center;
+	color: #000;
+	font-size: 30px;
+	border-right: 1px solid #e0e0e0;
+	float: left;
+	margin-top: 36px;
+}
+.vip_page .text_module{
+	margin-top: 20px;
+	text-align: center;
+}

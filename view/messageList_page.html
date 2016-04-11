@@ -1,0 +1,30 @@
+<script type="text/x-template" id="messageList_page">
+<div class="messageList_page">
+	<div id="sideHandle"></div>
+	<img src="img/searchButton.png" class="searchButton" id="search"/>
+	<div id="listFrame">
+		<div id="listFrameRoll">
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+						<div class="list_module" pid="<%= point.id %>" state="<%= point.state %>">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+								<div class="time"><%= point.time %></div>
+								<div class="num"><%= point.num %></div>
+							</div>
+							<div class="hide">
+								<div class="setTop">置顶</div>
+								<div class="setRead">标为已读</div>
+								<div class="remove">删除</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>

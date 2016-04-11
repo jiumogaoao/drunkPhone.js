@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+.near_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #fff;
+}
+.near_page .nav_point{
+	width: 25%;
+}
+.near_page .heightLine{
+	width: 25%;
+}
+.near_page #nearMain{
+	position: absolute;
+	top:50px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.near_page #nearRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom: 0px;
+	width: 400%;
+}
+.near_page .subPage{
+	width: 25%;
+	float: left;
+	height: 100%;
+	position:relative;
+}
+.near_page #nearMan,.near_page #newThink,.near_page #hotTalk,.near_page #more{
+	position: absolute;
+	top:0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow:hidden;
+}
+.near_page #nearManRoll,.near_page #newThinkRoll,.near_page #hotTalkRoll,.near_page #moreRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+}
+.near_page #topThreeFrame{
+	width: 706px;
+	height: 173px;
+	overflow: hidden;
+	margin:auto;
+	margin-top: 20px;
+	border:2px solid #dedfe0; 
+}
+.near_page #topThreeFrame .topThree{
+	float: left;
+	margin-right: 6px;
+	width: 171px;
+	height: 169px;
+}
+.near_page #topThreeFrame .topThree.last{
+	margin-right: 0px;
+}
+.near_page #hotBannerFrame{
+	width: 750px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+.near_page #hotBannerRoll{
+	height: 200px;
+	width: 400%;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.near_page #hotBannerRoll img{
+	width: 25%;
+	height: 200px;
+	float: left;
+}
+.near_page #hotBannerPointFrame{
+	position: absolute;
+	right: 50px;
+	bottom:18px;
+}
+.near_page .hotBannerPoint{
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	background-color: rgba(0,0,0,0.5);
+	float: left;
+	margin-right: 20px;
+}
+.near_page .hotBannerPoint.hl{
+	background-color:#fff;
+}
+.near_page #roomFrame{
+	width: 750px;
+	height: 160px;
+	overflow: hidden;
+	position: relative;
+}
+.near_page #roomRoll{
+	height: 160px;
+	width: 1690px;
+	position: absolute;
+	top:0px;
+	left: 0px;
+}
+.near_page #roomRoll img{
+	float: left;
+	width: 330px;
+	height: 160px;
+	margin-right: 8px;
+}
+.near_page .tag_module,.near_page .listGroup,.near_page .text_module{
+	margin-top: 40px;
+}
+.near_page .text_module{
+	height: 86px;
+	width: 100%;
+	border-top:1px solid #dedfe0;
+	border-bottom:1px solid #dedfe0;
+	line-height: 84px;
+	text-indent: 36px;
+}

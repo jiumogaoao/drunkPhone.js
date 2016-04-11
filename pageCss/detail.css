@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+.detail_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.detail_page .messageGroup{
+	margin-bottom: 70px
+}
+.detail_page .messageGroup .time{
+	font-size: 22px;
+	color: #a5a6a9;
+	text-align: center; 
+}
+.detail_page .messagePoint{
+	margin-top: 40px;
+	position: relative;
+}
+.detail_page .head{
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	float: left;
+	margin-left: 22px;
+}
+.detail_page .textFrame{
+	float: left;
+	margin-left: 25px;
+}
+.detail_page .name{
+	font-size: 26px;
+	color: #5f5f61;
+}
+.detail_page .word{
+	background-color: #fff;
+	padding: 25px;
+	border-radius: 25px;
+	margin-top: 20px;
+}
+.detail_page .deg{
+	width: 17px;
+	height: 20px;
+	background-image: url(../img/deg.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	position: absolute;
+	top: 64px;
+    left: 111px;
+}
+.detail_page .deg.deg0{
+	top:28px;
+}
+.detail_page .messagePoint.messagePoint1 .head{
+	float: right;
+	margin-left: 0px;
+	margin-right: 22px;
+}
+.detail_page .messagePoint.messagePoint1 .textFrame{
+	float: right;
+	margin-left: 0px;
+	margin-right: 25px;
+}
+.detail_page .messagePoint.messagePoint1 .name{
+	text-align: right;
+}
+.detail_page .messagePoint.messagePoint1 .deg{
+	background-position: 0px -19px;
+	top: 64px;
+    left: initial;
+    right: 111px;
+}
+.detail_page .messagePoint.messagePoint1 .deg.deg0{
+	top:28px;
+}

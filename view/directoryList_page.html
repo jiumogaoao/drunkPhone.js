@@ -1,0 +1,33 @@
+<script type="text/x-template" id="directoryList_page">
+<div class="directoryList_page">
+	<img src="img/searchButton.png" class="searchButton" id="search"/>
+	<div id="navFrame">
+		<% if(data.group&&data.group.length){
+			_.each(data.group,function(group){ %>
+				<div class="navPoint"><%= group.title %></div>
+		<% })
+		} %>
+	</div>
+	<div id="directoryMain">
+		<div id="directoryRoll">
+			<% if(data.group&&data.group.length){
+			_.each(data.group,function(group){ %>
+				<div class="text_module textGay_module textM_module listTitle"><%= group.title %></div>
+			<% if(group.list&&group.list.length){
+				_.each(group.list,function(point){ %>
+					<div class="list_module listXS_module listSingle_module">
+						<img class="left" src="<%= point.icon %>"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<img src="<%= point.type %>" class="phone"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<%	})	
+				}
+			 })
+			} %>
+		</div>
+	</div>
+</div>
+</script>

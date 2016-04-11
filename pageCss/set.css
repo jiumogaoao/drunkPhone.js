@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+.set_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #ecedf1;
+}
+.set_page #setMain{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom:0px;
+	overflow: hidden;
+}
+.set_page #setRoll{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.set_page .other{
+	position: absolute;
+    top: 25px;
+    right: 70px;
+    font-size: 26px;
+}
+.set_page #setHead{
+	width:80px;
+	height: 80px;
+	border-radius: 80px;
+	top:1px;
+}
+.set_page #tel{
+	color: #777777;
+}
+.set_page #vip{
+	color: #fda714;
+	}
+.set_page #vip img{
+	position: absolute;
+	top: -4px;
+    left: -102px;
+}
+.set_page #lock{
+	color: #9a9a9a;
+	}
+.set_page #lock img{
+	position: absolute;
+	top: 2px;
+    left: -40px;
+}

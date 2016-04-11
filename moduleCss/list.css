@@ -1,0 +1,296 @@
+.list_module{
+	width:1218px;
+	height: 132px;
+	background-color: #fff;
+}
+.list_module.attention{
+	background-color: #fcf2c6;
+}
+.list_module .left{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	float: left;
+	margin-top:16px;
+	margin-left: 24px; 
+}
+.list_module.nodeg .left{
+	border-radius: 0px;
+}
+.list_module .right{
+	width: 602px;
+	height: 132px;
+	border-bottom: 1px solid #dedfe0;
+	float: left;
+	margin-left: 25px; 
+	position: relative;
+}
+.list_module .right .title{
+	color: #000;
+	font-size: 32px;
+	position: absolute;
+	top:28px;
+	left: 2px;
+}
+.list_module .right .dsc{
+	color: #777777;
+	font-size: 26px;
+	position: absolute;
+	bottom:28px;
+	left: 2px;
+}
+.list_module .right .time{
+	color: #777777;
+	font-size: 18px;
+	position: absolute;
+	top:36px;
+	right: 27px;
+}
+.list_module .right .num{
+	padding: 10px 14px;
+	background-color: #f74c31;
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	bottom:22px;
+	right: 25px;
+	border-radius: 50px;
+}
+.list_module .right .phone{
+	position: absolute;
+	top:38px;
+	right: 47px;
+}
+.list_module .hide{
+	float: left;
+	border-bottom: 1px solid #dedfe0;
+}
+.list_module .setTop{
+	width: 132px;
+	height: 131px;
+	background-color: #c7c7cc;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module .setRead{
+	width: 204px;
+	height: 131px;
+	background-color: #ff9c00;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module .remove{
+	width: 130px;
+	height: 131px;
+	background-color: #ff3b30;
+	color: #fff;
+	text-align: center;
+	line-height: 131px;
+	font-size: 32px;
+	float: left;
+}
+.list_module.listM_module{
+	height: 114px;
+}
+.list_module.listM_module .left{
+	width: 80px;
+	height: 80px;
+	margin-top:18px;
+	margin-left: 24px;
+}
+.list_module.listM_module .right{
+	height: 113px;
+	margin-left: 24px;
+}
+.list_module.listM_module .title{
+	top:19px;
+}
+.list_module.listM_module .dsc{
+	bottom: 19px;
+}
+.list_module.listM_module .state{
+	color: #bbbbbb;
+	font-size: 16px;
+	position: absolute;
+	bottom:63px;
+	right: 26px;
+}
+.list_module.listS_module{
+	height: 124px;
+}
+.list_module.listS_module .addButton{
+	width:116px;
+	height: 60px;
+	border: 1px solid #cbcdcd;
+	color: #00a5e0;
+	font-size: 28px;
+	line-height: 58px;
+	text-align: center;
+	border-radius: 10px;
+	position: absolute;
+	top:32px;
+	right: 60px;
+}
+.list_module.listS_module .left{
+	margin-top: 12px;
+}
+.list_module.listS_module .right{
+	height: 124px;
+}
+.list_module.listS_module .title{
+	top:24px;
+}
+.list_module.listS_module .dsc{
+	bottom:24px;
+}
+.list_module.listXS_module{
+	height: 104px;
+}
+.list_module.listXS_module .right{
+	height: 104px;
+}
+.list_module.listXS_module .right .phone{
+	top:26px;
+}
+.list_module.listXS_module .left{
+	width: 70px;
+	height: 70px;
+}
+.list_module.listS_module.listSingle_module .title{
+	top:45px;
+}
+.list_module.listS_module.listSingle_module .tag{
+	position: absolute;
+	top:50px;
+	right: 47px;
+}
+.list_module.listL_module{
+	height: 142px
+}
+.list_module.listL_module .right{
+	height: 142px;
+}
+.list_module.listL_module .right .title{
+	top:22px;
+}
+.list_module.listL_module .right .dsc{
+	bottom:10px;
+}
+.list_module.listL_module .right .request{
+	font-size: 24px;
+	color: #000;
+	position: absolute;
+	top:68px;
+	left: 0px;
+}
+.list_module.listL_module .right .addButton{
+	width: 130px;
+	height: 60px;
+	background-color: #fff;
+	text-align: center;
+	border-radius: 10px;
+	border:1px solid #cbcdcd;
+	color: #00a5e0;
+	font-size: 28px;
+	line-height: 58px;
+	position: absolute;
+	top:40px;
+	left: 453px;
+}
+.list_module.listL_module .right .state{
+	position: absolute;
+	top:56px;
+	right: 42px;
+}
+.list_module.listM_module.listSingle_module .right .title{
+	top:33px;
+}
+.list_module.listXL_module{
+	height: 170px;
+}
+.list_module.listXL_module .right{
+	height: 170px;
+	width: 540px;
+}
+.list_module.listXL_module .left{
+	width: 140px;
+	height: 140px;
+	margin-top:15px;
+	margin-left:45px;
+}
+.list_module.listXL_module .right .title{
+	top:42px;
+}
+.list_module.listXL_module .right .tag{
+	position: absolute;
+    top: 70px;
+    right: 30px;
+}
+.list_module.listXXS_module{
+	height: 88px;
+}
+.list_module.listXXS_module .right{
+	height: 88px;
+	margin-left: 42px;
+	width: 624px;
+}
+.list_module.listXXS_module .left{
+	width: 44px;
+	height: 44px;
+	margin-top: 25px;
+	margin-left: 40px;
+}
+.list_module.listXXS_module .title{
+	top:27px;
+}
+.list_module.listXXS_module .tag{
+	position: absolute;
+    top: 30px;
+    right: 30px;
+}
+.list_module.listXL_module .button{
+	width: 94px;
+	height: 52px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 25px;
+	color: #00a5e0;
+	border:1px solid #c8c7cc;
+	position: absolute;
+	top:40px;
+	right: 20px;
+}
+.list_module.listXXL_module{
+	height: 210px;
+}
+.list_module.listXXL_module .left{
+	width: 180px;
+	height: 180px;
+	margin-top: 15px;
+	margin-left: 30px;
+	border-radius: 0px;
+}
+.list_module.listXXL_module .right{
+	height: 210px;
+}
+.list_module.listXXL_module .numberFrame{
+	position: absolute;
+	right: 125px;
+	bottom: 28px;
+}
+.list_module.listXXL_module .readNum{
+	float: left;
+}
+.list_module.listXXL_module .number{
+	float: left;
+	color: #bbbbbb;
+}
+.list_module.listXXL_module .talkNum{
+	float: left;
+}

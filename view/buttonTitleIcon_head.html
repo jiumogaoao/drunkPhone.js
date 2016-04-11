@@ -1,0 +1,17 @@
+<script type="text/x-template" id="buttonTitleIcon_head">
+<div class="head_module buttonTitleIcon_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="title"><%= data.title %></div>
+	<div class="right">
+	<% _.each(data.right,function(point){ %>
+		<img src="<%= point.src %>" class="rightPoint" id="<%= point.id %>"/>
+	<% }) %>
+	<div class="clear"></div>
+	</div>
+</div>
+</script>
+

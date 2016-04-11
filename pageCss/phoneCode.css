@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+.phoneCode_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #f7f7f9;
+}
+.phoneCode_page #dsc{
+	width: 670px;
+	margin: auto;
+	margin-top: 35px;
+}
+.phoneCode_page #input{
+	margin-top: 33px;
+}
+.phoneCode_page #Send{
+	margin: auto;
+	margin-top: 40px;
+}
+.phoneCode_page .radioPoint{
+	margin-top: 36px;
+}
+.phoneCode_page .radioPoint .select_module{
+	float: left;
+	margin-left: 34px;
+}
+.phoneCode_page .radioPoint .text_module{
+	float: left;
+	margin-left: 12px;
+}

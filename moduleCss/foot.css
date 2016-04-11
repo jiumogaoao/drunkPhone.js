@@ -1,0 +1,84 @@
+.foot_module{
+	width: 100%;
+	height: 98px;
+	background-color: #fff;
+	position: relative;
+	border-top:1px #bfbfbf solid;}
+.foot_module.treeNav_foot .navPoint{
+	width: 60px;
+}
+.foot_module.treeNav_foot .navPoint .icon{
+	width: 53px;
+	height: 53px;
+	background-image: url("../img/foot.png");
+	margin: auto;
+	margin-top: 12px;
+}
+.foot_module.treeNav_foot .navPoint .name{
+	font-size: 18px;
+	text-align: center;
+	color: #808080;
+}
+.foot_module.treeNav_foot .navPoint.hl .name{
+	color: #0db8f6;
+}
+.foot_module.treeNav_foot .navPoint.left{
+	position: absolute;
+	left: 99px;
+	bottom: 8px;
+}
+.foot_module.treeNav_foot .navPoint.center{
+	position: absolute;
+	left: 345px;
+	bottom: 8px;
+}
+.foot_module.treeNav_foot .navPoint.right{
+	position: absolute;
+	right: 99px;
+	bottom: 8px;
+}
+.foot_module.treeNav_foot .navPoint.left .icon{
+	background-position: 0px -61px;
+}
+.foot_module.treeNav_foot .navPoint.left.hl .icon{
+	background-position: 0px 0px;
+}
+.foot_module.treeNav_foot .navPoint.center .icon{
+	background-position: 0px -187px;
+}
+.foot_module.treeNav_foot .navPoint.center.hl .icon{
+	background-position: 0px -123px;
+}
+.foot_module.treeNav_foot .navPoint.right .icon{
+	background-position: 0px -312px;
+}
+.foot_module.treeNav_foot .navPoint.right.hl .icon{
+	background-position: 0px -247px;
+}
+.talk_foot{
+	width: 100%;
+	height: 195px;
+	background-color: #edeef1;
+	padding-top: 24px;
+}
+.talk_foot .bottomFrame{
+	margin-top: 24px;
+}
+.talk_foot .bottomPoint{
+	width: 14.2%;
+	float: left;
+}
+.talk_foot .bottomPoint img{
+	margin: auto;
+}
+.talk_foot input{
+	width: 710px;
+	height: 73px;
+	background-color: #fff;
+	line-height: 73px;
+	text-indent: 10px;
+	font-size: 28px;
+	display: block;
+	margin: auto;
+	border-radius: 10px;
+}

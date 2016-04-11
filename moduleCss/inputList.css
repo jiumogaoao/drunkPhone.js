@@ -1,0 +1,32 @@
+.inputList_module{
+	width: 100%;
+	background-color: #fff;
+	border-top:1px solid #dedfe0;
+	margin-top: 40px;
+}
+.inputList_module .point{
+	border-bottom: 1px solid #dedfe0;
+	width: 100%;
+	height: 87px;
+	line-height: 86px;
+	font-size: 30px;
+	position: relative;
+	text-indent: 35px;
+}
+.inputList_module .point .left{
+	float: left;
+	width: 162px;
+}
+.inputList_module .point .right{
+	float: left;
+}
+.inputList_module .point .tag{
+	position: absolute;
+	top:29px;
+	right: 35px;
+}
+.inputList_module .point .right input,.inputList_module .point .right select{
+	font-size: 30px;
+	height: 85px;
+	line-height: 86px;
+}

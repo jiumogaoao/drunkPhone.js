@@ -1,0 +1,41 @@
+<script type="text/x-template" id="say_page">
+<div class="say_page">
+	<div id="sayMain">
+		<div id="sayRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+				<div class="zone_module">
+					<div class="zoneIcon remove"></div>
+					<div class="top">
+						<img src="<%= point.icon %>"/>
+						<div class="name"><%= point.name %></div>
+						<div class="time"><%= point.time %></div>
+					</div>
+					<div class="middle">
+						<div class="text"><%= point.text %></div>
+					</div>
+					<div class="bottom">
+						<div class="readed">
+							<div class="zoneIcon read"></div>
+							<div class="readNumber">浏览<%= point.readedNum %>次</div>
+							<div class="clear"></div>
+						</div>
+						<div class="praised">
+							<div class="zoneIcon praise"></div>
+							<% if(point.praise&&point.praise.length){
+								_.each(point.praise,function(praise){ %>
+								<div class="praiseName"><%= praise %></div>
+							<%	})
+							} %>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+		<%	})
+		} %>
+		</div>
+	</div>
+	
+</div>
+</script>
+

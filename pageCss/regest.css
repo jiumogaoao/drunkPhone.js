@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+.regest_page{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	bottom:0px;
+	right:0px;
+	background-color: #f7f7f9;
+}
+.regest_page #phone{
+	margin-top: 60px;
+}
+.regest_page #key{
+	margin-top: 60px;
+}
+.regest_page #Send{
+	margin: auto;
+	margin-top: 40px;
+}
+.regest_page #dsc{
+	margin-top: 40px;
+}
+.regest_page #check{
+	float: left;
+	margin-left: 36px;
+}
+.regest_page #text{
+	float: left;
+	margin-left: 12px;
+}
+.regest_page #link{
+	float: left;
+	margin-left: 30px;
+}

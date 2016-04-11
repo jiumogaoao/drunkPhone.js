@@ -1,0 +1,262 @@
+.head_module{
+	width: 100%;
+	height: 128px;
+	background-color: #12b7f5;
+	position: relative;
+	color: #fff;
+}
+.head_module .left{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index: 3;
+}
+.head_module .backIcon{
+	float: left;
+	line-height: 44px;
+}
+.head_module .leftText{
+	float: left;
+}
+.head_module .center{
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+}
+.head_module .center .title{
+	text-align: center;
+	font-size: 34px;
+	color: #fff;
+	font-weight: bolder;
+	position: relative;
+	bottom:27px;
+}
+.head_module .left .headIcon{
+	width: 74px;
+	height:74px;
+	border-radius: 74px;
+	position: absolute;
+	left: 24px;
+	bottom:7px;
+}
+.head_module .left .backIcon{
+	width:24px;
+	height: 43px;
+	background-image: url(../img/back.png);
+	float: left;
+	margin-left: 18px;
+	position: relative;
+	bottom: 23px;
+}
+.head_module .left .leftText{
+	font-size: 32px;
+	float: left;
+	margin-left: 7px;
+	position: relative;
+	bottom: 25px;
+}
+.head_module .nav{
+	width: 100%;
+	height: 60px;
+	position: relative;
+	margin: auto;
+}
+.head_module .navPoint{
+	width: 120px;
+	height: 60px;
+	line-height: 58px;
+	text-align: center;
+	color: #fff;
+	border-bottom:2px solid #fff;
+	border-top: 2px solid #fff;
+	font-size: 26px;
+}
+.head_module .navPoint.hl{
+	background-color: #fff;
+	color: #12b7f5;
+}
+.head_module .navLeft{
+	position: absolute;
+	right: 375px;
+	bottom:14px;
+	border-left: 2px solid #fff;
+	border-radius: 15px 0px 0px 15px;
+}
+.head_module .navRight{
+	position: absolute;
+	left: 374px;
+	bottom:14px;
+	border-right: 2px solid #fff;
+	border-radius: 0px 15px 15px 0px;
+}
+.head_module .right{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	z-index: 3;
+}
+.head_module .rightIcon{
+	float: right;
+	margin-right: 29px;
+	width: 58px;
+	height: 58px;
+	background-image: url(../img/headIcon.png);
+	background-repeat: no-repeat;
+	position: relative;
+	bottom:12px;
+}
+.head_module .rightIcon.add{
+	background-position: 0px -406px;
+}
+.head_module .rightIcon.addB{
+	background-position: 0px -349px;
+}
+.head_module .rightIcon.people{
+	background-position: 0px -291px;
+}
+.head_module .rightIcon.phone{
+	background-position: 0px -464px;
+}
+.head_module .rightIcon.group{
+	background-position: 0px -176px;
+}
+.head_module .rightIcon.detail{
+	background-position: 0px -233px;
+}
+.head_module .rightButton{
+	font-size: 32px;
+	color: #fff;
+	margin-right: 19px;
+	position: relative;
+	bottom: 28px;
+}
+.head_module .rightList{
+	background-color: #fff;
+	position: absolute;
+	top:75px;
+	right:10px;
+	border-radius: 10px;
+	display: none;
+}
+.head_module .rightPoint{
+	height: 88px;
+	border-bottom: 1px solid #dedfe0;
+	width: 290px;
+}
+.head_module .rightListDeg{
+	width: 34px;
+	height: 17px;
+	background-image: url(../img/rightListDeg.png);
+	position: absolute;
+	top:-16px;
+	right: 33px;
+}
+.head_module .rightPointIcon{
+	float: left;
+	width: 46px;
+	height: 46px;
+	background-image: url(../img/topRightIcon.png);
+	background-repeat: no-repeat;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+.head_module .rightPointText{
+	float: left;
+	color: #000000;
+	font-size: 28px;
+	line-height: 88px;
+	margin-left: 38px;
+}
+.head_module .rightPointIcon.scan{
+	background-position: 0px 0px;
+}
+.head_module .rightPointIcon.addFriend{
+	background-position: 0px -48px;
+}
+.head_module .rightPointIcon.creatTalkGroup{
+	background-position: 0px -93px;
+}
+.head_module .rightPointIcon.sendToPc{
+	background-position: 0px -137px;
+}
+.head_module .rightPointIcon.faceToFace{
+	background-position: 0px -187px;
+}
+.head_module .rightPointIcon.receive{
+	background-position: 0px -229px;
+}
+.head_module .rightPointIcon.group{
+	background-position: 0px -274px;
+}
+.head_module .rightPointIcon.findGroup{
+	background-position: 0px -326px;
+}
+.head_module .rightPointIcon.groupSet{
+	background-position: 0px -369px;
+}
+.head_module .bottom{
+	position: absolute;
+	top:100%;
+	left: 0px;
+	background-color: #fff;
+	width: 100%;
+	padding-top: 38px;
+	display: none;
+}
+.headBottomPoint{
+	float: left;
+	margin-bottom: 38px;
+}
+.headBottomPoint.headBottomPoint3{
+	width: 33.3%;
+}
+.headBottomPoint.headBottomPoint4{
+	width: 25%;
+}
+.headBottomPoint .headBottomIcon{
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	background-image: url(../img/topBottomIcon.png);
+	background-repeat: no-repeat;
+}
+.headBottomPoint .headBottomIcon.say{
+	background-position: 0px 0px;
+}
+.headBottomPoint .headBottomIcon.picture{
+	background-position: 0px -100px;
+}
+.headBottomPoint .headBottomIcon.sign{
+	background-position: 0px -200px;
+}
+.headBottomPoint .headBottomIcon.video{
+	background-position: 0px -300px;
+}
+.headBottomPoint .headBottomIcon.videoList{
+	background-position: 0px -400px;
+}
+.headBottomPoint .headBottomIcon.text{
+	background-position: 0px -500px;
+}
+.headBottomPoint .headBottomIcon.sound{
+	background-position: 0px -600px;
+}
+.headBottomPoint .headBottomIcon.pic{
+	background-position: 0px -700px;
+}
+.headBottomPoint .headBottomIcon.photo{
+	background-position: 0px -800px;
+}
+.headBottomPoint .headBottomIcon.place{
+	background-position: 0px -900px;
+}
+.headBottomPoint .headBottomIcon.copy{
+	background-position: 0px -1000px;
+}
+.headBottomPoint .headBottomText{
+	color: #040404;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 23px;
+}
