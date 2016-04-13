@@ -2,7 +2,7 @@
 define("bin/config",function(require, exports, module) {
 /*配置文件*/
 /*不同环境服务器url*/
-var sourArry = ["http://112.74.25.12:28080/", "https://m.lvbh.cn/", "http://192.168.1.14:8080/"];
+var sourArry = ["http://localhost/:8888/"];
 /*配置信息object*/
 var config = {
 	/*环境控制*/
