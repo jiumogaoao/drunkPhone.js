@@ -24,7 +24,7 @@ define("control/edit",function(require, exports, module) {
 			$(".head_module .rightButton").unbind("tap").bind("tap",function(){
 				user.editDetail(userData,function(returnData){
 					if(returnData){
-						common.pop.on("修改成功");
+						view.pop.on("修改成功");
 						userData=user.loginMessage();
 						view.main.sugest("edit_page",userData,data.state,"side",viewDone);
 					}

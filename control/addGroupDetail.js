@@ -42,7 +42,7 @@ define("control/addGroupDetail",function(require, exports, module) {
 		function footDone(){/*脚部加载完成*/
 			$(".myDetail_foot #Send").unbind("tap").bind("tap",function(){
 				group.join(data.par.id,null,function(){
-					common.pop.on("加入成功");
+					view.pop.on("加入成功");
 				})
 			});
 		}

@@ -8,7 +8,7 @@ var api=function(model,action,data,success,error){
 			time:0
 		};
 	}
-	var sendData=JSON.stringify({model:model,action:action,time:cache[model+"_"+action].time,data:data,v:config.version});
+	var sendData={model:model,action:action,time:cache[model+"_"+action].time,data:JSON.stringify(data),v:config.version};
 	$.ajax({
 		url:config.sour,
 							dataType:"json",
@@ -25,7 +25,7 @@ var api=function(model,action,data,success,error){
 										}
 									success(cache[model+"_"+action].data);	
 								}else{
-									error(returnData.message);
+									error(returnData);
 									}
 								}
 	})

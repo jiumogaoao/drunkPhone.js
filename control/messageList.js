@@ -3,9 +3,8 @@ define("control/messageList",function(require, exports, module) {
 	module.exports=page;
 	page.par=[];
 	var view=require("bin/view");
-	var user=require("model/user");
-	var group=require("model/group");
-	var message=require("model/message");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -89,12 +88,56 @@ define("control/messageList",function(require, exports, module) {
 				window.location.hash="actionList";
 			});
 		}
-		/*使用iconNavButton_head的view作为头部，传入参数hl=0*/
-		var userData=user.loginMessage();
+		
+		/*使用treeNav_foot作为脚部，传入参数hl=0*/
+		view.foot.show("treeNav_foot",{hl:"0"},footDone);
+		var friendList={};
+		var groupList={};
+		var showData=[];
+		var callback=0;
+		function callbackAll(){
+			callback++;
+			if(callback==3){
+				view.main.sugest("messageList_page",{
+					list:showData
+				},data.state,"size",viewDone);
+			}
+		}
+		/*转出messageList_page的view*/
+		function getMessageList(returnData){
+			_.each(returnData,function(point,index){
+				if(point[0].state==0){
+					showData.push({"id":index,"state":0,"icon":friendList[index].icon,"name":friendList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
+				}else if(point[0].state==1){
+					showData.push({"id":index,"state":1,"icon":groupList[index].icon,"name":groupList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
+				};
+			});
+			callbackAll()
+		};
+		function getFriendList(returnData){
+			_.each(returnData.checked,function(point){
+				friendList[point.id]=point;
+			});
+			callbackAll()
+		}
+		function getMyList(returnData){
+			_.each(returnData.owner,function(point){
+				groupList[point.id]=point;
+			});
+			_.each(returnData.admin,function(point){
+				groupList[point.id]=point;
+			});
+			_.each(returnData.member,function(point){
+				groupList[point.id]=point;
+			});
+			callbackAll()
+		}
+		function tkget(returnData){
+			/*使用iconNavButton_head的view作为头部，传入参数hl=0*/
 		view.head.show("head_template",{
 				"left":{
 					"type":"icon",
-					"src":userData.icon
+					"src":returnData.user.icon
 				},
 				"center":{
 					"type":"nav",
@@ -115,42 +158,11 @@ define("control/messageList",function(require, exports, module) {
 					]
 				}
 			},headDone);
-		/*使用treeNav_foot作为脚部，传入参数hl=0*/
-		view.foot.show("treeNav_foot",{hl:"0"},footDone);
-		var friendList={};
-		var groupList={};
-		var showData=[];
-		/*转出messageList_page的view*/
-		function getMessageList(returnData){
-			_.each(returnData,function(point,index){
-				if(point[0].state==0){
-					showData.push({"id":index,"state":0,"icon":friendList[index].icon,"name":friendList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
-				}else if(point[0].state==1){
-					showData.push({"id":index,"state":1,"icon":groupList[index].icon,"name":groupList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
-				};
-			});
-		};
-		function getFriendList(returnData){
-			_.each(returnData.checked,function(point){
-				friendList[point.id]=point;
-			});
+			api("group","getMyList",{tk:returnData.tk},getMyList,view.err);
+			api("user","getFriendList",{tk:returnData.tk},getFriendList,view.err);
+			api("message","getMessageList",{tk:returnData.tk},getMessageList,view.err);
 		}
-		function getMyList(returnData){
-			_.each(returnData.owner,function(point){
-				groupList[point.id]=point;
-			});
-			_.each(returnData.admin,function(point){
-				groupList[point.id]=point;
-			});
-			_.each(returnData.member,function(point){
-				groupList[point.id]=point;
-			});
-		}
-		group.getMyList(getMyList);
-		user.getFriendList(getFriendList);
-		message.getMessageList(getMessageList);
-		view.main.sugest("messageList_page",{
-			list:showData
-		},data.state,"size",viewDone);
+		common.tk(tkget);
+		
 	}
 });

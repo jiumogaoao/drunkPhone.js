@@ -21,7 +21,7 @@ define("control/addGroupName",function(require, exports, module) {
 			});
 			$(".head_module #next").unbind("tap").bind("tap",function(){
 				if(!$(".fullScreanInput_module input").val()){
-					common.pop.on("请填写群名字");
+					view.pop.on("请填写群名字");
 					return false;
 				}
 				window.location.hash="addGroupIcon/"+$(".fullScreanInput_module input").val();

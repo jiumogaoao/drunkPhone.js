@@ -1,7 +1,7 @@
 define("bin/view",function(require, exports, module) {
 /*V层*/
 	var view={};
-	module.exports=view;
+	var errorDelay="";
 	var config=require("bin/config");
 	var common=require("bin/common");
 	/*转场类型栈*/
@@ -31,20 +31,20 @@ define("bin/view",function(require, exports, module) {
 				fn(domAll.find("#"+tem).html());
 			}
 		}else{/*如果没有，打开loading，自动获取*/
-			common.loading.on();
+			view.loading.on();
 			$.ajax({
                 url: "view/" + tem + ".html",
                 dataType: "html",
                 data:{v:config.version},
                 cache: true,
                 error: function (err) {/*错了就报*/
-                    common.loading.off();
-                    common.err(err);
+                    view.loading.off();
+                    view.err(err);
                     window.location.hash = "";
                 },
                 success: function (data) {
                 	/*成功了关掉loading,放缓存，再拿给它*/
-                    common.loading.off();
+                    view.loading.off();
                     domAll.append(data);
                     fn(domAll.find("#"+tem).html());
                 }
@@ -65,7 +65,7 @@ define("bin/view",function(require, exports, module) {
 				$("#head").html(headString);
 				/*播动画*/
 				$("#head").attr("style","transform:translate(0px, -100%) translateZ(0px);opacity: 0");
-				$("#main").css("top",$("#head").height()/common.size);
+				$("#main").css("top",$("#head").height()/common.size());
 				$("#head").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
 				headDelay=setTimeout(function(){
 				if(callback){
@@ -153,7 +153,7 @@ define("bin/view",function(require, exports, module) {
 				$("#foot").html(headString);
 				/*播动画*/
 				$("#foot").attr("style","transform:translate(0px, 100%) translateZ(0px);opacity: 0");
-				$("#main").css("bottom",$("#foot").height()/common.size);
+				$("#main").css("bottom",$("#foot").height()/common.size());
 				$("#foot").css({"transition-timing-function": "cubic-bezier(0.1, 0.57, 0.1, 1)", "transition-duration": "1000ms","transform":"translate(0px, 0px) translateZ(0px)","opacity": 1});
 				footDelay=setTimeout(function(){
 				if(callback){/*播完告诉它*/
@@ -374,4 +374,48 @@ define("bin/view",function(require, exports, module) {
 				}
 			}
 	};
+	/*弹出方法*/
+    view.pop = {
+        /*弹出打开*/
+        on: function (data) {
+            $("#pop").html(data);
+            $("#pop").show();
+            $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){
+                view.pop.off();
+            })
+        },
+        /*弹出关闭*/
+        off: function () {
+            $("#pop").hide();
+            $("#popBg").hide();
+            $("#pop").empty();
+        }
+    };
+    /*loading方法*/
+    view.loading = {
+        /*loading打开*/
+        on:function (){
+             $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){
+            })
+        },
+        /*loading关闭*/
+        off:function(){
+            $("#popBg").hide();
+        }
+    };
+    /*报错方法*/
+    view.err = function (data){
+        $("#pop").html(JSON.stringify(data));
+            $("#pop").show();
+            $("#popBg").show();
+            $("#popBg").unbind("tap").bind("tap",function(){});
+            errorDelay=setTimeout(function(){
+                $("#pop").hide();
+                $("#popBg").hide();
+                $("#pop").empty();
+            },1000);
+    };
+	module.exports=view;
 });

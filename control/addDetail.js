@@ -42,7 +42,7 @@ define("control/addDetail",function(require, exports, module) {
 		function footDone(){/*脚部加载完成*/
 			$(".myDetail_foot #Send").unbind("tap").bind("tap",function(){
 				user.addFriend(data.par.id,function(){
-					common.pop.on("请求已发送，请等待验证");
+					view.pop.on("请求已发送，请等待验证");
 				})
 			});
 		}

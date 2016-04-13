@@ -17,7 +17,7 @@ define("control/newFriend",function(require, exports, module) {
 			$(".newFriend_page .addButton").unbind("tap").bind("tap",function(){
 				var that=this;
 				user.checkFriend($(this).attr("pid"),function(){
-					common.pop.on("添加成功，你们已经成为朋友");
+					view.pop.on("添加成功，你们已经成为朋友");
 					$(that).parents(".list_module").removeClass('attention');
 					$(that).parents(".list_module .right").append('<div class="state">已添加</div>');
 					$(that).remove();

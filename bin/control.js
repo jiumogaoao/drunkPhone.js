@@ -38,8 +38,8 @@ define("bin/control",function(require, exports, module) {
         /*启动control*/
         function runRoute() {
             /*关掉loaging*/
-            common.loading.off();
-            common.pop.off();
+            view.loading.off();
+            view.pop.off();
             view.headPop.hide();
             view.footPop.hide();
             /*初始给control的数据*/
@@ -69,7 +69,7 @@ define("bin/control",function(require, exports, module) {
         } else {
             /*如果没有*/
             /*打开loading*/
-            common.loading.on();
+            view.loading.on();
             /*自动去拿*/
             $.ajax({
                 url: "control/" + hashArry[0] + ".js",
@@ -77,12 +77,12 @@ define("bin/control",function(require, exports, module) {
                 data:{v:config.version},
                 cache: true,
                 error: function (err) {/*出错就报*/
-                    common.loading.off();
-                    common.err(err);
+                    view.loading.off();
+                    view.err(err);
                     window.location.hash = "";
                 },
                 success: function (data) {/*拿到了关掉loading,启动*/
-                    common.loading.off();
+                    view.loading.off();
                     runRoute();
                 }
             });
@@ -109,8 +109,8 @@ define("bin/control",function(require, exports, module) {
                 dataType: "html",
                 cache: true,
                 error: function (err) {/*错了就报*/
-                    common.loading.off();
-                    common.err(err);
+                    view.loading.off();
+                    view.err(err);
                 },
                 success: function (html) {
                     if (html) {/*成功就放缓存*/

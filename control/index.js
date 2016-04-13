@@ -4,8 +4,9 @@ define("control/index",function(require, exports, module) {
 	page.par=[];
 	var control=require("bin/control");
 		/*用于操作M层*/
-		var user=require("model/user");
+		var api=require("bin/api");
 		var view=require("bin/view");
+		var common=require("bin/common");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			$(".index_page #forgetKey").unbind("tap").bind("tap",function(){/*点击忘记密码，跳control*/
@@ -15,6 +16,9 @@ define("control/index",function(require, exports, module) {
 				window.location.hash="regest";
 			});
 			$(".index_page #login").unbind("tap").bind("tap",function(){/*点击登录，先锁住input,再跳control*/
+				
+				
+			
 				if(!$("#loginName input").val()){
 					app.pop.on("请输入账号");
 					return false;
@@ -23,13 +27,19 @@ define("control/index",function(require, exports, module) {
 					app.pop.on("请输入密码");
 					return false;
 				}
-				user.login($("#loginName input").val(),$("#loginKey input").val(),function(returnData){
+				common.tk(function(returnData){
+				api("user","login",{
+					"tk":returnData.tk,
+					"name":$("#loginName input").val(),
+					"key":$("#loginKey input").val()
+				},
+					function(returnData){
 					if(returnData){
 						$(".index_page input").attr("disabled","disabled");
 						window.location.hash="messageList";
 					}
+				},view.err);
 				});
-				
 			});
 		}
 		/*没有头部*/

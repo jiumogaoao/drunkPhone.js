@@ -5,26 +5,34 @@ define("control/regest",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var user=require("model/user");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*绑定事件*/
 			$(".regest_page #Send").unbind("tap").bind("tap",function(){
 				if(!$("#phone input").val()){
-					common.pop.on("请输入手机号");
+					view.pop.on("请输入手机号");
 					return false;
 				}
 				if(!$("#key input").val()){
-					common.pop.on("请输入密码");
+					view.pop.on("请输入密码");
 					return false;
 				}
+				/*注册成功*/
+				function regestSc(){
+					view.pop.on("注册成功");
+					window.location.hash="index";
+				}
 				/*开始注册*/
-				user.regest($("#phone input").val(),$("#key input").val(),function(returnData){
-					if(returnData){
-						common.pop.on("注册成功");
-						window.location.hash="index";
-					}
-				});
+				var tksc=function(returnData){
+					api("user","regest",{
+						tk:returnData.tk,
+						name:$("#phone input").val(),
+						key:$("#key input").val()
+					},regestSc,view.err);
+				}
+				/*获取tk*/
+				common.tk(tksc);
 			});
 		}
 		function headDone(){/*头部加载完成*/
