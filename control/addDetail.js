@@ -5,7 +5,7 @@ define("control/addDetail",function(require, exports, module) {
 	var common=require("bin/common");
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -39,11 +39,15 @@ define("control/addDetail",function(require, exports, module) {
 		function headDone(){/*头部加载完成*/
 			 
 		}
+		function addSc(){
+			view.pop.on("请求已发送，请等待验证");
+		}
 		function footDone(){/*脚部加载完成*/
 			$(".myDetail_foot #Send").unbind("tap").bind("tap",function(){
-				user.addFriend(data.par.id,function(){
-					view.pop.on("请求已发送，请等待验证");
-				})
+				function tkGet(returnData){
+					api("user","addFriend",{tk:returnData.tk,to:data.par.id},addSc,view.err);
+				}
+				common.tk(tkGet);
 			});
 		}
 		/*头部不放那*/

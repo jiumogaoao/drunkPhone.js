@@ -5,8 +5,7 @@ define("control/addGroupDetail",function(require, exports, module) {
 	var common=require("bin/common");
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
-	var group=require("model/group");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -39,11 +38,15 @@ define("control/addGroupDetail",function(require, exports, module) {
 		function headDone(){/*头部加载完成*/
 			 
 		}
+		function addSc(returnData){
+			view.pop.on("加入成功");
+		}
+		function tkGet(returnData){
+			api("group","join",{tk:returnData.tk,gid:data.par.id,uid:null},addSc,view.err);
+		}
 		function footDone(){/*脚部加载完成*/
 			$(".myDetail_foot #Send").unbind("tap").bind("tap",function(){
-				group.join(data.par.id,null,function(){
-					view.pop.on("加入成功");
-				})
+				common.tk(tkGet);
 			});
 		}
 		/*头部不放那*/

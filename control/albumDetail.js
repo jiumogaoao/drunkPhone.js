@@ -5,7 +5,8 @@ define("control/albumDetail",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var album=require("model/album");
+	var api=require("bin/api");
+	var tk=null;
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -21,14 +22,14 @@ define("control/albumDetail",function(require, exports, module) {
 						showList.showList=_.groupBy(showList.list,function(point){
 							return moment(point.time,"x").format("YYYY 年 MM 月 DD 日");
 						});
+					view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);	
 					}
-					album.getAlbumList(null,getAlbumList);
-					view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);
+					api("album","getAlbumList",{tk:tk,uid:null},getAlbumList,view.err);
 				}
 			}
 			$(".albumDetail_page #addPic").unbind("change").bind("change",function(e){
 				common.pic(e,function(returnData){
-					album.addPic(data.par.id,returnData,addPic)
+					api("album","addPic",{tk:tk,aid:data.par.id,src:returnData},addPic,view.err);
 				});
 			});
 			$(".albumDetail_page .mask").unbind("tap").bind("tap",function(){
@@ -59,8 +60,12 @@ define("control/albumDetail",function(require, exports, module) {
 			showList.showList=_.groupBy(showList.list,function(point){
 				return moment(point.time,"x").format("YYYY 年 MM 月 DD 日");
 			});
+			view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);
 		}
-		album.getAlbum(data.par.id,getAlbum);
-		view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);
+		function tkGet(returnData){
+			tk=returnData.tk;
+			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
+		};
+		common.tk(tkGet);
 	}
 });

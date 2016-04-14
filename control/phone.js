@@ -4,7 +4,8 @@ define("control/phone",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -58,12 +59,13 @@ define("control/phone",function(require, exports, module) {
 				window.location.hash="actionList";
 			});
 		}
-		/*加载头部，传入参数*/
-		var userData=user.loginMessage();
+		
+		function tkGet(returnData){
+			/*加载头部，传入参数*/
 		view.head.show("head_template",{
 			"left":{
 				type:"icon",
-				src:userData.icon
+				src:returnData.user.icon
 			},
 			"center":{
 				type:"nav",
@@ -79,6 +81,8 @@ define("control/phone",function(require, exports, module) {
 				]
 			}
 		},headDone);
+		};
+		common.tk(tkGet);
 		/*加载脚部，传入参数*/
 		view.foot.show("treeNav_foot",{hl:"0"},footDone);
 		/*加载主区，传入参数*/

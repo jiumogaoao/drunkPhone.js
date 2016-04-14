@@ -3,7 +3,8 @@ define("control/actionList",function(require, exports, module) {
 	module.exports=page;
 	page.par=[];
 	var view=require("bin/view");
-	var user=require("model/user");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -54,8 +55,8 @@ define("control/actionList",function(require, exports, module) {
 			});
 		}
 		/*使用iconTitleButton_head的view作为头部，传入参数*/
-		var userData=user.loginMessage();
-		view.head.show("head_template",{"left":{"type":"icon","src":userData.icon},"center":{type:"title",text:"动态"},right:{type:"button",text:"更多"}},headDone);
+		
+		
 		/*使用treeNav_foot作为脚部，传入参数*/
 		view.foot.show("treeNav_foot",{hl:"2"},footDone);
 		/*转出actionList_page的view*/
@@ -85,5 +86,9 @@ define("control/actionList",function(require, exports, module) {
 				}
 			]
 		},data.state,"size",viewDone);
+		function tkGet(returnData){
+			view.head.show("head_template",{"left":{"type":"icon","src":returnData.user.icon},"center":{type:"title",text:"动态"},right:{type:"button",text:"更多"}},headDone);
+		}
+		common.tk(tkGet);
 	};
 });

@@ -5,7 +5,7 @@ define("control/addSay",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var zone=require("model/zone");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -39,7 +39,10 @@ define("control/addSay",function(require, exports, module) {
 						control.back();
 					};
 				};
-				zone.add($(".addSay_page .topFrame textarea").val(),picArry,add);
+				function tkGet(returnData){
+					api("zone","add",{tk:returnData.tk,text:$(".addSay_page .topFrame textarea").val(),pic:picArry},add,view.err);
+				};
+				common.tk(tkGet);
 			});
 		}
 		function footDone(){/*脚部加载完成*/

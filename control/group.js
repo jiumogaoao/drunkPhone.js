@@ -4,7 +4,8 @@ define("control/group",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var group=require("model/group");
+	var api=require("bin/api");
+	var common=require("bin/common");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -112,8 +113,11 @@ define("control/group",function(require, exports, module) {
 					list:returneData.member
 				})
 			}
+			view.main.sugest("group_page",list,data.state,"side",viewDone);
 		}
-		group.getMyList(getMyList);
-		view.main.sugest("group_page",list,data.state,"side",viewDone);
+		function tkGet(returnData){
+			api("group","getMyList",{tk:returnData.tk},getMyList,view.err);
+		}
+		common.tk(tkGet);
 	}
 });

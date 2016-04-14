@@ -4,8 +4,8 @@ define("control/zone",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var zone=require("model/zone");
-	var user=require("model/user");
+	var api=require("bin/api");
+	var common=require("bin/common");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -68,20 +68,24 @@ define("control/zone",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		var showList=[];
+		var self={};
 		var getList=function(returnData){
 			if(returnData){
 				showList=returnData;
 			}
+			view.main.sugest("zone_page",{
+				bg:self.zoneBackground,
+				icon:self.icon,
+				step:self.step,
+				readedNum:self.readed.length,
+				totalReadedNum:self.totalReaded.length,
+				list:showList
+			},data.state,"side",viewDone);
+		};
+		function tkGet(returnData){
+			self=returnData.user;
+			api("zone","getList",{tk:returnData.tk},getList,view.err);
 		}
-		var self=user.loginMessage();
-		zone.getList(getList);
-		view.main.sugest("zone_page",{
-			bg:self.zoneBackground,
-			icon:self.icon,
-			step:self.step,
-			readedNum:self.readed.length,
-			totalReadedNum:self.totalReaded.length,
-			list:showList
-		},data.state,"side",viewDone);
+		common.tk(tkGet);
 	}
 });

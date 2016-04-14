@@ -213,11 +213,12 @@ define("bin/view",function(require, exports, module) {
 				sideShow(fn);
 			}else{/*如果没加载，先去拿模版*/
 				getTem("side_tem",function(tem){
-					/*放数据*/
+					function tkGet(returnData){
+						/*放数据*/
 					var sideStr=_.template(tem)({data:{
-						icon:"img/head.jpg",
-						name:"某人",
-						step:["sun","sun","moon","moon","star","star"],
+						icon:returnData.user.icon,
+						name:returnData.user.name,
+						step:returnData.user.step,
 						ercode:"img/erCode.jpg"
 					}});
 					/*放进侧栏*/
@@ -267,6 +268,9 @@ define("bin/view",function(require, exports, module) {
 					$("#sideFrame").attr("haveload","1");
 					/*然后打开*/
 					sideShow(fn);
+					};
+					common.tk(tkGet);
+					
 				});
 			}
 		},

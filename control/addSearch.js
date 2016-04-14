@@ -4,8 +4,9 @@ define("control/addSearch",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
-	var group=require("model/group");
+	var common=require("bin/common");
+	var api=require("bin/api");
+	var tk=null;
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -36,19 +37,32 @@ define("control/addSearch",function(require, exports, module) {
 			group:[],
 			publics:[]
 		};
+		var callbackcount=0;
+		var callbackAll(){
+			callbackcount++;
+			if(callbackcount==2){
+				/*加载主区，传入参数*/
+				view.main.sugest("addSearch_page",dataObj,data.state,"side",viewDone);
+			}
+		};
 		var getManList=function(list){
 			dataObj.man=list;
+			callbackAll();
 		}
 		var getGroupList=function(list){
 			dataObj.group=list;
+			callbackAll();
 		}
-		user.searchNotFriend(getManList);
-		group.searchNotGroup(getGroupList);
 		/*加载头部，传入参数*/
 		view.head.hide(headDone);
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
-		/*加载主区，传入参数*/
-		view.main.sugest("addSearch_page",dataObj,data.state,"side",viewDone);
+		function tkGet(returnData){
+			tk=returnData.tk;
+			api("user","searchNotFriend",{tk:tk},getManList,view.err);
+			api("group","searchNotGroup",{tk:tk},getGroupList,view.err);
+		};
+		common.tk(tkGet);
+		
 	}
 });

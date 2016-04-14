@@ -4,7 +4,8 @@ define("control/album",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var album=require("model/album");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -46,8 +47,11 @@ define("control/album",function(require, exports, module) {
 		var showList=[]
 		function getAlbumList(returnData){
 			showList=returnData;
+			view.main.sugest("album_page",{list:showList},data.state,"side",viewDone);
 		}
-		album.getAlbumList(null,getAlbumList);
-		view.main.sugest("album_page",{list:showList},data.state,"side",viewDone);
+		function tkGet(returnData){
+			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
+		};
+		common.tk(tkGet);
 	}
 });

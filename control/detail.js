@@ -4,7 +4,9 @@ define("control/detail",function(require, exports, module) {
 	page.par=["id"];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var message=require("model/message");
+	var common=require("bin/common");
+	var api=require("bin/api");
+	var tk=null;
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -22,19 +24,20 @@ define("control/detail",function(require, exports, module) {
 				control.back();
 			});
 		}
-		function footDone(){/*脚部加载完成*/
-			$(".talk_foot input").unbind("keydown").bind("keydown",function(e){
-				var that=this;
-				if(e.keyCode==13){
-					message.add(data.par.id,0,"text",$(this).val(),function(returnData){
-						if(returnData){
+		function sendSc(returnData){
+			if(returnData){
 							var newList=function(newData){
 								view.main.sugest("detail_page",{group:newData},data.state,"top",viewDone);
 							}
 							$(that).val("");
-							message.getList(data.par.id,newList);
+							api("message","getList",{tk:tk,to:data.par.id},newList,view.err);
 						}
-					});
+		}
+		function footDone(){/*脚部加载完成*/
+			$(".talk_foot input").unbind("keydown").bind("keydown",function(e){
+				var that=this;
+				if(e.keyCode==13){
+					api("message","add",{tk:tk,to:data.par.id,state:0,type:"text",main:$(this).val()});
 				}
 			});
 		}
@@ -43,13 +46,18 @@ define("control/detail",function(require, exports, module) {
 		/*加载脚部，传入参数*/
 		view.foot.show("talk_foot",{hl:"1"},footDone);
 		var showList={group:{}};
+		function tkGet(returnData){
+			tk=returnData.tk;
+			api("message","getList",{tk:tk,to:data.par.id},getList,view.err);
+		};
+		common.tk(tkGet);
 		function getList(returnList){
 			if(returnList){
 				showList.group=returnList;
 			};
-		};
-		message.getList(data.par.id,getList);
-		/*加载主区，传入参数*/
+			/*加载主区，传入参数*/
 		view.main.sugest("detail_page",showList,data.state,"top",viewDone);
+		};
+		
 	}
 });

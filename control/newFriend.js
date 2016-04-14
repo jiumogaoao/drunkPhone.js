@@ -5,7 +5,7 @@ define("control/newFriend",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var user=require("model/user");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -56,11 +56,14 @@ define("control/newFriend",function(require, exports, module) {
 				friendList.push(point);
 			});
 			friendList=_.sortBy(friendList,function(point){return point.time});
+			/*加载主区，传入参数*/
+			view.main.sugest("newFriend_page",{
+				list:friendList
+			},data.state,"side",viewDone);
 		}
-		user.getFriendList(getFriend);
-		/*加载主区，传入参数*/
-		view.main.sugest("newFriend_page",{
-			list:friendList
-		},data.state,"side",viewDone);
+		function tkGet(returnData){
+			api("user","getFriendList",{tk:returnData.tk},getFriend,view.err);
+		};
+		common.tk(tkGet);
 	}
 });

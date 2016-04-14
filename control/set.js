@@ -4,7 +4,10 @@ define("control/set",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
+	var common=require("bin/common");
+	var api=require("bin/api");
+	var tk=null;
+	var userData={};
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -28,7 +31,11 @@ define("control/set",function(require, exports, module) {
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		var userData=user.loginMessage();
-		view.main.sugest("set_page",userData,data.state,"side",viewDone);
+		function tkGet(returnData){
+			tk=returnData.tk;
+			userData=returnData.user;
+			view.main.sugest("set_page",userData,data.state,"side",viewDone);
+		};
+		common.tk(tkGet);
 	}
 });

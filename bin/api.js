@@ -12,7 +12,7 @@ var api=function(model,action,data,success,error){
 	$.ajax({
 		url:config.sour,
 							dataType:"json",
-							method:"post",
+							type: "POST",
 							data:sendData,
 							error:function(e){
 								error(e);

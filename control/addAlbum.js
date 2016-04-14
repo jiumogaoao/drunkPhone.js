@@ -4,11 +4,12 @@ define("control/addAlbum",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var album=require("model/album");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
-			var myScroll = new IScroll('#albumMain', {  });
+			var myScroll = new IScroll('#addAlbumMain', {  });
 			/*每当图片加载完成，刷新滚动控件*/
 			$('img').on("load",function(){
 				myScroll.refresh();
@@ -22,12 +23,22 @@ define("control/addAlbum",function(require, exports, module) {
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				control.back();
 			});
-			$(".head_module .right").unbind("tap").bind("tap",function(){
-				album.creat(null,$(".addAlbum_page [name='name']").val(),$(".addAlbum_page [name='dsc']").val(),$(".addAlbum_page [name='type']").val(),function(returnData){
-					if(returnData){
-						control.back();
+			function creatSc(returnData){
+						if(returnData){
+							control.back();
+						}
 					}
-				})
+			$(".head_module .right").unbind("tap").bind("tap",function(){
+				function tkGet(returnData){
+					api("album","creat",{
+						tk:returnData.tk,
+						aid:null,
+						name:$(".addAlbum_page [name='name']").val(),
+						dsc:$(".addAlbum_page [name='dsc']").val(),
+						type:$(".addAlbum_page [name='type']").val()
+					},creatSc,view.err);
+				};
+				common.tk(tkGet);
 			});
 		}
 		function footDone(){/*脚部加载完成*/

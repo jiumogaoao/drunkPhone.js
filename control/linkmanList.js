@@ -4,7 +4,8 @@ define("control/linkmanList",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
-	var user=require("model/user");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -72,9 +73,7 @@ define("control/linkmanList",function(require, exports, module) {
 				window.location.hash="actionList";
 			});
 		}
-		/*使用iconTitleButton_head的view作为头部，传入参数*/
-		var userData=user.loginMessage();
-		view.head.show("head_template",{"left":{"type":"icon","src":userData.icon},"center":{type:"title",text:"联系人"},"right":{type:"button",text:"添加"}},headDone);
+		
 		/*使用treeNav_foot作为脚部，传入参数*/
 		view.foot.show("treeNav_foot",{hl:"1"},footDone);
 		/*转出linkmanList_page的view*/
@@ -109,8 +108,14 @@ define("control/linkmanList",function(require, exports, module) {
 				showList.list.push(list);
 			});
 			showData.group.push(showList);
+			view.main.sugest("linkmanList_page",showData,data.state,"size",viewDone);
 		};
-		user.getFriendList(getFriendList);
-		view.main.sugest("linkmanList_page",showData,data.state,"size",viewDone);
+		function tkGet(returnData){
+			/*使用iconTitleButton_head的view作为头部，传入参数*/
+			view.head.show("head_template",{"left":{"type":"icon","src":returnData.user.icon},"center":{type:"title",text:"联系人"},"right":{type:"button",text:"添加"}},headDone);
+			api("user","getFriendList",{tk:returnData.tk},getFriendList,view.err);
+		};
+		common.tk(tkGet);
+		
 	}
 });

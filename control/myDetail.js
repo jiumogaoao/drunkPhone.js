@@ -5,7 +5,8 @@ define("control/myDetail",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var user=require("model/user");
+	var api=require("bin/api");
+	var tk=null;
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -36,23 +37,25 @@ define("control/myDetail",function(require, exports, module) {
 				}
 			});
 			/*修改背景*/
+			function bgSc(returnData){
+				if(returnData){
+							$(".myDetail_page #bg").attr("src",returnData.background);
+						}
+			}
+			function icSc(returnData){
+				if(returnData){
+					$(".myDetail_page #base .left img").attr("src",returnData.icon);
+				}
+			}
 			$(".myDetail_page #bgInput").unbind("change").bind("change",function(e){
 				common.pic(e,function(returnUrl){
-					user.changeBackground(returnUrl,function(returnData){
-						if(returnData){
-							$(".myDetail_page #bg").attr("src",returnUrl);
-						}
-					});
+					api("user","changeBackground",{tk:tk,src:returnUrl},bgSc,view.err);
 				});
 			});
 			/*修改头像*/
 			$(".myDetail_page #base .left #iconInput").unbind("change").bind("change",function(e){
 				common.pic(e,function(returnUrl){
-					user.changeIcon(returnUrl,function(returnData){
-						if(returnData){
-					$(".myDetail_page #base .left img").attr("src",returnUrl);
-				}
-			});
+					api("user","changeIcon",{tk:tk,src:returnUrl},icSc,view.err);
 				});
 			});
 		}
@@ -69,8 +72,10 @@ define("control/myDetail",function(require, exports, module) {
 		/*加载脚部，传入参数*/
 		view.foot.show("myDetail_foot",{},footDone);
 		/*加载主区，传入参数*/
-		var userData=user.loginMessage();
-		view.main.sugest("myDetail_page",{
+		function tkGet(returnData){
+			tk=returnData.tk;
+			var userData=returnData.user;
+			view.main.sugest("myDetail_page",{
 			base:userData,
 			pic:[{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"},{src:"img/head.jpg"}],
 			mine:[
@@ -81,5 +86,9 @@ define("control/myDetail",function(require, exports, module) {
 			{icon:"img/head.jpg",name:"某人",dsc:"描述"}
 			]
 		},data.state,"side",viewDone);
+		};
+		common.tk(tkGet);
+		
+		
 	}
 });

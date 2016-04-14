@@ -5,7 +5,7 @@ define("control/addGroupIcon",function(require, exports, module) {
 	var view=require("bin/view");
 	var control=require("bin/control");
 	var common=require("bin/common");
-	var group=require("model/group");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -20,17 +20,21 @@ define("control/addGroupIcon",function(require, exports, module) {
 				});
 			});
 		}
+		function addSc(id){
+			if(id){
+						window.location.hash="creatGroup/"+id;
+					}
+		}
+		function tkGet(returnData){
+			api("group","add",{tk:tk,gid:null,name:data.par.name,icon:$(".addGroupIcon_page #icon").attr("src")},addSc,view.err);
+		}
 		function headDone(){/*头部加载完成*/
 			/*绑定事件*/
 			$(".head_module .left").unbind("tap").bind("tap",function(){
 				control.back();
 			});
 			$(".head_module #next").unbind("tap").bind("tap",function(){
-				group.add(null,data.par.name,$(".addGroupIcon_page #icon").attr("src"),function(id){
-					if(id){
-						window.location.hash="creatGroup/"+id;
-					}
-				});
+				common.tk(tkGet);
 			});
 		}
 		function footDone(){/*脚部加载完成*/
