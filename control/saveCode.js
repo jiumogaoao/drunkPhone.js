@@ -26,5 +26,5 @@ define("control/saveCode",function(require, exports, module) {
 		view.foot.hide();
 		/*加载主区，传入参数*/
 		view.main.sugest("saveCode_page",data,data.state,"side",viewDone);
-	}
+	};
 });

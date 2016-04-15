@@ -30,7 +30,7 @@ define("control/regest",function(require, exports, module) {
 						name:$("#phone input").val(),
 						key:$("#key input").val()
 					},regestSc,view.err);
-				}
+				};
 				/*获取tk*/
 				common.tk(tksc);
 			});
@@ -50,5 +50,5 @@ define("control/regest",function(require, exports, module) {
 		view.foot.hide();
 		/*加载主区，传入参数*/
 		view.main.sugest("regest_page",data,data.state,"side",viewDone);
-	}
+	};
 });

@@ -55,5 +55,5 @@ define("control/addGroupDetail",function(require, exports, module) {
 		view.foot.show("addDetail_foot",{text:"申请加群"},footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("addGroupDetail_page",{},data.state,"side",viewDone);
-	}
+	};
 });

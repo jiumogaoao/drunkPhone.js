@@ -37,7 +37,7 @@ define("control/addAlbum",function(require, exports, module) {
 						dsc:$(".addAlbum_page [name='dsc']").val(),
 						type:$(".addAlbum_page [name='type']").val()
 					},creatSc,view.err);
-				};
+				}
 				common.tk(tkGet);
 			});
 		}
@@ -51,5 +51,5 @@ define("control/addAlbum",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("addAlbum_page",{},data.state,"side",viewDone);
-	}
+	};
 });

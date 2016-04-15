@@ -61,5 +61,5 @@ define("control/add",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("add_page",{},data.state,"side",viewDone);
-	}
+	};
 });

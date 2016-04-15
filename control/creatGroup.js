@@ -35,12 +35,12 @@ define("control/creatGroup",function(require, exports, module) {
 		}
 		function tkGet(returnData){
 			api("group","getList",{tk:returnData.tk,idArry:[data.par.id]},getGroup,view.err);
-		};
+		}
 		common.tk(tkGet);
 		/*加载头部，传入参数*/
 		view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"创建成功"},right:{type:"button",text:"完成",id:"end"}},headDone);
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
 		
-	}
+	};
 });

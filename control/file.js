@@ -40,5 +40,5 @@ define("control/file",function(require, exports, module) {
 			{name:"微云文件"}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

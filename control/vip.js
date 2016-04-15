@@ -66,5 +66,5 @@ define("control/vip",function(require, exports, module) {
 				]
 			}
 		},data.state,"side",viewDone);
-	}
+	};
 });

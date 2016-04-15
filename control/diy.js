@@ -99,5 +99,5 @@ define("control/diy",function(require, exports, module) {
 			{title:"标题",dsc:"描述",icon:"img/head.jpg"}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

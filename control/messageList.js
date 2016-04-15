@@ -34,9 +34,9 @@ define("control/messageList",function(require, exports, module) {
 			});
 			/*点击列表项进入聊天*/
 			$(".messageList_page .list_module").unbind("tap").bind("tap",function(){
-				if($(this).attr("state")=="0"){
+				if($(this).attr("state")==="0"){
 					window.location.hash="detail/"+$(this).attr("pid");
-				}else if($(this).attr("state")=="1"){
+				}else if($(this).attr("state")==="1"){
 					window.location.hash="detailGroup/"+$(this).attr("pid");
 				}
 			});
@@ -97,7 +97,7 @@ define("control/messageList",function(require, exports, module) {
 		var callback=0;
 		function callbackAll(){
 			callback++;
-			if(callback==3){
+			if(callback===3){
 				view.main.sugest("messageList_page",{
 					list:showData
 				},data.state,"size",viewDone);
@@ -106,19 +106,19 @@ define("control/messageList",function(require, exports, module) {
 		/*转出messageList_page的view*/
 		function getMessageList(returnData){
 			_.each(returnData,function(point,index){
-				if(point[0].state==0){
+				if(point[0].state===0){
 					showData.push({"id":index,"state":0,"icon":friendList[index].icon,"name":friendList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
-				}else if(point[0].state==1){
+				}else if(point[0].state===1){
 					showData.push({"id":index,"state":1,"icon":groupList[index].icon,"name":groupList[index].name,"dsc":_.last(point).main,"time":moment(_.last(point).time,"x").format("YYYY-MM-DD"),"num":point.length});
-				};
+				}
 			});
-			callbackAll()
-		};
+			callbackAll();
+		}
 		function getFriendList(returnData){
 			_.each(returnData.checked,function(point){
 				friendList[point.id]=point;
 			});
-			callbackAll()
+			callbackAll();
 		}
 		function getMyList(returnData){
 			_.each(returnData.owner,function(point){
@@ -130,7 +130,7 @@ define("control/messageList",function(require, exports, module) {
 			_.each(returnData.member,function(point){
 				groupList[point.id]=point;
 			});
-			callbackAll()
+			callbackAll();
 		}
 		function tkget(returnData){
 			/*使用iconNavButton_head的view作为头部，传入参数hl=0*/
@@ -164,5 +164,5 @@ define("control/messageList",function(require, exports, module) {
 		}
 		common.tk(tkget);
 		
-	}
+	};
 });

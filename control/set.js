@@ -35,7 +35,7 @@ define("control/set",function(require, exports, module) {
 			tk=returnData.tk;
 			userData=returnData.user;
 			view.main.sugest("set_page",userData,data.state,"side",viewDone);
-		};
+		}
 		common.tk(tkGet);
-	}
+	};
 });

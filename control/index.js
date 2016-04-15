@@ -48,5 +48,5 @@ define("control/index",function(require, exports, module) {
 		view.foot.hide();
 		/*转出index_page的view*/
 		view.main.sugest("index_page",data,data.state,"show",viewDone);
-	}
+	};
 });

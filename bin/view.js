@@ -268,7 +268,7 @@ define("bin/view",function(require, exports, module) {
 					$("#sideFrame").attr("haveload","1");
 					/*然后打开*/
 					sideShow(fn);
-					};
+					}
 					common.tk(tkGet);
 					
 				});
@@ -387,7 +387,7 @@ define("bin/view",function(require, exports, module) {
             $("#popBg").show();
             $("#popBg").unbind("tap").bind("tap",function(){
                 view.pop.off();
-            })
+            });
         },
         /*弹出关闭*/
         off: function () {
@@ -402,7 +402,7 @@ define("bin/view",function(require, exports, module) {
         on:function (){
              $("#popBg").show();
             $("#popBg").unbind("tap").bind("tap",function(){
-            })
+            });
         },
         /*loading关闭*/
         off:function(){

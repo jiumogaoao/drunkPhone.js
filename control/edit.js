@@ -11,7 +11,7 @@ define("control/edit",function(require, exports, module) {
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			$(".edit_page .right input,.edit_page .right select").unbind("change").bind("change",function(){
-				if($(this).attr("name")!="birthday"){
+				if($(this).attr("name")!=="birthday"){
 					userData[$(this).attr("name")]=$(this).val();
 				}else{
 					userData.birthday=moment($(this).val(),"YYYY-MM-DD").format("x");
@@ -27,7 +27,7 @@ define("control/edit",function(require, exports, module) {
 				view.pop.on("修改成功");
 				userData=returnData;
 				view.main.sugest("edit_page",userData,data.state,"side",viewDone);
-			};
+			}
 			$(".head_module .rightButton").unbind("tap").bind("tap",function(){
 				api("user","editDetail",{tk:tk,editData:userData},editSc,view.err);
 			});
@@ -47,5 +47,5 @@ define("control/edit",function(require, exports, module) {
 		}
 		common.tk(tkGet);
 		
-	}
+	};
 });

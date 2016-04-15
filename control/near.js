@@ -174,5 +174,5 @@ define("control/near",function(require, exports, module) {
 			}
 
 		},data.state,"side",viewDone);
-	}
+	};
 });

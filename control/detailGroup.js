@@ -28,7 +28,7 @@ define("control/detailGroup",function(require, exports, module) {
 			if(returnData){
 							var newList=function(newData){
 								view.main.sugest("detail_page",{group:newData},data.state,"top",viewDone);
-							}
+							};
 							$(that).val("");
 							api("message","getGroupList",{tk:tk,to:data.par.id},newList,view.err);
 						}
@@ -36,7 +36,7 @@ define("control/detailGroup",function(require, exports, module) {
 		function footDone(){/*脚部加载完成*/
 			$(".talk_foot input").unbind("keydown").bind("keydown",function(e){
 				var that=this;
-				if(e.keyCode==13){
+				if(e.keyCode===13){
 					api("message","add",{tk:tk,to:data.par.id,state:1,type:"text",main:$(this).val()},sendSc,view.err);
 				}
 			});
@@ -49,14 +49,14 @@ define("control/detailGroup",function(require, exports, module) {
 		function getList(returnList){
 			if(returnList){
 				showList.group=returnList;
-			};
+			}
 			/*加载主区，传入参数*/
 		view.main.sugest("detail_page",showList,data.state,"top",viewDone);
-		};
+		}
 		function tkGet(returnData){
 			tk=returnData.tk;
 			api("message","getGroupList",{tk:tk,to:data.par.id},getList,view.err);
 		}
 		common.tk(tkGet);
-	}
+	};
 });

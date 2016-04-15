@@ -20,7 +20,7 @@ define("control/albumIcon",function(require, exports, module) {
 					if(returnData){
 						control.back();
 					}
-				};
+				}
 				api("album","setIcon",{tk:tk,aid:data.par.id,src:$(this).attr("src")},setSc,view.err);
 			});
 		}
@@ -54,5 +54,5 @@ define("control/albumIcon",function(require, exports, module) {
 			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
 		}
 		common.tk(tkGet);
-	}
+	};
 });

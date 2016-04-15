@@ -32,5 +32,5 @@ define("control/phoneList",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("phoneList_page",data,data.state,"side",viewDone);
-	}
+	};
 });

@@ -34,7 +34,7 @@ define("bin/common",function(require, exports, module) {
                 fn(e.target.result);
             };
             reader.readAsDataURL(file.target.files[0]);
-        }
+        };
     /*本机缓存*/
     module.exports.cache = common.cache = function (key, value, remove) {
         if(!window.localStorage){
@@ -62,8 +62,8 @@ define("bin/common",function(require, exports, module) {
         var tksc=function(returnData){
             common.cache("tk",returnData);
             fn(returnData);
-        }
+        };
         api("user","getToken",{tk:common.cache("tk").tk},tksc,view.err);
-    }
+    };
 
 });

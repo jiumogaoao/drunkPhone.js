@@ -56,5 +56,5 @@ define("control/aboutMe",function(require, exports, module) {
 				],readNumber:99,parise:["另一个人","另一个人","另一个人","另一个人"]}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

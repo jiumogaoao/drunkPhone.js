@@ -46,5 +46,5 @@ define("control/addGroupIcon",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("addGroupIcon_page",{},data.state,"side",viewDone);
-	}
+	};
 });

@@ -38,9 +38,9 @@ define("control/addSearch",function(require, exports, module) {
 			publics:[]
 		};
 		var callbackcount=0;
-		var callbackAll(){
+		var callbackAll=function(){
 			callbackcount++;
-			if(callbackcount==2){
+			if(callbackcount===2){
 				/*加载主区，传入参数*/
 				view.main.sugest("addSearch_page",dataObj,data.state,"side",viewDone);
 			}
@@ -48,11 +48,11 @@ define("control/addSearch",function(require, exports, module) {
 		var getManList=function(list){
 			dataObj.man=list;
 			callbackAll();
-		}
+		};
 		var getGroupList=function(list){
 			dataObj.group=list;
 			callbackAll();
-		}
+		};
 		/*加载头部，传入参数*/
 		view.head.hide(headDone);
 		/*隐藏脚部*/
@@ -61,8 +61,8 @@ define("control/addSearch",function(require, exports, module) {
 			tk=returnData.tk;
 			api("user","searchNotFriend",{tk:tk},getManList,view.err);
 			api("group","searchNotGroup",{tk:tk},getGroupList,view.err);
-		};
+		}
 		common.tk(tkGet);
 		
-	}
+	};
 });

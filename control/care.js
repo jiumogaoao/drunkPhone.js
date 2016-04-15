@@ -33,5 +33,5 @@ define("control/care",function(require, exports, module) {
 			{icon:"img/head.jpg",name:"某人",dsc:"就是个人嘛"}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

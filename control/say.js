@@ -60,5 +60,5 @@ define("control/say",function(require, exports, module) {
 				}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

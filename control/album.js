@@ -44,14 +44,14 @@ define("control/album",function(require, exports, module) {
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
-		var showList=[]
+		var showList=[];
 		function getAlbumList(returnData){
 			showList=returnData;
 			view.main.sugest("album_page",{list:showList},data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
 			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
-		};
+		}
 		common.tk(tkGet);
-	}
+	};
 });

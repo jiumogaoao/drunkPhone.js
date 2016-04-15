@@ -90,7 +90,7 @@ define("control/linkmanList",function(require, exports, module) {
 				],id:"myPhoneList"}
 			],id:"device"}
 			]
-		}
+		};
 		function getFriendList(returnData){
 			var checkedFriend=_.groupBy(returnData.checked,"groupId");
 			var showList={
@@ -100,7 +100,7 @@ define("control/linkmanList",function(require, exports, module) {
 			_.each(returnData.friendGroup,function(listGroup){
 				var list={
 					name:listGroup.name,num:0,list:[],id:listGroup.id
-				}
+				};
 				if(checkedFriend[listGroup.id]){
 					list.num=checkedFriend[listGroup.id].length;
 					list.list=checkedFriend[listGroup.id];
@@ -109,13 +109,13 @@ define("control/linkmanList",function(require, exports, module) {
 			});
 			showData.group.push(showList);
 			view.main.sugest("linkmanList_page",showData,data.state,"size",viewDone);
-		};
+		}
 		function tkGet(returnData){
 			/*使用iconTitleButton_head的view作为头部，传入参数*/
 			view.head.show("head_template",{"left":{"type":"icon","src":returnData.user.icon},"center":{type:"title",text:"联系人"},"right":{type:"button",text:"添加"}},headDone);
 			api("user","getFriendList",{tk:returnData.tk},getFriendList,view.err);
-		};
+		}
 		common.tk(tkGet);
 		
-	}
+	};
 });

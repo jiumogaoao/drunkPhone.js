@@ -87,5 +87,5 @@ define("control/zone",function(require, exports, module) {
 			api("zone","getList",{tk:returnData.tk},getList,view.err);
 		}
 		common.tk(tkGet);
-	}
+	};
 });

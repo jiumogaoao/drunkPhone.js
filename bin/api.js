@@ -28,7 +28,7 @@ var api=function(model,action,data,success,error){
 									error(returnData);
 									}
 								}
-	})
+	});
 };
 module.exports=api;
 });

@@ -23,5 +23,5 @@ define("control/forgetKey",function(require, exports, module) {
 		view.foot.hide();
 		/*加载主区，传入参数*/
 		view.main.sugest("forgetKey_page",data,data.state,"side",viewDone);
-	}
+	};
 });

@@ -68,5 +68,5 @@ define("control/collect",function(require, exports, module) {
 			}
 			]
 		},data.state,"side",viewDone);
-	}
+	};
 });

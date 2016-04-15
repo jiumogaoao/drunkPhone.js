@@ -86,9 +86,9 @@ define("control/myDetail",function(require, exports, module) {
 			{icon:"img/head.jpg",name:"某人",dsc:"描述"}
 			]
 		},data.state,"side",viewDone);
-		};
+		}
 		common.tk(tkGet);
 		
 		
-	}
+	};
 });

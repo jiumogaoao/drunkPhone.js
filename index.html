@@ -101,25 +101,15 @@
     <div id="loading"></div>
     <div id="loadingBg"></div>
 </div>
-<script src="include/zepto.js"></script>
-<script src="include/ajax.js"></script>
-<script src="include/event.js"></script>
-<script src="include/touch.js"></script>
-<script src="include/iscroll.js"></script>
-<script src="include/underscore.js"></script>
-<script src="include/sea.js"></script>
+<script src="bin/zepto.js"></script>
+<script src="bin/ajax.js"></script>
+<script src="bin/event.js"></script>
+<script src="bin/touch.js"></script>
+<script src="bin/iscroll.js"></script>
+<script src="bin/underscore.js"></script>
+<script src="bin/sea.js"></script>
+<script src="bin/seaConfig.js"></script>
+<script src="bin/run.js"></script>
 <script src="include/moment.js"></script>
-<script>
-
-  // Set configuration
-  seajs.config({
-    base: ((location.href.indexOf("?dev") > 0)?"./":"./js/")
-  });
-  seajs.use("bin/control",function(control){
-    control.init();
-  });
-
-</script>
-
 </body>
 </html>

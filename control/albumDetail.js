@@ -17,13 +17,6 @@ define("control/albumDetail",function(require, exports, module) {
 			});
 			function addPic(returnData){
 				if(returnData){
-					function getAlbumList(returnData){
-						showList=_.find(returnData,{id:data.par.id});
-						showList.showList=_.groupBy(showList.list,function(point){
-							return moment(point.time,"x").format("YYYY 年 MM 月 DD 日");
-						});
-					view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);	
-					}
 					api("album","getAlbumList",{tk:tk,uid:null},getAlbumList,view.err);
 				}
 			}
@@ -33,7 +26,7 @@ define("control/albumDetail",function(require, exports, module) {
 				});
 			});
 			$(".albumDetail_page .mask").unbind("tap").bind("tap",function(){
-				window.location.hash="albumIcon/"+data.par.id
+				window.location.hash="albumIcon/"+data.par.id;
 			});
 		}
 		function headDone(){/*头部加载完成*/
@@ -65,7 +58,7 @@ define("control/albumDetail",function(require, exports, module) {
 		function tkGet(returnData){
 			tk=returnData.tk;
 			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
-		};
+		}
 		common.tk(tkGet);
-	}
+	};
 });

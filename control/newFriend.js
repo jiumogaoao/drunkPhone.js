@@ -55,7 +55,7 @@ define("control/newFriend",function(require, exports, module) {
 				point.state="已拒绝";
 				friendList.push(point);
 			});
-			friendList=_.sortBy(friendList,function(point){return point.time});
+			friendList=_.sortBy(friendList,function(point){return point.time;});
 			/*加载主区，传入参数*/
 			view.main.sugest("newFriend_page",{
 				list:friendList
@@ -63,7 +63,7 @@ define("control/newFriend",function(require, exports, module) {
 		}
 		function tkGet(returnData){
 			api("user","getFriendList",{tk:returnData.tk},getFriend,view.err);
-		};
+		}
 		common.tk(tkGet);
-	}
+	};
 });

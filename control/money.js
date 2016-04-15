@@ -43,5 +43,5 @@ define("control/money",function(require, exports, module) {
 		view.foot.show("money_foot",{},footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("money_page",{},data.state,"side",viewDone);
-	}
+	};
 });

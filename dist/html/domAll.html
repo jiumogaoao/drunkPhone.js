@@ -1,0 +1,3316 @@
+<script type="text/x-template" id="aboutMe_page">
+<div class="aboutMe_page">
+	<div id="aboutMeMain">
+		<div id="aboutMeRoll">
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){%>
+					<div class="zone_module">
+				<div class="answer">回复</div>
+				<div class="top">
+					<img src="<%= point.icon %>"/>
+					<div class="name"><%= point.name %></div>
+					<div class="time"><%= point.time %></div>
+				</div>
+				<div class="middle">
+					<div class="text"><%= point.main %></div>
+					<div class="picFrame">
+						<% if(point.pic&&point.pic.length){
+							_.each(point.pic,function(pic){ %>
+							<img src="<%= pic.src %>" class="pic"/>	
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="readed">
+						<div class="zoneIcon read"></div>
+						<div class="readNumber">浏览<%= point.readNumber %>次</div>
+						<div class="clear"></div>
+					</div>
+					<% if(point.parise&&point.parise.length){ %>
+						<div class="praised">
+							<div class="zoneIcon praise"></div>
+							<% _.each(point.parise,function(parise){ %>
+								<div class="praiseName"><%= parise %></div>
+							<% }) %>
+							<div class="clear"></div>
+						</div>
+					<% } %>
+				</div>
+			</div>
+				<% })
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="actionList_page">
+<div class="actionList_page">
+	<div id="sideHandle"></div>
+	<div id="topFrame">
+		<img src="img/searchButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<% if(data.nav&&data.nav.length){
+			_.each(data.nav,function(nav){ %>
+			<div class="linkNavPoint" id="<%= nav.id %>">
+				<img src="<%= nav.icon %>" class="icon"/>
+				<div class="name"><%= nav.name %></div>
+			</div>
+		<% }) 
+		} %>
+		<div class="clear"></div>
+	</div>
+	<div id="actionListFrame">
+		<div id="listFrameRoll">
+			<% if(data.group){
+				_.each(data.group,function(group){ %>
+				<div class="tag_module">
+				<% if(group.list&&group.list.length){
+						_.each(group.list,function(point){ %>
+					<div class="tagPoint">
+						<img src="<%= point.icon %>" class="left"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<img src="img/tag.png" class="icon"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+				<% })
+					} %>
+			</div>
+			<% })
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="addAlbum_page">
+<div class="addAlbum_page">
+	<div id="addAlbumMain">
+		<div id="addAlbumRoll">
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">名称</div>
+					<div class="right">
+						<input name="name"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">描述</div>
+					<div class="right">
+						<input name="dsc"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">主题</div>
+					<div class="right">
+						<select name="type">
+							<option value="0" selected="selected">普通</option>
+							<option value="1">亲子</option>
+							<option value="2">旅游</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">谁能看见</div>
+					<div class="right">
+						所有人能看见
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="addDetail_foot">
+<div class="myDetail_foot">
+	<div class="button_module buttonL_module buttonBlue_module" id="Send"><%= data.text %></div>
+</div>
+</script>
+<script type="text/x-template" id="addDetail_page">
+<div class="myDetail_page">
+	<div class="head_module buttonTitleButton_head">
+				<div class="left">
+					<div class="backIcon"></div>
+					<div class="leftText">返回</div>
+					<div class="clear"></div>
+				</div>
+				<div class="center">
+					<div class="title">个人资料</div>
+				</div>
+				<div class="right">
+				<div class="rightButton">更多</div>
+				</div>
+	</div>
+	<div id="myDetailMain">
+		<div id="myDetailRoll">
+			<img src="<%= data.bg %>" id="bg"/>
+			<div class="frame" id="base">
+				<div class="left">
+					<img src="<%= data.icon %>"/>
+				</div>
+				<div class="right">
+					<div class="name"><%= data.name %></div>
+					<div class="dsc"><%= data.sex %> <%= data.age %>岁 <%= data.province %> <%= data.city %></div>
+					<div class="vipFrame">
+						<img src="<%= data.daren %>"/>
+						<div class="vipNum"><%= data.vipTime %></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="host">
+				<div class="left">
+					账号信息
+				</div>
+				<div class="right">
+					<div class="name"><%= data.id %></div>
+					<img src="<%= data.lian %>" class="lian"/>
+					<img src="<%= data.vipType %>" class="vip"/>
+					<div class="clear"></div>
+					<% _.each(data.step,function(step){ %>
+						<div class="step <%= step %>"></div>
+					<% }) %>
+					<div class="speed"><%= data.stepSpeed %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="sign">
+				<div class="left">个性签名</div>
+				<div class="right">
+					<div class="dsc"><%= data.sign %></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="server">
+				<div class="left">专享特权</div>
+				<div class="right">
+					<img src="img/QG.png" class="point"/>
+					<img src="img/hz.png" class="point"/>
+					<img src="img/lz.png" class="point"/>
+					<img src="img/sz.png" class="point"/>
+					<img src="img/vq.png" class="point"/>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="zone">
+				<div class="left">QQ空间</div>
+				<div class="right">
+					<div class="dsc"><%= data.zoneName %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="mine">
+				<% if(data.mine&&data.mine.length){
+					_.each(data.mine,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="icon"/>
+							<div class="name"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div> 
+</div>
+</script>
+<script type="text/x-template" id="addGroupDetail_page">
+<div class="addGroupDetail_page">
+	<div class="head_module buttonTitleButton_head">
+				<div class="left">
+					<div class="backIcon"></div>
+					<div class="leftText">返回</div>
+					<div class="clear"></div>
+				</div>
+				<div class="center">
+					<div class="title">群资料</div>
+				</div>
+				<div class="right">
+				<div class="rightButton">更多</div>
+				</div>
+	</div>
+	<div id="addGroupDetailMain">
+		<div id="addGroupDetailRoll">
+			<div class="headFrame" style="background-image:url(img/head.jpg)">
+				<div class="title">群名</div>
+				<div class="iconFrame">
+					<img src="img/head.jpg" class="icon"/>
+					<img src="img/head.jpg" class="icon"/>
+					<img src="img/head.jpg" class="icon"/>
+					<div class="clear"></div>
+				</div>
+				<div class="bottomFrame">
+					<div class="list">32793239032(什么群)</div>
+					<div class="list">群地址<img src="img/tag.png" class="tag"/></div>
+					<div class="type">
+						<div class="typePoint">游戏</div>
+						<div class="clear"></div>
+						<img src="img/tag.png" class="tag"/>
+					</div>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="frameHead">
+					<div class="frameTitle">群介绍</div>
+					<div class="clear"></div>
+				</div>
+				<div class="frameMain">
+					<div class="frameText">本群创建于某年某月某日</div>
+					<div class="frameText">群描述很多很多字很多很多字很多很多字很多很多字~~~</div>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="frameHead">
+					<div class="frameTitle">群主/管理员</div>
+					<div class="frameMore">全部<img src="img/tag.png" class="tag"/></div>
+					<div class="clear"></div>
+				</div>
+				<div class="frameMain">
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="adminIcon">
+						<img src="img/head.jpg"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="frameHead">
+					<div class="frameTitle">群成员</div>
+					<div class="frameMore">11人<img src="img/tag.png" class="tag"/></div>
+					<div class="clear"></div>
+				</div>
+				<div class="frameMain">
+					<div class="typePoint">
+						<img src="img/head.jpg" class="typeIcon"/>
+						<div class="typeName">女-324人</div>
+					</div>
+					<div class="typePoint">
+						<img src="img/head.jpg" class="typeIcon"/>
+						<div class="typeName">深圳-324人</div>
+					</div>
+					<div class="typePoint">
+						<img src="img/head.jpg" class="typeIcon"/>
+						<div class="typeName">00后-324人</div>
+					</div>
+					<div class="typePoint">
+						<img src="img/head.jpg" class="typeIcon"/>
+						<div class="typeName">单身-324人</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>
+</script>
+<script type="text/x-template" id="addGroupIcon_page">
+<div class="addGroupIcon_page">
+	<div id="addGroupIconMain">
+		<div id="addGroupIconRoll">
+			<img src="img/groupIcon.jpg"/>
+			<img src="img/head.jpg" id="icon"/>
+			<div class="button_module buttonL_module buttonBlue_module" id="Send">上传头像</div>
+			<input type="file" id="pic"/>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="addGroupName_page">
+<div class="addGroupName_page">
+	<div id="addGroupNameMain">
+		<div id="addGroupNameRoll">
+			<img src="img/groupName.jpg"/>
+			<div class="fullScreanInput_module">
+				<input placeholder="请输入群名字"/>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="addSay_page">
+<div class="addSay_page">
+	<div id="addSayMain">
+		<div id="addSayRoll">
+			<div class="topFrame">
+				<textarea placeHolder="说点什么吧..."></textarea>
+				<div class="picFrame">
+					<div class="addPic">
+						<input id="addPic" type="file"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="centerFrame">
+				<div class="point">
+					<div class="left">上传高清图片</div>
+					<div class="right">
+						<div class="toggle_module">
+							<div class="toggle_handle"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">谁能看见</div>
+					<div class="right">
+						<div class="text">所有人可以看见</div>
+						<img src="img/tag.png" class="tag"/>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="bottomFrame">
+				<div class="point qq"></div>
+				<div class="point qw"></div>
+				<div class="point wx"></div>
+				<div class="point time"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="addSearch_page">
+<div class="addSearch_page">
+	<img id="search" src="img/searchMButton.png"/>
+	<div class="text_module" id="back">取消</div>
+	<div class="clear"></div>
+	<div id="addSearchMain">
+		<div id="addSearchRoll">
+		<% if(data.group&&data.group.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">群</div>
+				<% _.each(data.group,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="0">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+			<% if(data.man&&data.man.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">人</div>
+				<% _.each(data.man,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="1">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+			<% if(data.publics&&data.publics.length){ %>
+			<div class="group">
+				<div class="text_module textGay_module listTitle">公众号</div>
+				<% _.each(data.publics,function(point,num){ %>
+					<div class="list_module listL_module" pid="<%= point.id %>" type="2">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+				</div>
+				<% }) %>
+				<div class="moreButton">查看更多</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="add_page">
+<div class="add_page">
+	<div class="nav_module">
+		<div class="nav_point">找人</div>
+		<div class="nav_point">找群</div>
+		<div class="nav_point">找公众号</div>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div class="fullScreanInput_module search">
+		<div class="searchIcon"></div><input placeholder="QQ号/手机号/邮箱/群/公众号"/>
+	</div>
+	<div id="addMain">
+		<div id="addRoll">
+			<div class="subPage" id="findMan">
+				<div class="subPageRoll">
+					<div class="tag_module tagM_module">
+						<div class="tagPoint">
+							<img src="img/faceToface.png" class="left"/>
+							<div class="right">
+								<div class="title">面对面添加</div>
+								<div class="dsc">添加身边的人和群</div>
+								<img src="img/tag.png" class="icon"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="tagPoint">
+							<img src="img/find.png" class="left"/>
+							<div class="right">
+								<div class="title">按条件查找陌生人</div>
+								<div class="dsc">条件：女、18至22岁</div>
+								<img src="img/tag.png" class="icon"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="tagPoint">
+							<img src="img/linkMan.png" class="left"/>
+							<div class="right">
+								<div class="title">添加手机联系人</div>
+								<img src="img/tag.png" class="icon"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="tagPoint">
+							<img src="img/place.png" class="left"/>
+							<div class="right">
+								<div class="title">查看附近的人</div>
+								<img src="img/tag.png" class="icon"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="text_module listTitle textGay_module">可能认识的人</div>
+					<div class="list_module listS_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<div class="dsc">好吧，是的，就这样</div>
+								<div class="addButton">添加</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+					<div class="list_module listS_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<div class="dsc">好吧，是的，就这样</div>
+								<div class="addButton">添加</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+					<div class="list_module listS_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<div class="dsc">好吧，是的，就这样</div>
+								<div class="addButton">添加</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage" id="findGroup">
+				<div class="subPageRoll">
+					<img src="img/head.jpg" class="findGroupBanner"/>
+					<div class="findGroupFrame">
+						<div class="findGroupTitle">
+							<div class="findGroupTitleIcon"></div>
+							<div class="findGroupTitleName">热门分类</div>
+						</div>
+						<div class="findGroupTop">
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">生活</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">运动</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">交友</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">玩乐</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">游戏</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">车友</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">粉丝</div>
+							</div>
+							<div class="topPoint">
+								<div class="topPointIcon"></div>
+								<div class="topPointName">行业</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="findGroupFrame">
+						<div class="findGroupTitle">
+							<div class="findGroupTitleIcon"></div>
+							<div class="findGroupTitleName">附近的群</div>
+						</div>
+						<div class="findGroupList">
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="findGroupMore">更多</div>
+						</div>
+					</div>
+					<div class="findGroupFrame">
+						<div class="findGroupTitle">
+							<div class="findGroupTitleIcon"></div>
+							<div class="findGroupTitleName">附近的群</div>
+						</div>
+						<div class="findGroupList">
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXL_module">
+								<img class="left" src="img/head.jpg"/>
+								<div class="right">
+									<div class="title">群的名字</div>
+									<div class="dsc">好吧，是的，就这样</div>
+									<div class="button">关注</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+					<div class="findGroupFrame">
+						<div class="findGroupTitle">
+							<div class="findGroupTitleIcon"></div>
+							<div class="findGroupTitleName">同城活动</div>
+						</div>
+						<div class="findGroupList">
+							<div class="findGroupBoth">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="findGroupBoth">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="findGroupMore">更多</div>
+					</div>
+					<div class="findGroupFrame">
+						<div class="findGroupTitle">
+							<div class="findGroupTitleIcon"></div>
+							<div class="findGroupTitleName">兴趣部落</div>
+						</div>
+						<div class="findGroupList">
+							<div class="findGroupBoth S">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="findGroupBoth S">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="findGroupBoth S">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="findGroupBoth S">
+								<img class="findGroupBothLeft" src="img/head.jpg"/>
+								<div class="findGroupBothRight">
+									<div class="findGroupBothTitle">标题</div>
+									<div class="findGroupBothDsc">报名4</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="findGroupMore">更多</div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage" id="findPublic">
+				<div class="subPageRoll">
+					<div class="findPublicTop">
+						<div class="findPublicPoint">
+							<img src="img/findPublic.png" class="findPublicIcon"/>
+							<div class="findPublicName">公众号中心</div>
+							<div class="clear"></div>
+						</div>
+						<div class="findPublicPoint">
+							<img src="img/findAll.png" class="findPublicIcon"/>
+							<div class="findPublicName">全部分类</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="text_module listTitle textGay_module">精品推荐</div>
+					<div class="list_module listM_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<div class="dsc">好吧，是的，就这样</div>
+								<div class="state">2G</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+					<div class="list_module listM_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<div class="dsc">好吧，是的，就这样</div>
+								<div class="state">2G</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="albumDetail_page">
+<div class="albumDetail_page">
+	<div class="head_module">
+		<div class="left">
+			<div class="backIcon"></div>
+			<div class="leftText">返回</div>
+			<div class="clear"></div>
+		</div>
+		<div class="center">
+			<div class="title"><%= data.name %></div>
+		</div>
+		<div class="right">
+			<div class="rightButton">...</div>
+		</div>
+	</div>
+	<div id="albumDetailMain">
+		<div id="albumDetailRoll">
+			<div class="albumTop" style="background-image:url(<%= data.icon %>)">
+				<div class="mask"></div>
+				<div class="name"><%= data.name %></div>
+				<div class="topBottom">
+					<div class="point">
+						<img class="icon" src="img/prise.png"/>
+						<div class="number">17</div>
+						<div class="clear"></div>
+					</div>
+					<div class="point">
+						<img class="icon" src="img/readed.png"/>
+						<div class="number">17</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="button_module buttonL_module buttonBlue_module" id="Send">上传照片
+			<input id="addPic" type="file"/>
+			</div>
+			<div class="picList_module">
+				<% if(data.showList){
+					_.each(data.showList,function(group,time){ %>
+						<div class="group">
+							<div class="title"><%= time %></div>
+							<div class="list">
+								<% _.each(group,function(point){ %>
+									<div class="point" pid="<%= point.id %>">
+										<img src="<%= point.src %>"/>
+									</div>
+								<% }) %>
+								<div class="clear"></div>
+							</div>
+						</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="albumIcon_page">
+<div class="albumDetail_page">
+	<div id="albumDetailMain">
+		<div id="albumDetailRoll">
+			<div class="picList_module">
+				<% if(data.showList){
+					_.each(data.showList,function(group,time){ %>
+						<div class="group">
+							<div class="title"><%= time %></div>
+							<div class="list">
+								<% _.each(group,function(point){ %>
+									<div class="point" pid="<%= point.id %>">
+										<img src="<%= point.src %>"/>
+									</div>
+								<% }) %>
+								<div class="clear"></div>
+							</div>
+						</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="album_page">
+<div class="album_page">
+	<div id="albumMain">
+		<div id="albumRoll">
+			<div class="album_point" id="new"></div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(album){ %>
+				<div class="album_point album" pid="<%= album.id %>">
+					<img src="<% if(album.icon){print(album.icon)}else if(album.list.length){print(album.list[0].src)}else{print('img/head.jpg')} %>"/>
+					<div class="clear"></div>
+					<div class="title"><%= album.name %></div>
+					<div class="num"><%= album.count %></div>
+					<div class="clear"></div>
+				</div>
+			<% })
+			} %>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="buttonNavButton_head">
+<div class="head_module buttonNavButton_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="nav">
+		<div class="navPoint navLeft <% if(data.hl=="0"){print("hl")} %>">列表</div>
+		<div class="navPoint navRight <% if(data.hl=="1"){print("hl")} %>">最近</div>
+		<div class="clear"></div>
+	</div>
+	<div class="right">
+	<%= data.right %>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="buttonNavIcon_head">
+<div class="head_module buttonNavIcon_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="nav">
+		<div class="navPoint navLeft <% if(data.hl=="0"){print("hl")} %>">列表</div>
+		<div class="navPoint navRight <% if(data.hl=="1"){print("hl")} %>">最近</div>
+		<div class="clear"></div>
+	</div>
+	<div class="right">
+	<% _.each(data.right,function(point){ %>
+		<img src="<%= point.src %>" class="rightPoint" id="<%= point.id %>"/>
+	<% }) %>
+	<div class="clear"></div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="buttonTitleButton_head">
+<div class="head_module buttonTitleButton_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="title"><%= data.title %></div>
+	<div class="right"><%= data.right %></div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="buttonTitleIcon_head">
+<div class="head_module buttonTitleIcon_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="title"><%= data.title %></div>
+	<div class="right">
+	<% _.each(data.right,function(point){ %>
+		<img src="<%= point.src %>" class="rightPoint" id="<%= point.id %>"/>
+	<% }) %>
+	<div class="clear"></div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="care_page">
+<div class="care_page">
+	<div id="careMain">
+		<div id="careRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+						<div class="list_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+		<%	})
+		} %>
+			
+			<div class="text_module" id="send">添加特别关心好友</div>	
+		</div>
+	</div>
+					
+</div>
+</script>
+<script type="text/x-template" id="collect_page">
+<div class="collect_page">
+	<div id="collectMain">
+		<div id="collectRoll">
+			<img id="search" src="img/searchMButton.png"/>
+			<div class="text_module" id="edit">编辑</div>
+			<div class="clear"></div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+						<div class="point">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="name"><%= point.name %></div>
+								<div class="time"><%= point.time %></div>
+								<div class="clear"></div>
+							<% if(point.pic&&point.pic.length){
+									_.each(point.pic,function(pic){ %>
+										<img class="pic" src="<%= pic.src %>"/>
+									<% })
+								} %>
+							<% if(point.text){ %>
+									<div class="text"><%= point.text %></div>
+							<% } %>
+							</div>
+							<div class="clear"></div>
+						</div>	
+			<%  })
+			} %>
+		</div>
+	</div>				
+</div>
+</script>
+
+
+<script type="text/x-template" id="creatGroup_page">
+<div class="creatGroup_page">
+	<div id="creatGroupMain">
+		<div id="creatGroupRoll">
+			<div class="topFrame">
+				<img class="icon" src="<%= data.icon %>"/>
+				<div class="name"><%= data.name %></div>
+			</div>
+			<div class="tag_module">
+				<div class="tagPoint">
+					<img src="img/add2.png" class="left"/>
+					<div class="right">
+						<div class="title">邀请好友</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="tag_module">
+				<div class="tagPoint">
+					<img src="img/share.png" class="left"/>
+					<div class="right">
+						<div class="title">分享本群</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="tag_module">
+				<div class="tagPoint">
+					<img src="img/faceToface2.png" class="left"/>
+					<div class="right">
+						<div class="title">面对面分享群</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="detail_page">
+<div class="detail_page" id="detail">
+	<div class="detailRoll">
+		<% if(data.group){
+			_.each(data.group,function(group,index){ %>
+				<div class="messageGroup">
+					<div class="time"><%= index %></div>
+					<div class="mainFrame">
+						<% if(group&&group.length){
+							_.each(group,function(point){ %>
+								<div class="messagePoint messagePoint<%= (point.self?1:0) %>">
+									<img src="<%= point.icon %>" class="head"/>
+									<div class="textFrame">
+										<% if(point.state==1){ %>
+											<div class="name"><%= point.name %></div>
+										<% } %>	
+										<% if(point.type=="text"){ %>
+											<div class="word"><%= point.main %></div>
+										<% }else{ %>
+											<img class="pic" src="<%= point.main %>"/>
+										<% } %>
+									</div>
+									<div class="clear"></div>
+									<div class="deg deg<%= point.state %>"></div>
+								</div>
+						<% })
+						} %>
+					</div>
+				</div>
+		<% 	})
+		} %>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="directoryList_page">
+<div class="directoryList_page">
+	<img src="img/searchButton.png" class="searchButton" id="search"/>
+	<div id="navFrame">
+		<% if(data.group&&data.group.length){
+			_.each(data.group,function(group){ %>
+				<div class="navPoint"><%= group.title %></div>
+		<% })
+		} %>
+	</div>
+	<div id="directoryMain">
+		<div id="directoryRoll">
+			<% if(data.group&&data.group.length){
+			_.each(data.group,function(group){ %>
+				<div class="text_module textGay_module textM_module listTitle"><%= group.title %></div>
+			<% if(group.list&&group.list.length){
+				_.each(group.list,function(point){ %>
+					<div class="list_module listXS_module listSingle_module">
+						<img class="left" src="<%= point.icon %>"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<img src="<%= point.type %>" class="phone"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<%	})	
+				}
+			 })
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="diyShow_foot">
+<div class="diyShow_foot">
+	<img id="button" src="img/diyshowFoot.jpg"/>
+</div>
+</script>
+
+
+<script type="text/x-template" id="diyShow_page">
+<div class="diyShow_page">
+	<div class="head_module buttonTitleIcon_head">
+		<div class="left"> 
+			<div class="backIcon"></div>
+			<div class="leftText">返回</div>
+			<div class="clear"></div>
+		</div>
+		<div class="center">
+		<div class="title">个性装扮</div>
+		</div>
+		<div class="right">
+			<div class="rightIcon self"></div>
+			<div class="rightIcon find"></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="diyShowMain">
+		<div id="diyShowRoll">
+			<img id="banner" src="<%= data.banner %>"/>
+			<div id="topFrame">
+				<% if(data.top&&data.top.length){
+					_.each(data.top,function(top){ %>
+						<div class="point">
+							<img src="<%= top.icon %>" class="pic"/>
+							<div class="name"><%= top.name %></div>
+							<div class="dsc"><%= top.dsc %></div>
+						</div>
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="face">
+				<div class="title">热门表情</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.face&&data.face.length){
+					_.each(data.face,function(face){ %>
+					<div class="point">
+						<img src="<%= face.icon %>" class="pic"/>
+						<div class="name"><%= face.name %></div>
+					</div>	
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="pao">
+				<div class="title">热门气泡</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.pao&&data.pao.length){
+					_.each(data.pao,function(pao){ %>
+					<div class="point">
+						<img src="<%= pao.icon %>" class="pic"/>
+					</div>
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="redpackage">
+				<div class="title">热门红包</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.redpackage&&data.redpackage.length){
+					_.each(data.redpackage,function(redpackage){ %>
+					<div class="point">
+						<img src="<%= redpackage.icon %>" class="pic"/>
+						<div class="name"><%= redpackage.name %></div>
+					</div>	
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="font">
+				<div class="title">热门字体</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.font&&data.font.length){
+					_.each(data.font,function(font){ %>
+						<div class="point">
+							<img src="<%= font.icon %>" class="pic"/>
+						</div>
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="style">
+				<div class="title">热门主题</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.style&&data.style.length){
+					_.each(data.style,function(style){ %>
+					<div class="point">
+						<img src="<%= style.icon %>" class="pic"/>
+						<div class="name"><%= style.name %></div>
+					</div>	
+				<% })
+				} %>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>				
+</div>
+</script>
+<script type="text/x-template" id="diy_page">
+	<div class="diy_page">
+		<div id="diyMain">
+			<div id="diyRoll">
+				<div class="banner_module">
+					<div class="roll">
+						<% if(data.banner&&data.banner.length){
+							_.each(data.banner,function(banner){ %>
+							<img src="<%= banner.pic %>" class="pic"/>
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+					<div class="pointFrame">
+						<% if(data.banner&&data.banner.length){
+							_.each(data.banner,function(banner){ %>
+							<div class="point hl"></div>
+						<% })
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="topFrame">
+					<% if(data.top&&data.top.length){
+						_.each(data.top,function(top){ %>
+							<div class="topPoint">
+								<img src="<%= top.icon %>" class="pic"/>
+								<div class="topName"><%= top.name %></div>
+							</div>
+					<% })
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="lageFrame">
+					<div class="title">背景商城</div>
+					<div class="dsc"><%= data.bgText %></div>
+					<img src="<%= data.bgPic %>" class="pic"/>
+				</div>
+				<div id="centerFrame">
+					<% if(data.diy&&data.diy.length){
+						_.each(data.diy,function(diy){ %>
+							<div class="diyPoint" style="border-right:1px solid #e9e9e9;">
+								<div class="title"><%= diy.title %></div>
+								<div class="dsc"><%= diy.dsc %></div>
+								<img src="<%= diy.icon %>" class="pic"/>
+							</div>
+					<% })
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="bottomFrame">
+					<div id="bottomLeft" style="border-right:1px solid #e9e9e9;">
+						<div class="title"><%= data.bottom[0].title %></div>
+						<div class="dsc"><%= data.bottom[0].dsc %></div>
+						<img src="<%= data.bottom[0].icon %>" class="pic"/>
+					</div>
+					<div id="bottomRight">
+						<div class="diyPoint" style="border-bottom:1px solid #e9e9e9;">
+							<div class="title"><%= data.bottom[1].title %></div>
+							<div class="dsc"><%= data.bottom[1].dsc %></div>
+							<img src="<%= data.bottom[1].icon %>" class="pic"/>
+						</div>
+						<div class="diyPoint">
+							<div class="title"><%= data.bottom[2].title %></div>
+							<div class="dsc"><%= data.bottom[2].dsc %></div>
+							<img src="<%= data.bottom[2].icon %>" class="pic"/>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+						
+	</div>
+</script>
+<script type="text/x-template" id="edit_page">
+<div class="edit_page">
+	<div id="editMain">
+		<div id="editRoll">
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">昵称</div>
+					<div class="right">
+						<input value="<%= data.name %>" name="name"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">性别</div>
+					<div class="right">
+						<select name="sex">
+							<option value="1" <% if(data.sex==1){print('selected="selected"')} %>>男</option>
+							<option value="0" <% if(data.sex==0){print('selected="selected"')} %>>女</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">生日</div>
+					<div class="right">
+						<input value="<%= moment(data.birthday,"x").format("YYYY-MM-DD") %>" name="birthday"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">职业</div>
+					<div class="right">
+						<select name="job">
+							<option value="13" <% if(data.job==13){print('selected="selected"')} %>>计算机/互联网/通讯</option>
+							<option value="12" <% if(data.job==12){print('selected="selected"')} %>>生产/工艺/制造</option>
+							<option value="11" <% if(data.job==11){print('selected="selected"')} %>>医疗/护理/制药</option>
+							<option value="10" <% if(data.job==10){print('selected="selected"')} %>>金融/银行/投资/保险</option>
+							<option value="9" <% if(data.job==9){print('selected="selected"')} %>>商业/服务业/个体经营</option>
+							<option value="8" <% if(data.job==8){print('selected="selected"')} %>>文化/广告/传媒</option>
+							<option value="7" <% if(data.job==7){print('selected="selected"')} %>>娱乐/艺术/表演</option>
+							<option value="6" <% if(data.job==6){print('selected="selected"')} %>>律师/法务</option>
+							<option value="5" <% if(data.job==5){print('selected="selected"')} %>>教育/培训</option>
+							<option value="4" <% if(data.job==4){print('selected="selected"')} %>>公务员/行政/事业单位</option>
+							<option value="3" <% if(data.job==3){print('selected="selected"')} %>>模特</option>
+							<option value="2" <% if(data.job==2){print('selected="selected"')} %>>空姐</option>
+							<option value="1" <% if(data.job==1){print('selected="selected"')} %>>学生</option>
+							<option value="0" <% if(data.job==0){print('selected="selected"')} %>>其他职业</option>
+						</select>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">公司</div>
+					<div class="right">
+						<input value="<%= data.company %>" name="company"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">学校</div>
+					<div class="right">
+						<input value="<%= data.school %>" name="school"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">所在地</div>
+					<div class="right">
+						<div class="link"><%= data.province %> <%= data.city %></div>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">故乡</div>
+					<div class="right">
+						<input value="<%= data.hometown %>" name="hometown"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<div class="left">邮箱</div>
+					<div class="right">
+						<input value="<%= data.email %>" name="email"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					<div class="left">个人说明</div>
+					<div class="right">
+						<input value="<%= data.dsc %>" name="dsc"/>
+					</div>
+					<img class="tag" src="img/tag.png"/>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="inputList_module">
+				<div class="point">
+					兴趣爱好展示设置
+					<img class="tag" src="img/tag.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="file_page">
+<div class="file_page">
+	<div id="fileMain">
+		<div id="fileRoll">
+			<div id="topFrame">
+			<% if(data.top&&data.top.length){
+				_.each(data.top,function(top){ %>
+					<div class="list_module listXXS_module listSingle_module nodeg">
+						<img class="left" src="<%= top.icon %>"/>
+						<div class="right">
+							<div class="title"><%= top.name %></div>
+							<img src="img/tag.png" class="tag"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<% })
+			} %>
+		</div>
+		<div class="text_module textGay_module listTitle">我的文件</div>
+		<div class="tag_module tagNoLeft_module">
+			<% if(data.file&&data.file.length){
+				_.each(data.file,function(file){ %>
+					<div class="tagPoint">
+						<div class="right">
+							<div class="title"><%= file.name %></div>
+							<img src="img/tag.png" class="icon"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<% })
+			} %>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="forgetKey_page">
+<div class="forgetKey_page">
+	<div class="labelInput_module" id="name">
+		<div class="label">账号</div>
+		<div class="inpurFrame">
+			<input placeholder="QQ号/邮箱地址/手机号"/>
+		</div>
+	</div>
+	<div class="button_module buttonL_module buttonDeepBlue_module" id="Send">确定</div>
+</div>
+</script>
+<script type="text/x-template" id="group_page">
+<div class="group_page">
+				<div class="nav_module navTwo_module">
+					<div class="nav_point hl">我的群</div>
+					<div class="nav_point">讨论组</div>
+					<div class="clear"></div>
+					<div class="heightLine"></div>
+				</div>
+				<img src="img/searchButton.png" class="searchButton" id="search"/>
+				<div id="groupMain">
+					<div id="groupRoll">
+						<div class="subPage" id="myGroup">
+							<div class="subRoll">
+							<% if(data.mine&&data.mine.length){
+								_.each(data.mine,function(group){ %>
+									<div class="text_module listTitle textGay_module"><%= group.title %></div>
+									<% if(group.list&&group.list.length){
+										_.each(group.list,function(point){ %>
+											<div class="list_module listM_module listSingle_module" gid="<%= point.id %>">
+												<img class="left" src="<%= point.icon %>"/>
+												<div class="right">
+													<div class="title"><%= point.name %></div>
+												</div>
+												<div class="clear"></div>
+											</div>
+										<% })
+									}
+							})
+							} %>
+							</div>
+						</div>
+						<div class="subPage" id="talkGroup">
+							<div class="subRoll">
+								<% if(data.talk&&data.talk.length){
+									_.each(data.talk,function(point){ %>
+										<div class="list_module listM_module listSingle_module" gid="<%= point.id %>">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<% })
+								} %>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+</div>
+</script>
+<script type="text/x-template" id="head_template">
+<div class="head_module">
+	<% if(data.left){ %>
+		<div class="left">
+		<% if(data.left.type=="back"){ %>
+			<div class="backIcon"></div>
+			<div class="leftText" id="<%= data.left.id %>"><%= data.left.text %></div>
+			<div class="clear"></div>
+		<% }else if(data.left.type=="icon"){ %>
+			<img src="<%= data.left.src %>" class="headIcon"/>
+		<% }else if(data.left.type=="button"){ %>
+			<div class="leftButton" id="<%= data.left.id %>"><%= data.left.text %></div>
+		<% } %>
+		</div>
+	<% } %>
+	<% if(data.center){ %>
+		<div class="center">
+		<% if(data.center.type=="nav"){ %>
+			<div class="nav">
+				<div class="navPoint navLeft <% if(data.center.nav[0].hl){print("hl")} %>" id="<%= data.center.nav[0].id %>"><%= data.center.nav[0].text %></div>
+				<div class="navPoint navRight <% if(data.center.nav[1].hl){print("hl")} %>" id="<%= data.center.nav[1].id %>"><%= data.center.nav[1].text %></div>
+				<div class="clear"></div>
+			</div>
+			<% }else if(data.center.type=="title"){ %>
+			<div class="title"><%= data.center.text %></div>	
+			<% } %>
+		</div>
+	<% } %>
+	<% if(data.right){ %>
+		<div class="right">
+		<% if(data.right.type=="button"){ %>
+			<div class="rightButton" id="<%= data.right.id %>"><%= data.right.text %></div>
+		<% }else if(data.right.type=="icon"){ 
+			_.each(data.right.icon,function(icon){ %>
+			<div class="rightIcon <%= icon.name %>" id="<%= icon.id %>"></div>
+		<% }) %>
+			<div class="clear"></div>
+		<% } %>
+		<% if(data.right.list&&data.right.list.length){ %>
+			<div class="rightList">
+				<div class="rightListDeg"></div>
+			<% _.each(data.right.list,function(point){ %>
+				<div class="rightPoint" id="<%= point.id %>">
+					<div class="rightPointIcon <%= point.icon %>"></div>
+					<div class="rightPointText"><%= point.text %></div>
+					<div class="clear"></div>
+				</div>	
+			<% }) %>
+			</div>
+		<% } %>
+		</div>
+	<% } %>
+	<% if(data.bottomList&&data.bottomList.length){ %>
+		<div class="bottom">
+			<% _.each(data.bottomList,function(point){ %>
+			<div class="headBottomPoint headBottomPoint<%= (data.bottomList.length==3)?3:4 %>">
+				<div class="headBottomIcon <%= point.icon %>"></div>
+				<div class="headBottomText"><%= point.text %></div>
+			</div>
+			<% }) %>
+			<div class="clear"></div>
+		</div>
+	<% } %>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="iconNavButton_head">
+<div class="head_module iconNavButton_head">
+	<div class="left">
+		<img src="img/head.jpg" class="leftIcon"/>
+	</div>
+	<div class="nav">
+		<div class="navPoint navLeft <% if(data.hl=="0"){print("hl")} %>">消息</div>
+		<div class="navPoint navRight <% if(data.hl=="1"){print("hl")} %>">电话</div>
+		<div class="clear"></div>
+	</div>
+	<div class="right">+</div>
+</div>
+</script>
+<script type="text/x-template" id="iconTitleButton_head">
+<div class="head_module iconNavButton_head iconTitleButton_head">
+	<div class="left">
+		<img src="img/head.jpg" class="leftIcon"/>
+	</div>
+	<div class="title"><%= data.title %></div>
+	<div class="right"><%= data.right %></div>
+</div>
+</script>
+<script type="text/x-template" id="index_page">
+<div class="index_page">
+	<img class="headIcon_module headIconL_module" src="img/head.jpg" id="loginIcon"/>
+	<div class="fullScreanInput_module fullScreanInputDropDown_module" id="loginName">
+		<input placeholder="手机号/手机/邮箱"/>
+	</div>
+	<div class="fullScreanInput_module" id="loginKey">
+		<input placeholder="密码" type="password"/>
+	</div>
+	<div class="button_module buttonL_module buttonBlue_module" id="login">登录</div>
+	<div class="text_module" id="forgetKey">忘记密码</div>
+	<div class="text_module" id="regest">新用户</div>
+</div>
+</script>
+<script type="text/x-template" id="interest_page">
+<div class="interest_page">
+	<div class="nav_module">
+		<div class="nav_point hl" num="0">兴趣圈</div>
+		<div class="nav_point" num="1">最近</div>
+		<div class="nav_point" num="2">排行</div>
+		<div class="nav_point" num="3">发现</div>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div id="interestMain">
+		<div id="interestRoll">
+			<div class="subPage">
+				<div id="interestGroup">
+					<div class="subRoll">
+						<img src="img/groupNew.jpg" id="groupNew"/>
+						<div id="title">
+							<div id="titleMain">你可能感兴趣的部落</div>
+						</div>
+						<div class="groupList">
+						<% if(data.interest&&data.interest.length){
+							_.each(data.interest,function(point){ %>
+							<div class="groupPoint">
+								<img src="<%= point.icon %>" class="head"/>
+								<div class="name"><%= point.name %></div>
+								<div class="select_module selectRadio_module selectRadioBG_module"></div>
+							</div>
+						<%	})
+						} %>
+							<div class="clear"></div>
+						</div>
+						<div class="button_module buttonL_module buttonGay_module" id="Send">立即关注</div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="nearest">
+					<div class="subRoll">
+						<div id="topFrame">
+							<img id="topLeft" src="<%= data.nearest.icon %>"/>
+							<div id="topRight">
+								<% if(data.nearest.top&&data.nearest.top.length){
+									_.each(data.nearest.top,function(point){ %>
+										<div class="topPoint">
+											<div class="number"><%= point.num %></div>
+											<div class="name"><%= point.name %></div>
+										</div>
+							    <%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="listGroup">
+							<% if(data.nearest.middle&&data.nearest.middle.length){
+								_.each(data.nearest.middle,function(point){ %>
+									<div class="list_module listXXS_module listSingle_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<img src="img/tag.png" class="tag"/>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							} %>
+						</div>
+						<div class="text_module textGay_module listTitle">最近访问</div>
+							<% if(data.nearest.newest&&data.nearest.newest.length){
+								_.each(data.nearest.newest,function(point){ %>
+									<div class="list_module listXL_module listM_module">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+											<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							}else{ %>
+								<img src="img/nearestVisit.jpg" id="nearestVisit"/>
+							<%	} %>
+							<div class="text_module textGay_module listTitle">推荐部落
+								<div class="text_module nearestTitleButton">更多 &gt;</div>
+							</div>
+							<% if(data.nearest.recommend&&data.nearest.recommend.length){
+								_.each(data.nearest.recommend,function(point){ %>
+									<div class="list_module listXL_module listM_module">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+											<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+										</div>
+										<div class="clear"></div>
+									</div>
+							<%	})
+							}else{ %>
+								<img src="img/nearestVisit.jpg" id="nearestVisit"/>
+							<%	} %>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="order">
+					<div id="orderLeft">
+						<div class="subRoll">
+							<% if(data.order.group&&data.order.group.length){
+								_.each(data.order.group,function(group){ %>
+									<div class="orderType"><%= group.title %></div>
+							<% })
+							} %>
+						</div>
+					</div>
+					<div id="orderRight">
+						<div class="subRoll">
+							<img src="<%= data.order.banner %>" id="orderBanner"/>
+							<% if(data.order.list&&data.order.list.length){
+								_.each(data.order.list,function(point){ %>
+								<div class="list_module listXL_module listM_module">
+									<img class="left" src="<%= point.icon %>"/>
+									<div class="right">
+										<div class="title"><%= point.name %></div>
+										<div class="dsc"><%= point.dsc %></div>
+										<% if(point.attention){ %>
+												<div class="button">取消关注</div>
+											<% }else{ %>
+												<div class="button">关注</div>
+											<% } %>
+									</div>
+									<div class="clear"></div>
+								</div>
+							<%	})
+							} %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="found">
+					<div class="subRoll">
+						<div id="foundBannerFrame">
+							<div id="foundBannerRoll">
+								<% if(data.found.banner&&data.found.banner.length){
+									_.each(data.found.banner,function(point){ %>
+									<img src="<%= point %>" class="foundBannerPic"/>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div id="foundBannerPointFrame">
+								<% if(data.found.banner&&data.found.banner.length){
+									_.each(data.found.banner,function(point){ %>
+									<div class="foundBannerPoint"></div>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div id="foundTopFrame">
+							<% if(data.found.top&&data.found.top.length){
+								_.each(data.found.top,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+							} %>
+							
+						</div>
+						<div id="foundCenterFrame">
+							<% if(data.found.center&&data.found.center.length){
+								_.each(data.found.center,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+							} %>
+						</div>
+						<div class="foundOldGroup">
+							<% if(data.found.old&&data.found.old.length){
+								_.each(data.found.old,function(old){ %>
+								<div class="timeFrame">
+									<div class="time">往期精彩 第<%= old.num %>期</div>
+								</div>
+							<% _.each(old.group,function(group){ %>
+									<div class="foundTitle">
+										<div class="foundTitleName"><%= group.title %></div>
+									</div>
+									
+											<% if(group.list&&group.list.length){
+												if(group.type==0){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">
+												<% _.each(group.list,function(point){ %>
+												<div class="foundGroupPoint">
+													<img src="<%= point.icon %>" class="foundGroupPointPic"/>
+													<div class="foundGroupPointName"><%= point.name %></div>
+												</div>	
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==1){ %>
+												<div class="foundGroupMain">
+													<div class="foundGroupRoll">	
+												<% _.each(group.list,function(point){ %>
+													<img src="<%= point.icon %>" class="foundGroupPointL"/>
+											<%	}) %>
+														<div class="clear"></div>
+													</div>
+												</div>
+												<% }else if(group.type==2){
+												_.each(group.list,function(point){ %>
+													<div class="list_module listXXL_module">
+														<img class="left" src="<%= point.icon %>"/>
+														<div class="right">
+															<div class="title"><%= point.name %></div>
+															<div class="dsc"><%= point.dsc %></div>
+															<div class="numberFrame">
+																<img src="img/readNum.png" class="readNum"/>
+																<div class="number"><%= point.readNum %></div>
+																<img src="img/talkNum.png" class="talkNum"/>
+																<div class="number"><%= point.talkNum %></div>
+																<div class="clear"></div>
+															</div>
+														</div>
+														<div class="clear"></div>
+													</div>
+											<%	})	
+												}else if(group.type==3){ %>
+													<img src="<%= group.list[0] %>" id="foundCenterPic"/>	
+											<%	}
+											}
+									})
+								})
+							} %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="lastest_page">
+<div class="lastest_page">
+	<div id="lastestMain">
+		<div id="lastestRoll">
+			<% if(data.group&&data.group.length){
+				_.each(data.group,function(group){ %>
+					<div class="lastestGroup">
+						<div class="year">
+							<div class="number">group.time</div>
+						</div>
+						<% if(group.list&&group.list.length){
+							_.each(group.list,function(point){ %>
+							<div class="lastestPoint">
+								<div class="date"><%= point.time %></div>
+								<div class="picFrame">
+									<img src="<%= point.pic[0].src %>" class="picFour lt"/>
+									<img src="<%= point.pic[1].src %>" class="picFour rt"/>
+									<img src="<%= point.pic[2].src %>" class="picFour lb"/>
+									<img src="<%= point.pic[3].src %>" class="picFour rb"/>
+								</div>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="picNum"><%= point.picNum %></div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						<%	})
+						} %>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+	
+</div>
+</script>
+<script type="text/x-template" id="linkmanList_page">
+<div class="linkmanList_page">
+	<div id="sideHandle"></div>
+	<div id="topFrame">
+		<img src="img/searchButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<div class="linkNavPoint" id="newFriend">
+			<img src="img/newMan.png" class="icon"/>
+			<div class="name">新朋友</div>
+		</div>
+		<div class="linkNavPoint" id="care">
+			<img src="img/attention.png" class="icon"/>
+			<div class="name">特别关心</div>
+		</div>
+		<div class="linkNavPoint" id="group">
+			<img src="img/group.png" class="icon"/>
+			<div class="name">群组</div>
+		</div>
+		<div class="linkNavPoint" id="public">
+			<img src="img/public.png" class="icon"/>
+			<div class="name">公众号</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="linkListFrame">
+		<div id="listFrameRoll">
+			<% if(data.group&&data.group.length){
+				_.each(data.group,function(dropdown){ %>
+					<div class="dropDown_module" gid="<%= dropdown.id %>">
+					<% if(dropdown.list&&dropdown.list.length){
+						_.each(dropdown.list,function(list){ %>
+							<div class="dropDownPoint" lid="<%= list.id %>">
+								<div class="dropDownHead">
+									<div class="dropIcon"></div>
+									<div class="dropName"><%= list.name %></div>
+									<div class="dropCount"><%= list.num %></div>
+								</div>
+								<div class="dropDownMain">
+								<% if(list.list&&list.list.length){
+									_.each(list.list,function(point){ %>
+										<div class="list_module listM_module" pid="<%= point.id %>">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+												<div class="dsc"><%= point.dsc %></div>
+												<div class="state"><%= point.state %></div>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<%	})
+								} %>
+								</div>
+							</div>
+					<%	})
+					} %>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="messageList_page">
+<div class="messageList_page">
+	<div id="sideHandle"></div>
+	<img src="img/searchButton.png" class="searchButton" id="search"/>
+	<div id="listFrame">
+		<div id="listFrameRoll">
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+						<div class="list_module" pid="<%= point.id %>" state="<%= point.state %>">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+								<div class="time"><%= point.time %></div>
+								<div class="num"><%= point.num %></div>
+							</div>
+							<div class="hide">
+								<div class="setTop">置顶</div>
+								<div class="setRead">标为已读</div>
+								<div class="remove">删除</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="money_foot">
+<div class="money_foot">
+	<div class="point">
+		<img src="img/packageFoot.png" class="icon"/>
+		<div class="name">账户</div>
+	</div>
+	<div class="point">
+		<img src="img/ercodeFoot.png" class="icon"/>
+		<div class="name">付款码</div>
+	</div>
+	<div class="point">
+		<img src="img/cardFoot.png" class="icon"/>
+		<div class="name">卡券</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</script>
+<script type="text/x-template" id="money_page">
+<div class="money_page">
+	<div id="moneyMain">
+		<div id="moneyRoll">
+			<img id="banner" src="img/head.jpg"/>
+			<div id="topFrame">
+				<div class="point">
+					<img src="img/cong.png" class="pic"/>
+					<div class="name">话费·流量</div>
+				</div>
+				<div class="point">
+					<img src="img/zhuang.png" class="pic"/>
+					<div class="name">转账</div>
+				</div>
+				<div class="point">
+					<img src="img/zhuan.png" class="pic"/>
+					<div class="name">会员·钻</div>
+				</div>
+				<div class="point">
+					<img src="img/quan.png" class="pic"/>
+					<div class="name">Q币·游戏币</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="centerFrame">
+				<div class="point">
+					<img class="pic" src="img/moiveMoney.png"/>
+					<div class="right">
+						<div class="name">电影·演出</div>
+						<div class="dsc">19.9元抢票</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<img class="pic" src="img/shoppingMoney.png"/>
+					<div class="name">购物·生活</div>
+					<div class="dsc">生活特惠</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<img class="pic" src="img/pig.png"/>
+					<div class="name">资金·理财</div>
+					<div class="dsc">零钱理财</div>
+					<div class="clear"></div>
+				</div>
+				<div class="point">
+					<img class="pic" src="img/traffice.png"/>
+					<div class="name">交通出行</div>
+					<div class="dsc">省心便捷</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="bottomFrame">
+				<div class="point">
+					<img src="img/jd.png" class="pic"/>
+					<div class="name">京东购物</div>
+					<div class="dsc">潮品9.9元起</div>
+				</div>
+				<div class="point">
+					<img src="img/redpack.png" class="pic"/>
+					<div class="name">QQ红包</div>
+				</div>
+				<div class="point">
+					<img src="img/house.png" class="pic"/>
+					<div class="name">城市服务</div>
+				</div>
+				<div class="point">
+					<img src="img/heart.png" class="pic"/>
+					<div class="name">腾讯公益</div>
+				</div>
+				<div class="point">
+					<img src="img/startTag.png" class="pic"/>
+					<div class="name">钱包精选</div>
+				</div>
+				<div class="point">
+					<img src="img/cai.png" class="pic"/>
+					<div class="name">彩票·竞猜</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</script>
+<script type="text/x-template" id="myDetail_foot">
+<div class="myDetail_foot">
+	<div id="edit">编辑资料</div>
+	<div id="diy">个性名片</div>
+</div>
+</script>
+<script type="text/x-template" id="myDetail_page">
+<div class="myDetail_page">
+	<div class="head_module buttonTitleButton_head">
+				<div class="left">
+					<div class="backIcon"></div>
+					<div class="leftText">返回</div>
+					<div class="clear"></div>
+				</div>
+				<div class="center">
+					<div class="title">我的资料</div>
+				</div>
+				<div class="right">
+				<div class="rightButton">更多</div>
+				</div>
+	</div>
+	<div id="myDetailMain">
+		<div id="myDetailRoll">
+			<img src="<%= data.base.background %>" id="bg"/>
+			<input id="bgInput" type="file"/>
+			<img id="play" src="img/play.png"/>
+			<div id="priseFrame">
+				<img src="img/prise.png"/>
+				<div id="priseNum"><%= data.base.prise %></div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="base">
+				<div class="left">
+					<img src="<%= data.base.icon %>"/>
+					<input id="iconInput" type="file"/>
+				</div>
+				<div class="right">
+					<div class="name"><%= data.base.name %></div>
+					<div class="dsc"><%= (data.base.sex?"男":"女") %> <%= data.base.age %>岁 <%= data.base.province %> <%= data.base.city %></div>
+					<div class="vipFrame">
+						<img src="<%= data.base.daren %>"/>
+						<div class="vipNum"><%= data.base.vipTime %></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="host">
+				<div class="left">
+					账号信息
+				</div>
+				<div class="right">
+					<div class="name"><%= data.base.id %></div>
+					<img src="<%= data.base.lian %>" class="lian"/>
+					<img src="<%= data.base.vipType %>" class="vip"/>
+					<div class="clear"></div>
+					<% _.each(data.base.step,function(step){ %>
+						<div class="step <%= step %>"></div>
+					<% }) %>
+					<div class="speed"><%= data.base.stepSpeed %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="sign">
+				<div class="left">个性签名</div>
+				<div class="right">
+					<div class="dsc"><%= data.base.mood %></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="server">
+				<div class="left">专享特权</div>
+				<div class="right">
+					<img src="img/QG.png" class="point"/>
+					<img src="img/hz.png" class="point"/>
+					<img src="img/lz.png" class="point"/>
+					<img src="img/sz.png" class="point"/>
+					<img src="img/vq.png" class="point"/>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="zone">
+				<div class="left">QQ空间</div>
+				<div class="right">
+					<div class="dsc"><%= data.base.zoneName %></div>
+					<div class="clear"></div>
+					<img class="tag" src="img/tag.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame" id="mine">
+				<% if(data.mine&&data.mine.length){
+					_.each(data.mine,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="icon"/>
+							<div class="name"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div> 
+</div>
+</script>
+<script type="text/x-template" id="near_page">
+<div class="near_page">
+	<div class="nav_module">
+		<div class="nav_point">附近的人</div>
+		<div class="nav_point">新鲜事</div>
+		<div class="nav_point">热聊</div>
+		<div class="nav_point">更多</div>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div id="nearMain">
+		<div id="nearRoll">
+			<div class="subPage">
+				<div id="nearMan">
+					<div id="nearManRoll">
+						<div id="topThreeFrame">
+							<img src="img/topTree.jpg" class="topThree"/>
+							<img src="<%= data.nearMan.head[0] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[1] %>" class="topThree"/>
+							<img src="<%= data.nearMan.head[2] %>" class="topThree last"/>
+							<div class="clear"></div>
+						</div>
+						<% if(data.nearMan.list&&data.nearMan.list.length){
+							_.each(data.nearMan.list,function(point){ %>
+							<div class="list_module listL_module">
+								<img class="left" src="<%= point.icon %>"/>
+								<div class="right">
+									<div class="title"><%= point.name %></div>
+									<div class="request"><%= point.sex %> <%= point.age %>岁 <%= point.star %>座</div>
+									<div class="dsc"><%= point.dsc %></div>
+									<div class="state"><%= point.distance %>km <%= point.time %>小时</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+						<%	})
+						} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="newThink">
+					<div id="newThinkRoll">
+					<% if(data.newThink&&data.newThink.length){
+						_.each(data.newThink,function(point){ %>
+							<div class="zone_module">
+								<div class="top">
+									<img src="<%= point.icon %>"/>
+									<div class="name"><%= point.name %></div>
+									<div class="time"><%= point.time %></div>
+								</div>
+								<div class="middle">
+									<div class="text"><%= point.text %></div>
+									<div class="picFrame">
+										<% if(point.pic&&point.pic.length){
+											_.each(point.pic,function(pic){ %>
+											<img src="<%= pic.src %>" class="pic"/>
+										<%	})
+										} %>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="readed">
+										<div class="zoneIcon read"></div>
+										<div class="readNumber">浏览<%= point.readedNum %>次</div>
+										<div class="clear"></div>
+									</div>
+									<% if(point.praise&&point.praise.length){ %>
+									<div class="praised">
+										<div class="zoneIcon praise"></div>
+										<% _.each(point.praise,function(praise){ %>
+										<div class="praiseName"><%= praise %></div>
+									<%	}) %>
+										<div class="clear"></div>
+									</div>
+									<% } %>									
+								</div>
+							</div>
+					<% })
+					} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="hotTalk">
+					<div id="hotTalkRoll">
+						<div id="hotBannerFrame">
+							<div id="hotBannerRoll">
+								<% if(data.hotTalk.banner&&data.hotTalk.banner.length){
+									_.each(data.hotTalk.banner,function(point){ %>
+									<img src="<%= point %>"/>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div id="hotBannerPointFrame">
+								<% if(data.hotTalk.banner&&data.hotTalk.banner.length){
+									_.each(data.hotTalk.banner,function(point){ %>
+									<div class="hotBannerPoint"></div>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module listTitle textGay_module">语聊大厅</div>
+						<div id="roomFrame">
+							<div id="roomRoll">
+								<% if(data.hotTalk.room&&data.hotTalk.room.length){
+									_.each(data.hotTalk.room,function(point){ %>
+									<img src="<%= point.icon %>"/>	
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module listTitle textGay_module">公共热聊房间</div>
+						<% if(data.hotTalk.publics&&data.hotTalk.publics.length){
+							_.each(data.hotTalk.publics,function(point){ %>
+									<div class="list_module listS_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+										</div>
+										<div class="clear"></div>
+									</div>
+						<%	})
+						} %>
+						<div class="text_module listTitle textGay_module">个人热聊房间</div>
+						<% if(data.hotTalk.mine&&data.hotTalk.mine.length){
+							_.each(data.hotTalk.mine,function(point){ %>
+									<div class="list_module listS_module nodeg">
+										<img class="left" src="<%= point.icon %>"/>
+										<div class="right">
+											<div class="title"><%= point.name %></div>
+											<div class="dsc"><%= point.dsc %></div>
+										</div>
+										<div class="clear"></div>
+									</div>
+						<%	})
+						} %>
+					</div> 
+				</div>
+			</div>
+			<div class="subPage">
+				<div id="more">
+					<div id="moreRoll">
+						<div class="list_module listXL_module">
+							<img class="left" src="img/head.jpg"/>
+							<div class="right">
+								<div class="title">群的名字</div>
+								<img class="tag" src="img/tag.png"/>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="tag_module tagNoLeft_module">
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">我的访客</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">我的新鲜事</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="tagPoint">
+								<div class="right">
+									<div class="title">收到的鲜花</div>
+									<img src="img/tag.png" class="icon"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="listGroup">
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/friend.png"/>
+								<div class="right">
+									<div class="title">交友性格测试</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/talkRoom.png"/>
+								<div class="right">
+									<div class="title">语聊大厅</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/neargroup.png"/>
+								<div class="right">
+									<div class="title">附近的群</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/action2.png"/>
+								<div class="right">
+									<div class="title">活动</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="list_module listXXS_module listSingle_module nodeg">
+								<img class="left" src="img/top.png"/>
+								<div class="right">
+									<div class="title">排行榜</div>
+									<img src="img/tag.png" class="tag"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="text_module">清除位置信息并退出</div>
+					</div> 
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</script>
+<script type="text/x-template" id="newFriend_page">
+<div class="newFriend_page">
+	<div id="newFriendMain">
+		<div id="newFriendRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+						<div class="list_module listL_module <%if(point.state=="请求添加"){print("attention")}%>" pid="<%= point.id %>">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="request">请求加为好友</div>
+								<div class="dsc"><%= point.dsc %></div>
+								<% if(point.state!=="请求添加"){ %>
+									<div class="state"><%= point.state %></div>
+								<% }else{ %>
+									<div class="addButton" pid="<%= point.id %>">同意</div>
+								<% } %>
+							</div>
+							<div class="clear"></div>
+						</div>
+		<%	})
+		} %>
+
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="phoneCode_page">
+<div class="phoneCode_page">
+	<div class="text_module textGay_module" id="dsc">我们已给你的手机号码<span class="text_module textYellow_module">+86-18520408028</span>发送了一条验证短信</div>
+	<div class="clear"></div><div class="labelInput_module labelInputSaveCode_module" id="input">
+			<div class="saveCode">重新发送(48)</div>
+			<div class="inpurFrame">
+			<input placeholder="请输入验证码"/>
+			</div>
+	</div>
+	<div class="button_module buttonL_module buttonBlue_module" id="Send">下一步</div>
+	<div class="radioPoint">
+		<div class="select_module selectRadio_module hl"></div>
+		<div class="text_module textGay_module">将此手机号和QQ绑定，提高安全性</div>
+		<div class="clear"></div>
+	</div>
+	<div class="radioPoint">
+		<div class="select_module selectRadio_module hl"></div>
+		<div class="text_module textGay_module">开启<span class="text_module">设备锁</span>，保障QQ账号安全</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="phoneListSub_page">
+<div class="phoneListSub_page">
+	<img src="img/searchButton.png" id="search"/>
+	<div class="nav_module" id="nav">
+		<% if(data.page&&data.page.length){
+			_.each(data.page,function(page){ %>
+				<div class="nav_point"><%= page.name %></div>
+		<%	})
+		} %>
+		<div class="clear"></div>
+		<div class="heightLine"></div>
+	</div>
+	<div id="phoneListSubMain">
+		<div id="phoneListSubRoll" style="width:<%= data.page.length %>00%;">
+			<% if(data.page&&data.page.length){
+			_.each(data.page,function(page){ %>
+				<div id="<%= page.id %>" class="subPage" style="width:<%= 1/data.page.length %>%">
+					<div id="phoneListRoll">
+						<% if(page.group&&page.group.length){
+							_.each(page.group,function(group){ %>
+							<div class="text_module textGay_module textM_module listTitle"><%= group.title %></div>
+								<% if(group.list&&group.list.length){
+									_.each(group.list,function(point){ %>
+										<div class="list_module listS_module">
+											<img class="left" src="<%= point.icon %>"/>
+											<div class="right">
+												<div class="title"><%= point.name %></div>
+												<div class="dsc"><%= point.dsc %></div>
+												<img src="<%= point.state %>" class="phone"/>
+											</div>
+											<div class="clear"></div>
+										</div>
+								<%	})
+								} %>	
+						<%	})
+						} %>
+					</div>
+				</div>
+			<%	})
+			} %>
+			<div class="clear"></div>
+		</div>
+	</div>
+		
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="phoneList_page">
+<div class="phoneList_page">
+	<div id="topFrame">
+		<div id="place">北京<span class="gay">&or;</span></div>
+		<img src="img/searchMButton.png" class="searchButton" id="search"/>
+		<div class="clear"></div>
+		<div class="topPoint">
+			<img class="icon" src="img/express.png"/>
+			<div class="name">快递</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/traffic.png"/>
+			<div class="name">交通出行</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/hotel.png"/>
+			<div class="name">酒店旅游</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/hospital.png"/>
+			<div class="name">医院</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/bank.png"/>
+			<div class="name">银行</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/server.png"/>
+			<div class="name">公共服务</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/suppot.png"/>
+			<div class="name">品牌售后</div>
+		</div>
+		<div class="topPoint">
+			<img class="icon" src="img/saft.png"/>
+			<div class="name">保险证券</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="phoneListMain">
+			<div id="phoneListRoll">
+				<div class="text_module textGay_module textM_module" id="title">热门号码</div>
+				<% if(data.list&&data.list.length){
+					_.each(data.list,function(point){ %>
+					<div class="list_module listS_module">
+						<img class="left" src="<%= point.icon %>"/>
+						<div class="right">
+							<div class="title"><%= point.name %></div>
+							<div class="dsc"><%= point.dsc %></div>
+							<img src="<%= point.state %>" class="phone"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+				<%	})
+				} %>
+			</div>
+		</div>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="phone_page">
+<div class="phone_page">
+	<div id="sideHandle"></div>
+	<div id="phoneMain">
+		<div id="phoneRoll">
+			<img src="img/searchButton.png" class="searchButton" id="search"/>
+			<div class="tag_module tagL_module" id="tag">
+				<div class="tagPoint" id="phone">
+					<img src="img/phoneList.png" class="left"/>
+					<div class="right">
+						<div class="title">电话黄页</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint" id="directory">
+					<img src="img/directory.png" class="left"/>
+					<div class="right">
+						<div class="title">通讯录</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="text_module textGay_module textM_module" id="title">通话记录</div>
+			<div class="phoneFrame">
+				<img src="<%= data.icon[0] %>" class="phone phone1"/>
+				<img src="<%= data.icon[1] %>" class="phone phone2"/>
+				<img src="<%= data.icon[2] %>" class="phone phone3"/>
+				<img src="<%= data.icon[3] %>" class="phone phone4"/>
+			</div>
+			<div class="text_module" id="them">他们都在用QQ电话哦</div>
+			<div class="button_module buttonM_module buttonBlueBorder_module" id="Send">找人聊聊</div>
+		</div>
+	</div>
+	
+
+</div>
+</script>
+
+
+<script type="text/x-template" id="public_page">
+<div class="public_page">
+				<img src="img/searchButton.png" class="searchButton" id="search"/>
+				<div id="publicMain">
+					<div id="publicRoll">
+					<% if(data.group&&data.group.length){
+						_.each(data.group,function(group){ %>
+							<div class="text_module listTitle textGay_module"><%= group.title %></div>
+							<% if(group.list&&group.list.length){
+								_.each(group.list,function(point){ %>
+								<div class="list_module listS_module">
+									<img class="left" src="<%= point.icon %>"/>
+									<div class="right">
+										<div class="title"><%= point.name %></div>
+										<div class="dsc"><%= point.dsc %></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+							<%	})
+							} %>
+					<%	})
+					} %>
+					</div>
+				</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="regestSuccess_page">
+<div class="regestSuccess_page">
+	<div class="text_module textGay_module" id="dsc">你已获得QQ号码</div>
+	<div class="text_module textL_module textYellow_module" id="number">2134106561</div>
+	<div class="text_module textGay_module" id="bottomdesc">该号码已经与手机号码<span class="text_module textYellow_module">+86-18520408028</span>绑定，你可以通过短信验证登录QQ</div>
+	<div class="button_module buttonL_module buttonBlue_module" id="Send">进入QQ</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="regest_page">
+<div class="regest_page">
+	<div class="labelInput_module labelInputPhone_module" id="phone">
+		<div class="phone">中国 +86</div>
+		<div class="inpurFrame">
+			<input placeholder="QQ号/邮箱地址/手机号"/>
+		</div>
+	</div>
+	<div class="labelInput_module" id="key">
+			<div class="label">密码</div>
+			<div class="inpurFrame">
+			<input placeholder="密码" type="password"/>
+		</div>
+	</div>
+	<div class="button_module buttonL_module buttonBlue_module" id="Send">确定</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="saveCode_page">
+<div class="saveCode_page">
+	<div class="text_module textBlack_module" id="dsc">请先输入验证码再继续操作：</div>
+	<div class="clear"></div>
+	<img src="img/savecode.jpg" id="savecode"/>
+	<div class="text_module" id="change">换一张</div>
+	<div class="clear"></div>
+	<div class="labelInput_module labelInputSingle_module" id="input">
+			<div class="inpurFrame">
+			<input placeholder="QQ号/邮箱地址/手机号"/>
+			</div>
+		</div>
+	<div class="button_module buttonL_module buttonDeepBlue_module" id="Send">确定</div>
+	<div class="clear"></div>
+	<div class="text_module textS_module" id="why">为什么要进行安全验证？</div>
+	<div class="text_module textS_module" id="return">我要反馈</div>
+	<div class="clear"></div>
+</div>
+</script>
+<script type="text/x-template" id="say_page">
+<div class="say_page">
+	<div id="sayMain">
+		<div id="sayRoll">
+		<% if(data.list&&data.list.length){
+			_.each(data.list,function(point){ %>
+				<div class="zone_module">
+					<div class="zoneIcon remove"></div>
+					<div class="top">
+						<img src="<%= point.icon %>"/>
+						<div class="name"><%= point.name %></div>
+						<div class="time"><%= point.time %></div>
+					</div>
+					<div class="middle">
+						<div class="text"><%= point.text %></div>
+					</div>
+					<div class="bottom">
+						<div class="readed">
+							<div class="zoneIcon read"></div>
+							<div class="readNumber">浏览<%= point.readedNum %>次</div>
+							<div class="clear"></div>
+						</div>
+						<div class="praised">
+							<div class="zoneIcon praise"></div>
+							<% if(point.praise&&point.praise.length){
+								_.each(point.praise,function(praise){ %>
+								<div class="praiseName"><%= praise %></div>
+							<%	})
+							} %>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+		<%	})
+		} %>
+		</div>
+	</div>
+	
+</div>
+</script>
+
+
+<script type="text/x-template" id="set_page">
+<div class="set_page">
+	<div id="setMain">
+		<div id="setRoll">
+			<div class="tag_module tagNoLeft_module">
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">帐号管理</div>
+						<img id="setHead" src="<%= data.icon %>" class="other"/>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">手机号码</div>
+						<img src="img/tag.png" class="icon"/>
+						<div id="tel" class="other"><%= data.phone %></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">QQ达人</div>
+						<div id="vip" class="other">35天<img src="<%= data.vip %>"/></div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+		<div class="tag_module tagNoLeft_module">
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">消息通知</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">聊天记录</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+		<div class="tag_module tagNoLeft_module">
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">联系人、隐私</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">设备锁、帐号安全</div>
+						<div id="lock" class="other">未开启<img src="img/lock.png"/></div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">辅助功能</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+		<div class="tag_module tagNoLeft_module">
+				<div class="tagPoint">
+					<div class="right">
+						<div class="title">关于QQ与帮助</div>
+						<img src="img/tag.png" class="icon"/>
+					</div>
+					<div class="clear"></div>
+				</div>
+		</div>
+		</div>
+	</div>
+		
+</div>
+</script>
+
+
+<script type="text/x-template" id="side_tem">
+<div class="side_tem">
+	<img src="<%= data.icon %>" class="head"/>
+	<div class="name" id="myDetail"><%= data.name %></div>
+	<div class="stepFrame">
+		<% if(data.step&&data.step.length){
+			_.each(data.step,function(step){ %>
+				<div class="step <%= step %>"></div>	
+		<%	})
+		} %>
+		<div class="clear"></div>
+	</div>
+	<div class="dsc">
+		<%= data.dsc %>
+	</div>
+	<img class="ercode" src="<%= data.ercode %>"/>
+	<div class="list">
+		<div class="point" id="vip">
+			<img src="img/vip.png" class="icon"/>
+			<div class="label">开通会员</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="money">
+			<img src="img/package.png" class="icon"/>
+			<div class="label">QQ钱包</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="diyShow">
+			<img src="img/diy.png" class="icon"/>
+			<div class="label">个性装扮</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="collect">
+			<img src="img/collect.png" class="icon"/>
+			<div class="label">我的收藏</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="album">
+			<img src="img/album.png" class="icon"/>
+			<div class="label">我的相册</div>
+			<div class="clear"></div>
+		</div>
+		<div class="point" id="file">
+			<img src="img/file.png" class="icon"/>
+			<div class="label">我的文件</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="temperature">19°</div>
+	<div class="set" id="set">
+		<img src="img/set.png"/>
+		<div class="label">设置</div>
+		<div class="clear"></div>
+	</div>
+	<div class="night">
+		<img src="img/night.png"/>
+		<div class="label">夜间</div>
+		<div class="clear"></div>
+	</div>
+	<div class="place"><%= data.place %></div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="talk_foot">
+<div class="talk_foot">
+	<input/>
+	<div class="bottomFrame">
+		<div class="bottomPoint">
+			<img  src="img/voice.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/moive.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/pic.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/camera.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/redpacket.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/face.png"/>
+		</div>
+		<div class="bottomPoint">
+			<img  src="img/add.png"/>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="title_head">
+<div class="head_module title_head">
+	<div class="left">
+		<img src="img/back.png" class="leftIcon"/>
+		<div class="leftText">返回</div>
+		<div class="clear"></div>
+	</div>
+	<div class="title"><%= data.title %></div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="treeNav_foot">
+<div class="foot_module treeNav_foot">
+	<div class="navPoint left <% if(data.hl=="0"){print("hl")} %>">
+		<div class="icon"></div>
+		<div class="name">消息</div>
+	</div>
+	<div class="navPoint center <% if(data.hl=="1"){print("hl")} %>">
+		<div class="icon"></div>
+		<div class="name">联系人</div>
+	</div>
+	<div class="navPoint right <% if(data.hl=="2"){print("hl")} %>">
+		<div class="icon"></div>
+		<div class="name">动态</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="vip_page">
+<div class="vip_page">
+	<div id="vipMain">
+		<div id="vipRoll">
+			<img src="img/head.jpg" id="topPic"/>
+			<div id="topFrame">
+				<div class="title">生活福利</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<div id="topFrameMain">
+				<% if(data.top&&data.top.length){
+					_.each(data.top,function(point){ %>
+						<img src="<%= point.src %>" class="point"/>
+				<%	})
+				} %>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="title">游戏特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.game&&data.game.length){
+					_.each(data.game,function(point){ %>
+						<div class="list_module listXL_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+				<%	})
+				} %>
+			</div>
+			<div class="frame">
+				<div class="title">功能特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.function&&data.function.length){
+					_.each(data.function,function(point){ %>
+						<div class="list_module listXL_module">
+							<img class="left" src="<%= point.icon %>"/>
+							<div class="right">
+								<div class="title"><%= point.name %></div>
+								<div class="dsc"><%= point.dsc %></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+				<%	})
+				} %>
+			</div>
+			<div class="frame" id="style">
+				<div class="title">装扮特权</div>
+				<div class="more">更多 &gt;</div>
+				<div class="clear"></div>
+				<% if(data.style.top&&data.style.top.length){
+					_.each(data.style.top,function(point){ %>
+						<div class="point">
+							<img src="<%= point.icon %>" class="pic"/>
+							<div class="dsc"><%= point.type %><img src="img/vipTag.png" class="vipTag"/></div>
+							<div class="name"><%= point.name %></div>
+						</div>
+				<%	})
+				} %>
+				<div class="clear"></div>
+				<% if(data.style.bottom&&data.style.bottom.length){
+					_.each(data.style.bottom,function(point){ %>
+						<img class="point2" src="<%= point.src %>"/>
+				<%	})
+				} %>
+				<div class="clear"></div>
+			</div>
+			<div class="button_module buttonL_module buttonYellow_module" id="Send">开通超级会员</div>
+			<div class="frame">
+				<div class="title">精彩活动</div>
+				<div class="clear"></div>
+				<div id="bottomBanner">
+					<div id="bottomBannerRoll">
+						<% if(data.bottom&&data.bottom.length){
+							_.each(data.bottom,function(point){ %>
+								<img src="<%= point %>" class="pic"/>
+						<%	})
+						} %>
+						<div class="clear"></div>
+					</div>
+					<div id="pointFrame">
+						<% if(data.bottom&&data.bottom.length){
+							_.each(data.bottom,function(point){ %>
+								<div class="point"></div>
+						<%	})
+						} %>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="bottomNav">年费</div>
+				<div class="bottomNav">动漫</div>
+				<div class="bottomNav">积分</div>
+				<div class="bottomNav">兑换</div>
+				<div class="clear"></div>
+			</div>
+			<div class="text_module textGay_module textS_module">Copyright @ 1998-2016 jiumogaoao,All Rights Reserved.</div>
+			<div class="text_module textGay_module textS_module">傲漫国际 版权所有</div>
+		</div>
+	</div>
+</div>
+</script>
+
+
+<script type="text/x-template" id="zone_page">
+<div class="zone_page">
+	<div class="head_module">
+
+		<div class="left">
+			<div class="backIcon"></div>
+			<div class="leftText">返回</div>
+			<div class="clear"></div>
+		</div>
+		<div class="center">
+		<div class="title">好友动态</div>
+		</div>
+		<div class="right">
+			<div class="rightIcon addB"></div>
+		<div class="clear"></div>
+		</div>
+	</div>
+	<div id="zoneMain">
+		<div id="zoneRoll">
+			<div id="zoneTopFrame" style="background-image:url(<%= data.bg %>)">
+				<div id="zoneHeadFrame">
+					<div class="zoneIcon headBg"></div>
+					<img src="<%= data.icon %>" class="head"/>
+					<div class="zoneIcon headFont"></div>
+				</div>
+				<div class="zoneIcon view"></div>
+				<div class="starFrame">
+					<% if(data.step&&data.step.length){
+						_.each(data.step,function(step){ %>
+						<div class="zoneIcon <%= step %>"></div>
+					<%	})
+					} %>
+					<div class="clear"></div>
+				</div>
+				<div id="zoneTextFrame">
+					<div class="text">今日访客 <span class="yellow"><%= data.readedNum %></span></div>
+					<div class="text">总浏览量 <span class="yellow"><%= data.totalReadedNum %></span></div>
+				</div>
+				<div id="zoneNavFrame">
+					<div class="nav" id="album">相册</div>
+					<div class="line"></div>
+					<div class="nav" id="say">说说</div>
+					<div class="line"></div>
+					<div class="nav" id="diy">个性化</div>
+					<div class="line"></div>
+					<div class="nav" id="aboutMe">@ 与我相关</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div id="zoneBottomFrame">
+				<div id="talkButton">说点什么吧</div>
+				<div id="picButton">
+					<div class="zoneIcon pic"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<% if(data.list&&data.list.length){
+				_.each(data.list,function(point){ %>
+					<div class="zone_module">
+						<div class="top">
+							<img src="<%= point.icon %>"/>
+							<div class="name"><%= point.name %></div>
+							<div class="time"><%= point.time %></div>
+						</div>
+						<div class="middle">
+							<div class="text"><%= point.text %></div>
+							<div class="picFrame">
+							<% if(point.pic&&point.pic.length){
+								_.each(point.pic,function(pic){ %>
+								<img src="<%= pic.src %>" class="pic"/>
+							<%	})
+							} %>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="bottom">
+							<div class="zoneIcon copyButton"></div>
+							<div class="zoneIcon talkButton"></div>
+							<div class="zoneIcon praiseButton"></div>
+							<div class="clear"></div>
+							<div class="readed">
+								<div class="zoneIcon read"></div>
+								<div class="readNumber">浏览<%= point.readed %>次</div>
+								<div class="clear"></div>
+							</div>
+							<div class="praised">
+								<div class="zoneIcon praise"></div>
+								<% if(point.praise&&point.praise.length){
+									_.each(point.praise,function(praise){ %>
+										<div class="praiseName"><%= praise %></div>
+								<%	})
+								} %>
+								<div class="clear"></div>
+							</div>
+							<div class="talkFrame">
+								<input placeholder="我也来说一句"/>
+								<div class="line"></div>
+								<div class="zoneIcon face"></div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+			<%	})
+			} %>
+		</div>
+	</div>
+</div>
+</script>
+

@@ -93,25 +93,25 @@ define("control/group",function(require, exports, module) {
 			talk:[
 			{"icon":"img/head.jpg","name":"某个讨论组"},{"icon":"img/head.jpg","name":"某个讨论组"}
 			]
-		}
+		};
 		function getMyList(returneData){
 			if(returneData.owner&&returneData.owner.length){
 				list.mine.push({
 					title:"我创建的群组",
 					list:returneData.owner
-				})
+				});
 			}
 			if(returneData.admin&&returneData.admin.length){
 				list.mine.push({
 					title:"我管理的群组",
 					list:returneData.admin
-				})
+				});
 			}
 			if(returneData.member&&returneData.member.length){
 				list.mine.push({
 					title:"我加入的群组",
 					list:returneData.member
-				})
+				});
 			}
 			view.main.sugest("group_page",list,data.state,"side",viewDone);
 		}
@@ -119,5 +119,5 @@ define("control/group",function(require, exports, module) {
 			api("group","getMyList",{tk:returnData.tk},getMyList,view.err);
 		}
 		common.tk(tkGet);
-	}
+	};
 });

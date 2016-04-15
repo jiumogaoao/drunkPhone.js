@@ -11,55 +11,35 @@ module.exports = function(grunt){
 			"jQuery": true
 		  }
 		},
-		bin:['bin/api.js','bin/common.js','bin/config.js','bin/control.js','bin/route.js','bin/model.js'],
-		api:['api/**/*.js'],
-		control:['control/**/*.js'],
-		model:['model/**/*.js']
+		bin:['bin/common.js','bin/config.js','bin/control.js','bin/api.js','bin/view.js'],
+		control:['control/**/*.js']
 	},
 		clean:{
-			all:['dist/**/*']
+			all:['dist/**/*'],
+			cache:['cache/**/*']
 			},
 		copy:{
-			html:{src: ['grunt.html'], dest: 'dist/index.html'},
-			style:{src: ['style.css'], dest: 'dist/style.css'},
-			view:{expand: true, src: ['html/**/*'], dest: 'dist'},
-			include:{expand: true, src: ['include/**/*'], dest: 'dist'},
-			fonts:{expand: true, src: ['fonts/**/*'], dest: 'dist'},
+			html:{src: ['grunt.html'], dest: 'dist/index.html'}
 			},
         cssmin: {
             options: {                                       //配置
-                stripBanners:true,
-                banner: '/*! This is the grunt test ' +      //添加自定义的banner
-                '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
-            basic: {expand: true, cwd: 'css', src: ['*.css'], dest: 'dist/css'}
+            module:{src: ['moduleCss/*.css'], dest: 'cache/module.css'},
+            page:{src: ['pageCss/*.css'], dest: 'cache/page.css'},
+            combin: {src: ['css/common.css','cache/module.css','cache/page.css'], dest: 'dist/css/css.css'}
         },
         uglify: {
             options: {
-                banner: '/*! This is uglify test - ' +
-                '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
-			bin: {src: ['bin/jquery.js','bin/underscore.js','bin/config.js','bin/common.js','bin/route.js','bin/api.js','bin/control.js','bin/model.js'], dest: 'dist/bin/drunk.js'},
-			api: {expand: true, cwd: 'api', src: ['*.js'], dest: 'dist/api'},
-			control: {expand: true, cwd: 'control', src: ['*.js'], dest: 'dist/control'},
-			model: {expand: true, cwd: 'model', src: ['*.js'], dest: 'dist/model'},
+			bin: {src: ['bin/zepto.js','bin/event.js','bin/ajax.js','bin/touch.js','bin/underscore.js','bin/iscroll.js','bin/sea.js','bin/config.js','bin/common.js','bin/control.js','bin/api.js','bin/view.js'], dest: 'cache/bin.js'},
+			control: {src: ['control/*.js'], dest: 'cache/control.js'},
+			include:{src: ['include/*.js'], dest: 'cache/include.js'},
+			combin:{src: ['cache/bin.js','bin/seaConfig.js','cache/control.js','bin/run.js','cache/include.js'], dest: 'dist/js/js.js'}
             },
-		htmlmin:{
-			options: {
-                removeComments: true,
-				 removeCommentsFromCDATA: true,
-				 collapseWhitespace: true,
-				 collapseBooleanAttributes: true,
-				 removeAttributeQuotes: true,
-				 removeRedundantAttributes: true,
-				 useShortDoctype: true,
-				 removeEmptyAttributes: true,
-				 removeOptionalTags: true
-            },
-			html:{
-				 expand: true, cwd: 'html', src: ['*.html'], dest: 'dist/html'
-			}
-			},
+        concat:{
+        	options: {},
+        	combin: {src: ['view/*.html'], dest: 'dist/html/domAll.html'}
+        },
 		imagemin:{
          options: {
             optimizationLevel: 7,
@@ -85,6 +65,5 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['jshint','clean','copy','cssmin','uglify','imagemin']);
-	grunt.registerTask('watch', ['jshint']);
+    grunt.registerTask('default', ['jshint','clean','copy','cssmin','uglify','concat','imagemin']);
 }

@@ -81,11 +81,11 @@ define("control/phone",function(require, exports, module) {
 				]
 			}
 		},headDone);
-		};
+		}
 		common.tk(tkGet);
 		/*加载脚部，传入参数*/
 		view.foot.show("treeNav_foot",{hl:"0"},footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("phone_page",{icon:["img/head.jpg","img/head.jpg","img/head.jpg","img/head.jpg"]},data.state,"size",viewDone);
-	}
+	};
 });

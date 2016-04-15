@@ -37,11 +37,11 @@ define("control/addSay",function(require, exports, module) {
 				function add(returnData){
 					if(returnData){
 						control.back();
-					};
-				};
+					}
+				}
 				function tkGet(returnData){
 					api("zone","add",{tk:returnData.tk,text:$(".addSay_page .topFrame textarea").val(),pic:picArry},add,view.err);
-				};
+				}
 				common.tk(tkGet);
 			});
 		}
@@ -54,5 +54,5 @@ define("control/addSay",function(require, exports, module) {
 		view.foot.hide(footDone);
 		/*加载主区，传入参数*/
 		view.main.sugest("addSay_page",{},data.state,"side",viewDone);
-	}
+	};
 });
