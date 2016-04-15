@@ -63,30 +63,7 @@ define("bin/control",function(require, exports, module) {
                 page.fn(dataObj);
             });
         }
-        if (routeArry[hashArry[0]]) {
-            /*如果缓存已经有该control,直接启动*/
-            runRoute();
-        } else {
-            /*如果没有*/
-            /*打开loading*/
-            view.loading.on();
-            /*自动去拿*/
-            $.ajax({
-                url: "control/" + hashArry[0] + ".js",
-                dataType: "script",
-                data:{v:config.version},
-                cache: true,
-                error: function (err) {/*出错就报*/
-                    view.loading.off();
-                    view.err(err);
-                    window.location.hash = "";
-                },
-                success: function (data) {/*拿到了关掉loading,启动*/
-                    view.loading.off();
-                    runRoute();
-                }
-            });
-        }
+        runRoute();
     }
 /*监测hash变化，调用跳页方法*/
     window.addEventListener("hashchange", function () {

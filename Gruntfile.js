@@ -34,7 +34,7 @@ module.exports = function(grunt){
 			bin: {src: ['bin/zepto.js','bin/event.js','bin/ajax.js','bin/touch.js','bin/underscore.js','bin/iscroll.js','bin/sea.js','bin/config.js','bin/common.js','bin/control.js','bin/api.js','bin/view.js'], dest: 'cache/bin.js'},
 			control: {src: ['control/*.js'], dest: 'cache/control.js'},
 			include:{src: ['include/*.js'], dest: 'cache/include.js'},
-			combin:{src: ['cache/bin.js','bin/seaConfig.js','cache/control.js','bin/run.js','cache/include.js'], dest: 'dist/js/js.js'}
+			combin:{src: ['cache/bin.js','cache/control.js','bin/run.js','cache/include.js'], dest: 'dist/js/js.js'}
             },
         concat:{
         	options: {},
