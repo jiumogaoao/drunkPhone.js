@@ -65,5 +65,6 @@ define("bin/common",function(require, exports, module) {
         };
         api("user","getToken",{tk:common.cache("tk").tk},tksc,view.err);
     };
+    /*注册socket*/
 
 });

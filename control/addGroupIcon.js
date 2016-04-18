@@ -20,13 +20,13 @@ define("control/addGroupIcon",function(require, exports, module) {
 				});
 			});
 		}
-		function addSc(id){
-			if(id){
-						window.location.hash="creatGroup/"+id;
+		function addSc(group){
+			if(group&&group.id){
+						window.location.hash="creatGroup/"+group.id;
 					}
 		}
 		function tkGet(returnData){
-			api("group","add",{tk:tk,gid:null,name:data.par.name,icon:$(".addGroupIcon_page #icon").attr("src")},addSc,view.err);
+			api("group","add",{tk:returnData.tk,gid:null,name:data.par.name,icon:$(".addGroupIcon_page #icon").attr("src")},addSc,view.err);
 		}
 		function headDone(){/*头部加载完成*/
 			/*绑定事件*/

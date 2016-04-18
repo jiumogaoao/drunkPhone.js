@@ -63,6 +63,9 @@ define("control/linkmanList",function(require, exports, module) {
 					view.side.show();
 				}
 			});
+			$(".head_module .right").unbind("tap").bind("tap",function(){
+				window.location.hash="add";
+			});
 		}
 		function footDone(){/*脚部加载完成*/
 			/*绑定事件*/
