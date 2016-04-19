@@ -5,7 +5,6 @@ define("bin/control",function(require, exports, module) {
     var config=require("bin/config");
     var view=require("bin/view");
     var control={};
-    module.exports=control;
     /*用于换存C层object*/
     var routeArry = {};
     /*用于缓存V层模版*/
@@ -76,7 +75,7 @@ define("bin/control",function(require, exports, module) {
         changePage();
     });
     /*初始C层*/
-    control.init = function (loadDom) {/*开发环境分段自动加载,直接跳页*/
+   module.exports.init = control.init = function (loadDom) {/*开发环境分段自动加载,直接跳页*/
         if(location.href.indexOf("?dev") > 0){
             changePage();
         }else{/*如果是生产环境，去拿合成好的V层模版*/
@@ -100,10 +99,14 @@ define("bin/control",function(require, exports, module) {
         }
     };
     /*回退方法*/
-    control.back = function(){
+    module.exports.back = control.back = function(){
         /*出栈*/
         pageArry=_.initial(pageArry);
         /*调用栈尾的control*/
         window.location.hash=_.last(pageArry);
+    };
+    /*获取当前页面名*/
+    module.exports.nowPage = control.nowPage = function(){
+        return _.last(pageArry).split("/")[0];
     };
 });

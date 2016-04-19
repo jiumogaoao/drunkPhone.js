@@ -8,6 +8,29 @@ define("control/detail",function(require, exports, module) {
 	var api=require("bin/api");
 	var tk=null;
 	page.fn=function(data){
+		common.socket('newMessage','detail',function(socketData){
+			if(socketData.from===data.par.id){
+				var sendTime=moment(socketData.time,"x").format('YYYY-MM-DD');
+				if(!$(".messageGroup[time='"+sendTime+"']").length){
+					$(".detailRoll").append(
+						'<div class="messageGroup" time="'+sendTime+'">'+
+							'<div class="time">'+sendTime+'</div>'+
+							'<div class="mainFrame"></div>'+
+						'</div>');
+				}
+				$(".messageGroup[time='"+sendTime+"'] .mainFrame").append(
+					'<div class="messagePoint messagePoint0">'+
+									'<img src="'+socketData.icon+'" class="head">'+
+									'<div class="textFrame">'+
+										((socketData.type=="text")?'<div class="word">'+socketData.main+'</div>':'<img class="pic" src="'+socketData.main+'"/>')+
+									'</div>'+
+									'<div class="clear"></div>'+
+									'<div class="deg deg0"></div>'+
+								'</div>'
+					);
+				viewDone();
+			}
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#detail', {  });
@@ -24,7 +47,7 @@ define("control/detail",function(require, exports, module) {
 				control.back();
 			});
 		}
-		function sendSc(returnData){
+		function sendSc(returnData,that){
 			if(returnData){
 							var newList=function(newData){
 								view.main.sugest("detail_page",{group:newData},data.state,"top",viewDone);
@@ -37,7 +60,7 @@ define("control/detail",function(require, exports, module) {
 			$(".talk_foot input").unbind("keydown").bind("keydown",function(e){
 				var that=this;
 				if(e.keyCode===13){
-					api("message","add",{tk:tk,to:data.par.id,state:0,type:"text",main:$(this).val()});
+					api("message","add",{tk:tk,to:data.par.id,state:0,type:"text",main:$(this).val()},function(returnData){sendSc(returnData,that)},view.err);
 				}
 			});
 		}

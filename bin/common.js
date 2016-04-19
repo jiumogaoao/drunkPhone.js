@@ -3,8 +3,10 @@ define("bin/common",function(require, exports, module) {
     /*一切从这开始*/
     /*声明主object*/
     var common={};
+    var config=require("bin/config");
     var view=require("bin/view");
     var api=require("bin/api");
+    var control=require("bin/control");
     /*干掉默认事件*/
     document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     /*自适应处理*/
@@ -66,5 +68,28 @@ define("bin/common",function(require, exports, module) {
         api("user","getToken",{tk:common.cache("tk").tk},tksc,view.err);
     };
     /*注册socket*/
-
+    var socket=io(config.sour);
+    var socketEvent={};
+    function tkGet(returnData){
+        socket.emit('tk', { tk: returnData.tk });
+    }
+    socket.on('connected', function (data) {
+        common.tk(tkGet);
+  });
+    /*注册响应事件*/
+    module.exports.socket = function(eventName,pageName,fn){
+        if(!socketEvent[eventName]){
+            socketEvent[eventName]={};
+        };
+        if(!socketEvent[eventName][pageName]){
+            socketEvent[eventName][pageName]=fn;
+        }
+    };
+    /*响应*/
+    socket.on('event',function(data){
+        var nowPage=control.nowPage();/*获取当前页面名*/
+        if(socketEvent&&socketEvent[data.eventName]&&socketEvent[data.eventName][nowPage]){
+            socketEvent[data.eventName][nowPage](data.data);
+        }
+    })
 });

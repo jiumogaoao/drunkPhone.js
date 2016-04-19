@@ -3,7 +3,7 @@
 	<div class="detailRoll">
 		<% if(data.group){
 			_.each(data.group,function(group,index){ %>
-				<div class="messageGroup">
+				<div class="messageGroup" time="<%= index %>">
 					<div class="time"><%= index %></div>
 					<div class="mainFrame">
 						<% if(group&&group.length){

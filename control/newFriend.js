@@ -6,6 +6,7 @@ define("control/newFriend",function(require, exports, module) {
 	var control=require("bin/control");
 	var common=require("bin/common");
 	var api=require("bin/api");
+	var tk=null;
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -14,14 +15,15 @@ define("control/newFriend",function(require, exports, module) {
 			$('img').on("load",function(){
 				myScroll.refresh();
 			});
-			$(".newFriend_page .addButton").unbind("tap").bind("tap",function(){
-				var that=this;
-				user.checkFriend($(this).attr("pid"),function(){
+			function checkSc(returnData,that){
 					view.pop.on("添加成功，你们已经成为朋友");
 					$(that).parents(".list_module").removeClass('attention');
 					$(that).parents(".list_module .right").append('<div class="state">已添加</div>');
 					$(that).remove();
-				});
+			};
+			$(".newFriend_page .addButton").unbind("tap").bind("tap",function(){
+				var that=this;
+				api("user","checkFriend",{tk:tk,to:$(that).attr("pid")},function(returnData){checkSc(returnData,that)},view.err);
 			});
 		}
 		function headDone(){/*头部加载完成*/
@@ -62,6 +64,7 @@ define("control/newFriend",function(require, exports, module) {
 			},data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
+			tk=returnData.tk;
 			api("user","getFriendList",{tk:returnData.tk},getFriend,view.err);
 		}
 		common.tk(tkGet);
