@@ -34,6 +34,37 @@ define("control/messageList",function(require, exports, module) {
 			$(".list_module[pid='"+socketData.from+"'] .num").show();
 			$(".list_module[pid='"+socketData.from+"'] .time").html(moment(socketData.time,"x").format("YYYY-MM-DD"));
 		});
+		common.socket('newGroupMessage','messageList',function(socketData){
+			if(!$(".list_module[pid='"+socketData.to+"']").length){
+				$("#listFrameRoll").append('<div class="list_module" pid="'+socketData.to+'" state="1">'+
+							'<img class="left" src="'+groupList[socketData.to].icon+'">'+
+							'<div class="right">'+
+								'<div class="title">'+groupList[socketData.to].name+'</div>'+
+								'<div class="dsc"></div>'+
+								'<div class="time"></div>'+
+								'<div class="num">0</div>'+
+							'</div>'+
+							'<div class="hide">'+
+								'<div class="setTop">置顶</div>'+
+								'<div class="setRead">标为已读</div>'+
+								'<div class="remove">删除</div>'+
+								'<div class="clear"></div>'+
+							'</div>'+
+							'<div class="clear"></div>'+
+						'</div>');
+			}
+			if(socketData.type==="text"){
+				$(".list_module[pid='"+socketData.to+"'] .dsc").html(socketData.main);
+			}else{
+				$(".list_module[pid='"+socketData.to+"'] .dsc").html("[图片]");
+			}
+			$(".list_module[pid='"+socketData.to+"'] .num").html(Number($(".list_module[pid='"+socketData.to+"'] .num").html())+1);
+			$(".list_module[pid='"+socketData.to+"'] .num").show();
+			$(".list_module[pid='"+socketData.to+"'] .time").html(moment(socketData.time,"x").format("YYYY-MM-DD"));
+		});
+		common.socket('newZone','messageList',function(socketData){
+			$(".foot_module.treeNav_foot .navPoint.right .redPoint").show();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#listFrame', {  });

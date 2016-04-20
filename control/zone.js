@@ -7,6 +7,59 @@ define("control/zone",function(require, exports, module) {
 	var api=require("bin/api");
 	var common=require("bin/common");
 	page.fn=function(data){
+		common.socket('newZone','zone',function(socketData){
+			var pic="";
+			if(socketData.pic&&socketData.pic.length){
+				_.each(socketData.pic,function(pPoint){
+					pic+='<img src="'+pPoint.src+'" class="pic"/>'
+				})
+			}
+			var praise="";
+			if(socketData.praise&&socketData.praise.length){
+				_.each(socketData.praise,function(pPoint){
+					praise+='<div class="praiseName">'+pPoint+'</div>'
+				})
+			}
+			$(".zone_page #zoneBottomFrame").after(
+				'<div class="zone_module">'+
+						'<div class="top">'+
+							'<img src="'+socketData.icon+'"/>'+
+							'<div class="name">'+socketData.name+'</div>'+
+							'<div class="time">'+moment(socketData.time,"x").format("YYYY-MM-DD")+'</div>'+
+						'</div>'+
+						'<div class="middle">'+
+							'<div class="text">'+socketData.text+'</div>'+
+							'<div class="picFrame">'+
+							pic+
+								'<div class="clear"></div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="bottom">'+
+							'<div class="zoneIcon copyButton"></div>'+
+							'<div class="zoneIcon talkButton"></div>'+
+							'<div class="zoneIcon praiseButton"></div>'+
+							'<div class="clear"></div>'+
+							'<div class="readed">'+
+								'<div class="zoneIcon read"></div>'+
+								'<div class="readNumber">浏览'+socketData.readed+'次</div>'+
+								'<div class="clear"></div>'+
+							'</div>'+
+							'<div class="praised">'+
+								'<div class="zoneIcon praise"></div>'+
+								praise+
+								'<div class="clear"></div>'+
+							'</div>'+
+							'<div class="talkFrame">'+
+								'<input placeholder="我也来说一句"/>'+
+								'<div class="line"></div>'+
+								'<div class="zoneIcon face"></div>'+
+								'<div class="clear"></div>'+
+							'</div>'+
+						'</div>'+
+					'</div>'
+				);
+			viewDone();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#zoneMain', { probeType: 3 });

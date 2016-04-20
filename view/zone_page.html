@@ -60,7 +60,7 @@
 						<div class="top">
 							<img src="<%= point.icon %>"/>
 							<div class="name"><%= point.name %></div>
-							<div class="time"><%= point.time %></div>
+							<div class="time"><%= moment(point.time,"x").format("YYYY-MM-DD") %></div>
 						</div>
 						<div class="middle">
 							<div class="text"><%= point.text %></div>
