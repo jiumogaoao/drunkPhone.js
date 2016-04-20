@@ -6,6 +6,34 @@ define("control/messageList",function(require, exports, module) {
 	var common=require("bin/common");
 	var api=require("bin/api");
 	page.fn=function(data){
+		common.socket('newMessage','messageList',function(socketData){
+			if(!$(".list_module[pid='"+socketData.from+"']").length){
+				$("#listFrameRoll").append('<div class="list_module" pid="'+socketData.from+'" state="0">'+
+							'<img class="left" src="'+socketData.icon+'">'+
+							'<div class="right">'+
+								'<div class="title">'+socketData.name+'</div>'+
+								'<div class="dsc"></div>'+
+								'<div class="time"></div>'+
+								'<div class="num">0</div>'+
+							'</div>'+
+							'<div class="hide">'+
+								'<div class="setTop">置顶</div>'+
+								'<div class="setRead">标为已读</div>'+
+								'<div class="remove">删除</div>'+
+								'<div class="clear"></div>'+
+							'</div>'+
+							'<div class="clear"></div>'+
+						'</div>');
+			}
+			if(socketData.type==="text"){
+				$(".list_module[pid='"+socketData.from+"'] .dsc").html(socketData.main);
+			}else{
+				$(".list_module[pid='"+socketData.from+"'] .dsc").html("[图片]");
+			}
+			$(".list_module[pid='"+socketData.from+"'] .num").html(Number($(".list_module[pid='"+socketData.from+"'] .num").html())+1);
+			$(".list_module[pid='"+socketData.from+"'] .num").show();
+			$(".list_module[pid='"+socketData.from+"'] .time").html(moment(socketData.time,"x").format("YYYY-MM-DD"));
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#listFrame', {  });
@@ -29,7 +57,8 @@ define("control/messageList",function(require, exports, module) {
 				}
 			});
 			/*点击删除删除列表项*/
-			$(".messageList_page .list_module .remove").unbind("tap").bind("tap",function(){
+			$(".messageList_page .list_module .remove").unbind("tap").bind("tap",function(e){
+				e.stopPropagation();
 				$(this).parents(".list_module").remove();
 			});
 			/*点击列表项进入聊天*/

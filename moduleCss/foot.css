@@ -7,6 +7,16 @@
 .foot_module.treeNav_foot .navPoint{
 	width: 60px;
 }
+.foot_module.treeNav_foot .navPoint .redPoint{
+	width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 20px;
+    position: absolute;
+    top: 9px;
+    left: 44px;
+    display: none;
+}
 .foot_module.treeNav_foot .navPoint .icon{
 	width: 53px;
 	height: 53px;

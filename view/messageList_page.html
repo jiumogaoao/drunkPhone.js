@@ -12,7 +12,7 @@
 								<div class="title"><%= point.name %></div>
 								<div class="dsc"><%= point.dsc %></div>
 								<div class="time"><%= point.time %></div>
-								<div class="num"><%= point.num %></div>
+								<div class="num" <% if(point.num==0){print('style="display:none;"')} %>><%= point.num %></div>
 							</div>
 							<div class="hide">
 								<div class="setTop">置顶</div>

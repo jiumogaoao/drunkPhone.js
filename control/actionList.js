@@ -6,6 +6,9 @@ define("control/actionList",function(require, exports, module) {
 	var common=require("bin/common");
 	var api=require("bin/api");
 	page.fn=function(data){
+		common.socket('newMessage','actionList',function(socketData){
+			$(".foot_module.treeNav_foot .navPoint.left .redPoint").show();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#actionListFrame', {  });
