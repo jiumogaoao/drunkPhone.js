@@ -15,6 +15,9 @@ define("control/actionList",function(require, exports, module) {
 		common.socket('newZone','actionList',function(socketData){
 			$(".actionList_page .linkNavPoint#zone .redPoint").show();
 		});
+		common.socket('newFriend','actionList',function(socketData){
+			$(".foot_module.treeNav_foot .navPoint.center .redPoint").show();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#actionListFrame', {  });

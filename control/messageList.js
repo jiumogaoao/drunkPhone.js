@@ -65,6 +65,9 @@ define("control/messageList",function(require, exports, module) {
 		common.socket('newZone','messageList',function(socketData){
 			$(".foot_module.treeNav_foot .navPoint.right .redPoint").show();
 		});
+		common.socket('newFriend','messageList',function(socketData){
+			$(".foot_module.treeNav_foot .navPoint.center .redPoint").show();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#listFrame', {  });

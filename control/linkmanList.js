@@ -16,6 +16,9 @@ define("control/linkmanList",function(require, exports, module) {
 		common.socket('newZone','linkmanList',function(socketData){
 			$(".foot_module.treeNav_foot .navPoint.right .redPoint").show();
 		});
+		common.socket('newFriend','linkmanList',function(socketData){
+			$(".linkmanList_page .linkNavPoint#newFriend .redPoint").show();
+		});
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
 			var myScroll = new IScroll('#linkListFrame', {  });
