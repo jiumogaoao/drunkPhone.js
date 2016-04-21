@@ -50,6 +50,9 @@ define("control/albumDetail",function(require, exports, module) {
 			if(!showList.icon&&showList.list.length){
 				showList.icon=showList.list[0].src;
 			}
+			showList.list=_.sortBy(showList.list,function(point){
+				return -1*point.time;
+			});
 			showList.showList=_.groupBy(showList.list,function(point){
 				return moment(point.time,"x").format("YYYY 年 MM 月 DD 日");
 			});

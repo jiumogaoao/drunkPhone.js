@@ -56,7 +56,7 @@
 			</div>
 			<% if(data.list&&data.list.length){
 				_.each(data.list,function(point){ %>
-					<div class="zone_module">
+					<div class="zone_module" zid="<%= point.id %>">
 						<div class="top">
 							<img src="<%= point.icon %>"/>
 							<div class="name"><%= point.name %></div>
@@ -80,7 +80,7 @@
 							<div class="clear"></div>
 							<div class="readed">
 								<div class="zoneIcon read"></div>
-								<div class="readNumber">浏览<%= point.readed %>次</div>
+								<div class="readNumber">浏览<%= point.readed.length %>次</div>
 								<div class="clear"></div>
 							</div>
 							<div class="praised">

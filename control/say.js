@@ -4,6 +4,8 @@ define("control/say",function(require, exports, module) {
 	page.par=[];
 	var view=require("bin/view");
 	var control=require("bin/control");
+	var common=require("bin/common");
+	var api=require("bin/api");
 	page.fn=function(data){
 		function viewDone(){/*主区加载完成*/
 			/*添加滚动*/
@@ -26,39 +28,15 @@ define("control/say",function(require, exports, module) {
 		view.head.show("head_template",{"left":{type:"back",text:"返回"},"center":{type:"title",text:"说说"},"right":{type:"button",text:"写说说"}},headDone);
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
-		/*加载主区，传入参数*/
+		function listGet(returnData){
+			/*加载主区，传入参数*/
 		view.main.sugest("say_page",{
-			list:[
-				{
-					icon:"img/head.jpg",
-					name:"某人",
-					time:"某月某日",
-					text:"说了很多很多",
-					readedNum:9,
-					praise:["另一人","另一人","另一人","另一人","另一人"]
-				},{
-					icon:"img/head.jpg",
-					name:"某人",
-					time:"某月某日",
-					text:"说了很多很多",
-					readedNum:9,
-					praise:["另一人","另一人","另一人","另一人","另一人"]
-				},{
-					icon:"img/head.jpg",
-					name:"某人",
-					time:"某月某日",
-					text:"说了很多很多",
-					readedNum:9,
-					praise:["另一人","另一人","另一人","另一人","另一人"]
-				},{
-					icon:"img/head.jpg",
-					name:"某人",
-					time:"某月某日",
-					text:"说了很多很多",
-					readedNum:9,
-					praise:["另一人","另一人","另一人","另一人","另一人"]
-				}
-			]
+			list:returnData
 		},data.state,"side",viewDone);
+		}
+		function tkGet(returnData){
+			api("zone","getMyList",{tk:returnData.tk},listGet,view.err);
+		}
+		common.tk(tkGet);
 	};
 });

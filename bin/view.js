@@ -4,6 +4,7 @@ define("bin/view",function(require, exports, module) {
 	var errorDelay="";
 	var config=require("bin/config");
 	var common=require("bin/common");
+	var api=require("bin/api");
 	/*转场类型栈*/
 	var typeArry=[];
 	/*转场延时句柄*/
@@ -212,18 +213,25 @@ define("bin/view",function(require, exports, module) {
 			if($("#sideFrame").attr("haveload")==="1"){/*如果已经加载了，直接打开*/
 				sideShow(fn);
 			}else{/*如果没加载，先去拿模版*/
+				function changeDscSc(returnData){
+
+						};
 				getTem("side_tem",function(tem){
 					function tkGet(returnData){
 						/*放数据*/
 					var sideStr=_.template(tem)({data:{
 						icon:returnData.user.icon,
 						name:returnData.user.name,
+						dsc:returnData.user.dsc,
 						step:returnData.user.step,
 						ercode:"img/erCode.jpg"
 					}});
 					/*放进侧栏*/
 					$("#sideFrame").html(sideStr);
 					/*绑定事件*/
+					$("#sideFrame .dsc").unbind("change").bind("change",function(){
+						api("user","changeDsc",{tk:returnData.tk,dsc:$(this).val()},changeDscSc,view.err);
+					});
 					$("#sideFrame #vip").unbind("tap").bind("tap",function(){
 						$("body").attr("sideopen","0");
 						view.side.hide();
