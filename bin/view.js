@@ -218,6 +218,11 @@ define("bin/view",function(require, exports, module) {
 			}else{/*如果没加载，先去拿模版*/
 				getTem("side_tem",function(tem){
 					function tkGet(returnData){
+						if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 						/*放数据*/
 					var sideStr=_.template(tem)({data:{
 						icon:returnData.user.icon,

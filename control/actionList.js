@@ -99,6 +99,11 @@ define("control/actionList",function(require, exports, module) {
 			]
 		},data.state,"size",viewDone);
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			view.head.show("head_template",{"left":{"type":"icon","src":returnData.user.icon},"center":{type:"title",text:"动态"},right:{type:"button",text:"更多"}},headDone);
 		}
 		common.tk(tkGet);

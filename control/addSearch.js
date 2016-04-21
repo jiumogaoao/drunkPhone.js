@@ -58,6 +58,11 @@ define("control/addSearch",function(require, exports, module) {
 		/*隐藏脚部*/
 		view.foot.hide(footDone);
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			api("user","searchNotFriend",{tk:tk},getManList,view.err);
 			api("group","searchNotGroup",{tk:tk},getGroupList,view.err);

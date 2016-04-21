@@ -42,6 +42,11 @@ define("control/addGroupDetail",function(require, exports, module) {
 			view.pop.on("加入成功");
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			api("group","join",{tk:returnData.tk,gid:data.par.id,uid:null},addSc,view.err);
 		}
 		function footDone(){/*脚部加载完成*/

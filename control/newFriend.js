@@ -64,6 +64,11 @@ define("control/newFriend",function(require, exports, module) {
 			},data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			api("user","getFriendList",{tk:returnData.tk},getFriend,view.err);
 		}

@@ -126,6 +126,11 @@ define("control/linkmanList",function(require, exports, module) {
 			view.main.sugest("linkmanList_page",showData,data.state,"size",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			/*使用iconTitleButton_head的view作为头部，传入参数*/
 			view.head.show("head_template",{"left":{"type":"icon","src":returnData.user.icon},"center":{type:"title",text:"联系人"},"right":{type:"button",text:"添加"}},headDone);
 			api("user","getFriendList",{tk:returnData.tk},getFriendList,view.err);

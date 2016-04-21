@@ -40,6 +40,11 @@ define("control/edit",function(require, exports, module) {
 		/*隐藏脚部*/
 		view.foot.hide();
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			userData=returnData.user;
 		/*加载主区，传入参数*/

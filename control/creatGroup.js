@@ -34,6 +34,11 @@ define("control/creatGroup",function(require, exports, module) {
 		view.main.sugest("creatGroup_page",groupMessage,data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			api("group","getList",{tk:returnData.tk,idArry:[data.par.id]},getGroup,view.err);
 		}
 		common.tk(tkGet);

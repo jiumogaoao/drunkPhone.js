@@ -50,6 +50,11 @@ define("control/album",function(require, exports, module) {
 			view.main.sugest("album_page",{list:showList},data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
 		}
 		common.tk(tkGet);

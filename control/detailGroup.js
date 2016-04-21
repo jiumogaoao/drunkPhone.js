@@ -78,6 +78,11 @@ define("control/detailGroup",function(require, exports, module) {
 		view.main.sugest("detail_page",showList,data.state,"top",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			api("message","getGroupList",{tk:tk,to:data.par.id},getList,view.err);
 		}

@@ -136,6 +136,11 @@ define("control/zone",function(require, exports, module) {
 			},data.state,"side",viewDone);
 		};
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			self=returnData.user;
 			api("zone","getList",{tk:returnData.tk},getList,view.err);
 		}

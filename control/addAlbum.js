@@ -30,6 +30,11 @@ define("control/addAlbum",function(require, exports, module) {
 					}
 			$(".head_module .right").unbind("tap").bind("tap",function(){
 				function tkGet(returnData){
+					if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 					api("album","creat",{
 						tk:returnData.tk,
 						aid:null,

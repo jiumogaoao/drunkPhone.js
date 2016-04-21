@@ -45,6 +45,11 @@ define("control/addDetail",function(require, exports, module) {
 		function footDone(){/*脚部加载完成*/
 			$(".myDetail_foot #Send").unbind("tap").bind("tap",function(){
 				function tkGet(returnData){
+					if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 					api("user","addFriend",{tk:returnData.tk,to:data.par.id},addSc,view.err);
 				}
 				common.tk(tkGet);

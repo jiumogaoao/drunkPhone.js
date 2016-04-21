@@ -73,6 +73,11 @@ define("control/myDetail",function(require, exports, module) {
 		view.foot.show("myDetail_foot",{},footDone);
 		/*加载主区，传入参数*/
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			var userData=returnData.user;
 			view.main.sugest("myDetail_page",{

@@ -40,6 +40,11 @@ define("control/addSay",function(require, exports, module) {
 					}
 				}
 				function tkGet(returnData){
+					if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 					api("zone","add",{tk:returnData.tk,text:$(".addSay_page .topFrame textarea").val(),pic:picArry},add,view.err);
 				}
 				common.tk(tkGet);

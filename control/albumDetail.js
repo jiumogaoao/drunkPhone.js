@@ -59,6 +59,11 @@ define("control/albumDetail",function(require, exports, module) {
 			view.main.sugest("albumDetail_page",showList,data.state,"side",viewDone);
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			api("album","getAlbumList",{tk:returnData.tk,uid:null},getAlbumList,view.err);
 		}

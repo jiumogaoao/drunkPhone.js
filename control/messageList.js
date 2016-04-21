@@ -196,6 +196,11 @@ define("control/messageList",function(require, exports, module) {
 			callbackAll();
 		}
 		function tkget(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			/*使用iconNavButton_head的view作为头部，传入参数hl=0*/
 		view.head.show("head_template",{
 				"left":{

@@ -70,6 +70,11 @@ define("control/detail",function(require, exports, module) {
 		view.foot.show("talk_foot",{hl:"1"},footDone);
 		var showList={group:{}};
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			tk=returnData.tk;
 			api("message","getList",{tk:tk,to:data.par.id},getList,view.err);
 		}

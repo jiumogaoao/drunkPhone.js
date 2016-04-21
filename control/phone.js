@@ -61,6 +61,11 @@ define("control/phone",function(require, exports, module) {
 		}
 		
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			/*加载头部，传入参数*/
 		view.head.show("head_template",{
 			"left":{

@@ -26,6 +26,11 @@ define("control/addGroupIcon",function(require, exports, module) {
 					}
 		}
 		function tkGet(returnData){
+			if(!returnData.user){
+				view.err("请先登录");
+				window.location.hash="index";
+				return false;
+			}
 			api("group","add",{tk:returnData.tk,gid:null,name:data.par.name,icon:$(".addGroupIcon_page #icon").attr("src")},addSc,view.err);
 		}
 		function headDone(){/*头部加载完成*/
