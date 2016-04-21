@@ -23,7 +23,7 @@ define("control/detailGroup",function(require, exports, module) {
 									'<img src="'+socketData.icon+'" class="head">'+
 									'<div class="textFrame">'+
 											'<div class="name">'+socketData.name+'</div>'+
-											((socketData.type=="text")?'<div class="word">'+socketData.main+'</div>':'<img class="pic" src="'+socketData.main+'"/>')+							
+											((socketData.type==="text")?'<div class="word">'+socketData.main+'</div>':'<img class="pic" src="'+socketData.main+'"/>')+							
 									'</div>'+
 									'<div class="clear"></div>'+
 									'<div class="deg deg1"></div>'+
@@ -61,7 +61,7 @@ define("control/detailGroup",function(require, exports, module) {
 			$(".talk_foot input").unbind("keydown").bind("keydown",function(e){
 				var that=this;
 				if(e.keyCode===13){
-					api("message","add",{tk:tk,to:data.par.id,state:1,type:"text",main:$(this).val()},function(returnData){sendSc(returnData,that)},view.err);
+					api("message","add",{tk:tk,to:data.par.id,state:1,type:"text",main:$(this).val()},function(returnData){sendSc(returnData,that);},view.err);
 				}
 			});
 		}

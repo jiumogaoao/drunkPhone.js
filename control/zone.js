@@ -11,14 +11,14 @@ define("control/zone",function(require, exports, module) {
 			var pic="";
 			if(socketData.pic&&socketData.pic.length){
 				_.each(socketData.pic,function(pPoint){
-					pic+='<img src="'+pPoint.src+'" class="pic"/>'
-				})
+					pic+='<img src="'+pPoint.src+'" class="pic"/>';
+				});
 			}
 			var praise="";
 			if(socketData.praise&&socketData.praise.length){
 				_.each(socketData.praise,function(pPoint){
-					praise+='<div class="praiseName">'+pPoint+'</div>'
-				})
+					praise+='<div class="praiseName">'+pPoint+'</div>';
+				});
 			}
 			$(".zone_page #zoneBottomFrame").after(
 				'<div class="zone_module">'+

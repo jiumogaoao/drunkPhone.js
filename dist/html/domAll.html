@@ -58,6 +58,7 @@
 			<div class="linkNavPoint" id="<%= nav.id %>">
 				<img src="<%= nav.icon %>" class="icon"/>
 				<div class="name"><%= nav.name %></div>
+				<div class="redPoint"></div>
 			</div>
 		<% }) 
 		} %>
@@ -1081,7 +1082,7 @@
 	<div class="detailRoll">
 		<% if(data.group){
 			_.each(data.group,function(group,index){ %>
-				<div class="messageGroup">
+				<div class="messageGroup" time="<%= index %>">
 					<div class="time"><%= index %></div>
 					<div class="mainFrame">
 						<% if(group&&group.length){
@@ -2034,18 +2035,22 @@
 		<div class="linkNavPoint" id="newFriend">
 			<img src="img/newMan.png" class="icon"/>
 			<div class="name">新朋友</div>
+			<div class="redPoint"></div>
 		</div>
 		<div class="linkNavPoint" id="care">
 			<img src="img/attention.png" class="icon"/>
 			<div class="name">特别关心</div>
+			<div class="redPoint"></div>
 		</div>
 		<div class="linkNavPoint" id="group">
 			<img src="img/group.png" class="icon"/>
 			<div class="name">群组</div>
+			<div class="redPoint"></div>
 		</div>
 		<div class="linkNavPoint" id="public">
 			<img src="img/public.png" class="icon"/>
 			<div class="name">公众号</div>
+			<div class="redPoint"></div>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -2101,7 +2106,7 @@
 								<div class="title"><%= point.name %></div>
 								<div class="dsc"><%= point.dsc %></div>
 								<div class="time"><%= point.time %></div>
-								<div class="num"><%= point.num %></div>
+								<div class="num" <% if(point.num==0){print('style="display:none;"')} %>><%= point.num %></div>
 							</div>
 							<div class="hide">
 								<div class="setTop">置顶</div>
@@ -2848,20 +2853,28 @@
 		<div id="sayRoll">
 		<% if(data.list&&data.list.length){
 			_.each(data.list,function(point){ %>
-				<div class="zone_module">
+				<div class="zone_module" zid="<%= point.id %>">
 					<div class="zoneIcon remove"></div>
 					<div class="top">
 						<img src="<%= point.icon %>"/>
-						<div class="name"><%= point.name %></div>
-						<div class="time"><%= point.time %></div>
+							<div class="name"><%= point.name %></div>
+							<div class="time"><%= moment(point.time,"x").format("YYYY-MM-DD") %></div>
 					</div>
 					<div class="middle">
 						<div class="text"><%= point.text %></div>
-					</div>
+							<div class="picFrame">
+							<% if(point.pic&&point.pic.length){
+								_.each(point.pic,function(pic){ %>
+								<img src="<%= pic.src %>" class="pic"/>
+							<%	})
+							} %>
+								<div class="clear"></div>
+							</div>
+					</div> 
 					<div class="bottom">
 						<div class="readed">
 							<div class="zoneIcon read"></div>
-							<div class="readNumber">浏览<%= point.readedNum %>次</div>
+							<div class="readNumber">浏览<%= point.readed.length %>次</div>
 							<div class="clear"></div>
 						</div>
 						<div class="praised">
@@ -2982,9 +2995,7 @@
 		} %>
 		<div class="clear"></div>
 	</div>
-	<div class="dsc">
-		<%= data.dsc %>
-	</div>
+	<input class="dsc" value="<%= data.dsc||'' %>" placeholder="立刻输入个性签名"/>
 	<img class="ercode" src="<%= data.ercode %>"/>
 	<div class="list">
 		<div class="point" id="vip">
@@ -3082,14 +3093,17 @@
 	<div class="navPoint left <% if(data.hl=="0"){print("hl")} %>">
 		<div class="icon"></div>
 		<div class="name">消息</div>
+		<div class="redPoint"></div>
 	</div>
 	<div class="navPoint center <% if(data.hl=="1"){print("hl")} %>">
 		<div class="icon"></div>
 		<div class="name">联系人</div>
+		<div class="redPoint"></div>
 	</div>
 	<div class="navPoint right <% if(data.hl=="2"){print("hl")} %>">
 		<div class="icon"></div>
 		<div class="name">动态</div>
+		<div class="redPoint"></div>
 	</div>
 </div>
 </script>
@@ -3263,11 +3277,11 @@
 			</div>
 			<% if(data.list&&data.list.length){
 				_.each(data.list,function(point){ %>
-					<div class="zone_module">
+					<div class="zone_module" zid="<%= point.id %>">
 						<div class="top">
 							<img src="<%= point.icon %>"/>
 							<div class="name"><%= point.name %></div>
-							<div class="time"><%= point.time %></div>
+							<div class="time"><%= moment(point.time,"x").format("YYYY-MM-DD") %></div>
 						</div>
 						<div class="middle">
 							<div class="text"><%= point.text %></div>
@@ -3287,7 +3301,7 @@
 							<div class="clear"></div>
 							<div class="readed">
 								<div class="zoneIcon read"></div>
-								<div class="readNumber">浏览<%= point.readed %>次</div>
+								<div class="readNumber">浏览<%= point.readed.length %>次</div>
 								<div class="clear"></div>
 							</div>
 							<div class="praised">

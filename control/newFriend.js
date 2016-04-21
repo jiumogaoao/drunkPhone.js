@@ -20,10 +20,10 @@ define("control/newFriend",function(require, exports, module) {
 					$(that).parents(".list_module").removeClass('attention');
 					$(that).parents(".list_module .right").append('<div class="state">已添加</div>');
 					$(that).remove();
-			};
+			}
 			$(".newFriend_page .addButton").unbind("tap").bind("tap",function(){
 				var that=this;
-				api("user","checkFriend",{tk:tk,to:$(that).attr("pid")},function(returnData){checkSc(returnData,that)},view.err);
+				api("user","checkFriend",{tk:tk,to:$(that).attr("pid")},function(returnData){checkSc(returnData,that);},view.err);
 			});
 		}
 		function headDone(){/*头部加载完成*/

@@ -80,7 +80,7 @@ define("bin/common",function(require, exports, module) {
     module.exports.socket = function(eventName,pageName,fn){
         if(!socketEvent[eventName]){
             socketEvent[eventName]={};
-        };
+        }
         if(!socketEvent[eventName][pageName]){
             socketEvent[eventName][pageName]=fn;
         }
@@ -91,5 +91,5 @@ define("bin/common",function(require, exports, module) {
         if(socketEvent&&socketEvent[data.eventName]&&socketEvent[data.eventName][nowPage]){
             socketEvent[data.eventName][nowPage](data.data);
         }
-    })
+    });
 });

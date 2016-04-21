@@ -206,6 +206,9 @@ define("bin/view",function(require, exports, module) {
 				if(fn){fn();}
 			},1000);
 	}
+	function changeDscSc(returnData){
+
+						}
 	/*侧栏操作*/
 	view.side={
 		/*显示侧栏*/
@@ -213,9 +216,6 @@ define("bin/view",function(require, exports, module) {
 			if($("#sideFrame").attr("haveload")==="1"){/*如果已经加载了，直接打开*/
 				sideShow(fn);
 			}else{/*如果没加载，先去拿模版*/
-				function changeDscSc(returnData){
-
-						};
 				getTem("side_tem",function(tem){
 					function tkGet(returnData){
 						/*放数据*/
