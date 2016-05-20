@@ -7,6 +7,8 @@ define("bin/common",function(require, exports, module) {
     var view=require("bin/view");
     var api=require("bin/api");
     var control=require("bin/control");
+    var canvar=$('<canvas></canvas')[0];
+    var ctx = canvas.getContext('2d');
     /*干掉默认事件*/
     document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     /*自适应处理*/
@@ -30,13 +32,41 @@ define("bin/common",function(require, exports, module) {
         });
     };
     /*图片转码*/
-    module.exports.pic = common.pic=function(file,fn) {
+    module.exports.pic = common.pic=function(file,fn,w,h) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                fn(e.target.result);
+                if(w&&h){
+                  common.picScall(e.target.result,w,h,fn); 
+                }else{
+                   fn(e.target.result); 
+                }
             };
             reader.readAsDataURL(file.target.files[0]);
         };
+    /*图片缩放*/
+    module.exports.picScall = common.picScall = function(file,w,h,fn){
+        canvar.width=w;
+        canvar.height=h;
+        var img = new Image();
+        img.addEventListener("load", function() {
+            ctx.drawImage(img,0,0,w,h);
+        var src = canvar.toDataURL("image/jpeg",1);
+        if(fn){fn(src);}
+        }, false);
+        img.src = file;
+    };
+    /*图片剪切*/
+    module.exports.picSlice = common.picScall = function(file,x,y,w,h,fn){
+        canvar.width=w;
+        canvar.height=h;
+        var img = new Image();
+        img.addEventListener("load", function() {
+            ctx.drawImage(img,x,y,w,h,0,0,w,h);
+        var src = canvar.toDataURL("image/jpeg",1);
+        if(fn){fn(src);}
+        }, false);
+        img.src = file;
+    };
     /*本机缓存*/
     module.exports.cache = common.cache = function (key, value, remove) {
         if(!window.localStorage){
