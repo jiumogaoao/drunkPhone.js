@@ -18,7 +18,7 @@ define("control/addSay",function(require, exports, module) {
 				$(this).toggleClass("toggleRight");
 			});
 			$(".addSay_page #addPic").unbind("change").bind("change",function(e){
-				common.pic(e,function(url){
+				common.pic(e,null,null,function(url){
 					$(".addSay_page #addPic").val("");
 					$(".addSay_page .topFrame .picFrame .addPic").before('<img class="point" src="'+url+'">');
 				});

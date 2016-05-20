@@ -32,7 +32,7 @@ define("bin/common",function(require, exports, module) {
         });
     };
     /*图片转码*/
-    module.exports.pic = common.pic=function(file,fn,w,h) {
+    module.exports.pic = common.pic=function(file,w,h,fn) {
             var reader = new FileReader();
             reader.onload = function(e) {
                 if(w&&h){

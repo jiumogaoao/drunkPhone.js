@@ -21,7 +21,7 @@ define("control/albumDetail",function(require, exports, module) {
 				}
 			}
 			$(".albumDetail_page #addPic").unbind("change").bind("change",function(e){
-				common.pic(e,function(returnData){
+				common.pic(e,null,null,function(returnData){
 					api("album","addPic",{tk:tk,aid:data.par.id,src:returnData},addPic,view.err);
 				});
 			});

@@ -15,7 +15,7 @@ define("control/addGroupIcon",function(require, exports, module) {
 				myScroll.refresh();
 			});
 			$(".addGroupIcon_page #pic").unbind("change").bind("change",function(e){
-				common.pic(e,function(url){
+				common.pic(e,null,null,function(url){
 					$(".addGroupIcon_page #icon").attr("src",url);
 				});
 			});

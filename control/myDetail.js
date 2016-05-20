@@ -48,13 +48,13 @@ define("control/myDetail",function(require, exports, module) {
 				}
 			}
 			$(".myDetail_page #bgInput").unbind("change").bind("change",function(e){
-				common.pic(e,function(returnUrl){
+				common.pic(e,null,null,function(returnUrl){
 					api("user","changeBackground",{tk:tk,src:returnUrl},bgSc,view.err);
 				});
 			});
 			/*修改头像*/
 			$(".myDetail_page #base .left #iconInput").unbind("change").bind("change",function(e){
-				common.pic(e,function(returnUrl){
+				common.pic(e,null,null,function(returnUrl){
 					api("user","changeIcon",{tk:tk,src:returnUrl},icSc,view.err);
 				});
 			});
